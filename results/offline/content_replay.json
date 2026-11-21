@@ -1,0 +1,962 @@
+[
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1000",
+    "roundtrips": 7,
+    "calls": 9,
+    "reused": 7,
+    "chars_in": 22991,
+    "chars_out": 14139,
+    "seconds": 0.08323113899677992
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1038",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 17358,
+    "chars_out": 12751,
+    "seconds": 0.06362631544470787
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1076",
+    "roundtrips": 2,
+    "calls": 6,
+    "reused": 2,
+    "chars_in": 15108,
+    "chars_out": 12738,
+    "seconds": 0.054091925732791424
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1114",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 20162,
+    "chars_out": 13969,
+    "seconds": 0.07371681462973356
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1152",
+    "roundtrips": 3,
+    "calls": 6,
+    "reused": 3,
+    "chars_in": 15397,
+    "chars_out": 11628,
+    "seconds": 0.0544823007658124
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1190",
+    "roundtrips": 3,
+    "calls": 9,
+    "reused": 3,
+    "chars_in": 22768,
+    "chars_out": 19010,
+    "seconds": 0.08106493391096592
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1228",
+    "roundtrips": 2,
+    "calls": 7,
+    "reused": 2,
+    "chars_in": 17469,
+    "chars_out": 15104,
+    "seconds": 0.06159594748169184
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1266",
+    "roundtrips": 2,
+    "calls": 8,
+    "reused": 2,
+    "chars_in": 20284,
+    "chars_out": 17723,
+    "seconds": 0.0726773040369153
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1304",
+    "roundtrips": 4,
+    "calls": 8,
+    "reused": 4,
+    "chars_in": 20006,
+    "chars_out": 15271,
+    "seconds": 0.07277868688106537
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1342",
+    "roundtrips": 5,
+    "calls": 9,
+    "reused": 5,
+    "chars_in": 22536,
+    "chars_out": 16492,
+    "seconds": 0.0821559801697731
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1380",
+    "roundtrips": 2,
+    "calls": 7,
+    "reused": 2,
+    "chars_in": 17419,
+    "chars_out": 14976,
+    "seconds": 0.06220554560422897
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1418",
+    "roundtrips": 6,
+    "calls": 8,
+    "reused": 6,
+    "chars_in": 20205,
+    "chars_out": 12961,
+    "seconds": 0.07468052301555872
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1456",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 17731,
+    "chars_out": 12924,
+    "seconds": 0.06434083171188831
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1494",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 17666,
+    "chars_out": 12719,
+    "seconds": 0.06397025473415852
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1532",
+    "roundtrips": 4,
+    "calls": 6,
+    "reused": 4,
+    "chars_in": 15087,
+    "chars_out": 10357,
+    "seconds": 0.055203105323016644
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1570",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 22403,
+    "chars_out": 15095,
+    "seconds": 0.08178630378097296
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1608",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 17438,
+    "chars_out": 12503,
+    "seconds": 0.06285564228892326
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1646",
+    "roundtrips": 3,
+    "calls": 6,
+    "reused": 3,
+    "chars_in": 15193,
+    "chars_out": 11440,
+    "seconds": 0.05503932014107704
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1684",
+    "roundtrips": 3,
+    "calls": 6,
+    "reused": 3,
+    "chars_in": 15169,
+    "chars_out": 11609,
+    "seconds": 0.05498739704489708
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1722",
+    "roundtrips": 0,
+    "calls": 6,
+    "reused": 0,
+    "chars_in": 15006,
+    "chars_out": 15006,
+    "seconds": 0.05327253136783838
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1760",
+    "roundtrips": 2,
+    "calls": 6,
+    "reused": 2,
+    "chars_in": 15085,
+    "chars_out": 12672,
+    "seconds": 0.054811724461615086
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1798",
+    "roundtrips": 3,
+    "calls": 9,
+    "reused": 3,
+    "chars_in": 22625,
+    "chars_out": 19026,
+    "seconds": 0.0823665177449584
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1836",
+    "roundtrips": 3,
+    "calls": 6,
+    "reused": 3,
+    "chars_in": 14951,
+    "chars_out": 11312,
+    "seconds": 0.054340558126568794
+  },
+  {
+    "dataset": "hosts",
+    "scenario": "FLT-1874",
+    "roundtrips": 2,
+    "calls": 8,
+    "reused": 2,
+    "chars_in": 19820,
+    "chars_out": 17415,
+    "seconds": 0.07131112925708294
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1000",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19515,
+    "chars_out": 11934,
+    "seconds": 0.05050754081457853
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1038",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19492,
+    "chars_out": 11771,
+    "seconds": 0.04878408368676901
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1076",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21811,
+    "chars_out": 13512,
+    "seconds": 0.05643301364034414
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1114",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17239,
+    "chars_out": 10881,
+    "seconds": 0.04452590085566044
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1152",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19456,
+    "chars_out": 11794,
+    "seconds": 0.04999016970396042
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1190",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19573,
+    "chars_out": 12613,
+    "seconds": 0.050607732497155666
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1228",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17252,
+    "chars_out": 11073,
+    "seconds": 0.04569321870803833
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1266",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14963,
+    "chars_out": 10133,
+    "seconds": 0.03877075016498566
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1304",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17305,
+    "chars_out": 10934,
+    "seconds": 0.04399578459560871
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1342",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14911,
+    "chars_out": 10003,
+    "seconds": 0.03986984211951494
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1380",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21814,
+    "chars_out": 12759,
+    "seconds": 0.056223081424832344
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1418",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19539,
+    "chars_out": 11956,
+    "seconds": 0.050966620445251465
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1456",
+    "roundtrips": 8,
+    "calls": 10,
+    "reused": 8,
+    "chars_in": 21804,
+    "chars_out": 11652,
+    "seconds": 0.05733124539256096
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1494",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21749,
+    "chars_out": 12703,
+    "seconds": 0.0551722627133131
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1532",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19565,
+    "chars_out": 12373,
+    "seconds": 0.05207430385053158
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1570",
+    "roundtrips": 7,
+    "calls": 9,
+    "reused": 7,
+    "chars_in": 19453,
+    "chars_out": 10799,
+    "seconds": 0.05077865347266197
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1608",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21782,
+    "chars_out": 12670,
+    "seconds": 0.055853561498224735
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1646",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14982,
+    "chars_out": 10345,
+    "seconds": 0.03890872560441494
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1684",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19613,
+    "chars_out": 11821,
+    "seconds": 0.0507583636790514
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1722",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17280,
+    "chars_out": 11236,
+    "seconds": 0.044531991705298424
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1760",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21876,
+    "chars_out": 13929,
+    "seconds": 0.056972937658429146
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1798",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15038,
+    "chars_out": 10249,
+    "seconds": 0.03969274275004864
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1836",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21898,
+    "chars_out": 13091,
+    "seconds": 0.056861791759729385
+  },
+  {
+    "dataset": "configs",
+    "scenario": "CFG-1874",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21782,
+    "chars_out": 13344,
+    "seconds": 0.056278777308762074
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1000",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 29023,
+    "chars_out": 29023,
+    "seconds": 0.09610028471797705
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1038",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 28160,
+    "chars_out": 28160,
+    "seconds": 0.09582301322370768
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1076",
+    "roundtrips": 0,
+    "calls": 27,
+    "reused": 0,
+    "chars_in": 23708,
+    "chars_out": 23708,
+    "seconds": 0.08204267267137766
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1114",
+    "roundtrips": 0,
+    "calls": 28,
+    "reused": 0,
+    "chars_in": 26006,
+    "chars_out": 26006,
+    "seconds": 0.08726923540234566
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1152",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 29680,
+    "chars_out": 29680,
+    "seconds": 0.09842833690345287
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1190",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 30448,
+    "chars_out": 30448,
+    "seconds": 0.09982660226523876
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1228",
+    "roundtrips": 0,
+    "calls": 27,
+    "reused": 0,
+    "chars_in": 26222,
+    "chars_out": 26222,
+    "seconds": 0.08578529208898544
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1266",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 31077,
+    "chars_out": 31077,
+    "seconds": 0.1041414076462388
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1304",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 28116,
+    "chars_out": 28116,
+    "seconds": 0.09077376965433359
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1342",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 27354,
+    "chars_out": 27354,
+    "seconds": 0.09192484617233276
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1380",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 28640,
+    "chars_out": 28640,
+    "seconds": 0.09839349891990423
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1418",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 30207,
+    "chars_out": 30207,
+    "seconds": 0.09942876640707254
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1456",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 28184,
+    "chars_out": 28184,
+    "seconds": 0.09492384735494852
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1494",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 28853,
+    "chars_out": 28853,
+    "seconds": 0.09659432247281075
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1532",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 30196,
+    "chars_out": 30196,
+    "seconds": 0.09902920853346586
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1570",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 26568,
+    "chars_out": 26568,
+    "seconds": 0.09167071804404259
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1608",
+    "roundtrips": 0,
+    "calls": 31,
+    "reused": 0,
+    "chars_in": 29955,
+    "chars_out": 29955,
+    "seconds": 0.09963261894881725
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1646",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 29949,
+    "chars_out": 29949,
+    "seconds": 0.09760945849120617
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1684",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 28578,
+    "chars_out": 28578,
+    "seconds": 0.09395479969680309
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1722",
+    "roundtrips": 0,
+    "calls": 30,
+    "reused": 0,
+    "chars_in": 28235,
+    "chars_out": 28235,
+    "seconds": 0.0942203113809228
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1760",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 28209,
+    "chars_out": 28209,
+    "seconds": 0.09289077389985323
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1798",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 28694,
+    "chars_out": 28694,
+    "seconds": 0.0964159956201911
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1836",
+    "roundtrips": 0,
+    "calls": 28,
+    "reused": 0,
+    "chars_in": 27945,
+    "chars_out": 27945,
+    "seconds": 0.09045244939625263
+  },
+  {
+    "dataset": "threads",
+    "scenario": "MBX-1874",
+    "roundtrips": 0,
+    "calls": 29,
+    "reused": 0,
+    "chars_in": 27164,
+    "chars_out": 27164,
+    "seconds": 0.09120701439678669
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1000",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15518,
+    "chars_out": 9749,
+    "seconds": 0.046658460050821304
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1038",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19909,
+    "chars_out": 11361,
+    "seconds": 0.06295440625399351
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1076",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19996,
+    "chars_out": 11497,
+    "seconds": 0.06337778363376856
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1114",
+    "roundtrips": 8,
+    "calls": 10,
+    "reused": 8,
+    "chars_in": 22161,
+    "chars_out": 15094,
+    "seconds": 0.06877277418971062
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1152",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15687,
+    "chars_out": 10192,
+    "seconds": 0.04907100461423397
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1190",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17621,
+    "chars_out": 12652,
+    "seconds": 0.05607812758535147
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1228",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21985,
+    "chars_out": 12619,
+    "seconds": 0.06928834319114685
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1266",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 21929,
+    "chars_out": 13820,
+    "seconds": 0.06985060125589371
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1304",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17875,
+    "chars_out": 12808,
+    "seconds": 0.05727139115333557
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1342",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19388,
+    "chars_out": 11889,
+    "seconds": 0.06176296155899763
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1380",
+    "roundtrips": 4,
+    "calls": 8,
+    "reused": 4,
+    "chars_in": 17166,
+    "chars_out": 12366,
+    "seconds": 0.05446298513561487
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1418",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15123,
+    "chars_out": 9973,
+    "seconds": 0.0475248834118247
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1456",
+    "roundtrips": 5,
+    "calls": 9,
+    "reused": 5,
+    "chars_in": 19585,
+    "chars_out": 13344,
+    "seconds": 0.06148654222488403
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1494",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19282,
+    "chars_out": 13093,
+    "seconds": 0.07304385956376791
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1532",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15661,
+    "chars_out": 11073,
+    "seconds": 0.04919763095676899
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1570",
+    "roundtrips": 7,
+    "calls": 10,
+    "reused": 7,
+    "chars_in": 22794,
+    "chars_out": 14256,
+    "seconds": 0.07047305069863796
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1608",
+    "roundtrips": 5,
+    "calls": 8,
+    "reused": 5,
+    "chars_in": 17450,
+    "chars_out": 11537,
+    "seconds": 0.053826283663511276
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1646",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14687,
+    "chars_out": 9743,
+    "seconds": 0.046152680180966854
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1684",
+    "roundtrips": 5,
+    "calls": 9,
+    "reused": 5,
+    "chars_in": 19749,
+    "chars_out": 14097,
+    "seconds": 0.06299012899398804
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1722",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15606,
+    "chars_out": 10497,
+    "seconds": 0.04895411338657141
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1760",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 15652,
+    "chars_out": 10925,
+    "seconds": 0.04848258011043072
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1798",
+    "roundtrips": 6,
+    "calls": 9,
+    "reused": 6,
+    "chars_in": 19469,
+    "chars_out": 11960,
+    "seconds": 0.06286169774830341
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1836",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14993,
+    "chars_out": 11021,
+    "seconds": 0.04759750980883837
+  },
+  {
+    "dataset": "revisions",
+    "scenario": "POL-1874",
+    "roundtrips": 4,
+    "calls": 7,
+    "reused": 4,
+    "chars_in": 14961,
+    "chars_out": 9763,
+    "seconds": 0.048021579161286354
+  }
+]

@@ -1,0 +1,4 @@
+{
+  "host": "cache-02",
+  "parameter": "net.ipv4.tcp_keepalive_time"
+}

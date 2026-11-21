@@ -1,0 +1,173 @@
+[
+  {
+    "role": "user",
+    "text": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {},
+        "signature": "EokBCoYBAWkUfRNEvYBHrSONnkqfqRo/iQBTaB41s7iXI0pCw32ipdObXFdKds847IxuMFviU3VOR72AjZQC2o17VJQjtIQbLuUm4GHCRzja4uIK3dfW6mNi9pesa8zX/JJY47IGP982fhgVVtXEt7SZhSO1OrsBA3v4yX57nJzH2E2jTkFTQO7tQec="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "INSTRUCTIONS.md\nhistory.jsonl\ntask.json\nconfig/POLICY.md\nconfig/canary.yaml\nconfig/dev.yaml\nconfig/dr.yaml\nconfig/prod-apac.yaml\nconfig/prod-eu.yaml\nconfig/prod-us-east.yaml\nconfig/staging.yaml"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "INSTRUCTIONS.md"
+        },
+        "signature": "EokBCoYBAWkUfRNXe3XDHMC+1Sy/KsJSEfYUmqf6LiFSbVV27vEH7cK/TfiMunndAoUs8S7aVvlwv9+7OUXd7/Lt799N9KvmW6BlqZxIuM85aI23Gf60MQh5kMeCeHA1zJpyu/e59NfMuTDa//KE0mnb7KiL2tm9PsKSWCWc6JJh0TGwORBLHhwjlEg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Configuration drift audit\n2\t\n3\tYou are a platform engineer. One request about a service's configuration is in `task.json`; answer it\n4\tfrom the files in `config/` and write the answer to `answer.json`.\n5\t\n6\t## Files in this directory\n7\t\n8\t- `INSTRUCTIONS.md`: this file.\n9\t- `task.json`: the request to answer: `tid`, `seq`, `scenario`, `kind`, `target`, `subject`, `body`, `received`.\n10\t- `config/<environment>.yaml`: one configuration file per environment of the service, same layout in every file; `config/POLICY.md`: which keys must be uniform, which may vary, and the two security requirements.\n11\t- `history.jsonl`: one JSON object per line, every one a closed, verified request: fields `hid`,\n12\t  `scenario`, `kind`, `target`, `subject`, `body`, `answer` (the verified answer object), `filed`.\n13\t\n14\t`history.jsonl` contains verified answers. If `task.json` asks the same question about the same\n15\tscenario as a history record (the same `scenario`, `kind` and `target`, not merely a similar\n16\trequest), you may reuse that record's `answer`. A different scenario with the same wording is a\n17\tdifferent request with a different answer.\n18\t\n19\tTool results may be abbreviated: when a file repeats one you have already read, the tool shows\n20\tthe repeated part as a reference to the earlier file plus the lines that differ, marked `[reuse]`.\n21\tTreat such a result as the full file with those differences.\n22\t\n23\t## The scenario\n24\t\n25\t`config/` holds one YAML file per environment of one service (`dev.yaml`, `staging.yaml`,\n26\t`prod-eu.yaml`, ...), all generated from the same template, plus `config/POLICY.md`, which lists the\n27\tkeys that must be identical in every environment, the keys that may differ, and two security\n28\trequirements. Keys are referred to as `section.key`, e.g. `database.pool_size`.\n29\t\n30\t## How to decide\n31\t\n32\t- Drift: a must-be-uniform key whose value in one environment differs from all the others. Keys the\n33\t  policy allows to vary never count, and the two security keys are a separate question.\n34\t- Security: `tls.verify` must be `true` and `auth.allow_anonymous` must be `false`; one environment\n35\t  violates one of them.\n36\t- A missing key is absent from one environment's file and present in every other.\n37\t- Values are reported as written in the file (`6`, `debug`, `verify-full`).\n38\t\n39\t## Request kinds and the answer each expects\n40\t\n41\t`kind` in `task.json` says which question is being asked; `target` names what it is about\n42\twhen the kind takes one (otherwise it is `null`). Write exactly these keys:\n43\t\n44\t- `drift`: which environment drifted on a uniform key. Answer keys: `environment`, `key`. Example: `{\"environment\": \"prod-eu\", \"key\": \"database.pool_size\"}`\n45\t- `insecure`: which environment violates a security requirement. Answer keys: `environment`, `key`. Example: `{\"environment\": \"staging\", \"key\": \"tls.verify\"}`\n46\t- `missing_key`: which environment is missing a key. Answer keys: `environment`, `key`. Example: `{\"environment\": \"dr\", \"key\": \"cache.max_entries\"}`\n47\t- `replicas_of`: how many replicas does <target> run. Answer keys: `environment`, `value`. Example: `{\"environment\": \"prod-eu\", \"value\": 6}`\n48\t- `most_replicas`: which environment runs the most replicas. Answer keys: `environment`, `value`. Example: `{\"environment\": \"prod-us-east\", \"value\": 12}`\n49\t- `log_level_of`: what log level does <target> use. Answer keys: `environment`, `value`. Example: `{\"environment\": \"dev\", \"value\": \"debug\"}`\n50\t\n51\t## Validation (when is a history record the same request?)\n52\t\n53\tOnly when `scenario`, `kind` and `target` all match after normalisation (case does not matter,\n54\t`CFG-1234` and `CFG1234` are one scenario). Matching wording is not enough.\n55\t\n56\t## Output\n57\t\n58\tWrite `answer.json` in this directory with the keys listed for the request's kind. Strings are\n59\tcompared case-insensitively on their letters and digits; numbers as numbers; lists as sets.\n60\tExtra keys are ignored.\n61\t\n62\t## Rules\n63\t\n64\t- Do not modify the scenario files, `history.jsonl` or `task.json`; write nothing except `answer.json`.\n65\t- Only `answer.json` is graded. Your final message is not."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "task.json"
+        },
+        "signature": "EokBCoYBAWkUfRNIt1RPi/Ld0Q2DTxebZo2i9HUEhbOnHdTolorFKuni8hx0/n1l97TeLoaTb+C1h8pikJhQCYvqpuOebzgMHM9Bbf4y6vnSsRjFL+2M9MCIvz3AzpvmHHmKTSgWeNx5V6N9jEG7bIWjmTBukdi2fKaKYu3Fif738Yacwqsd4keVrck="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"tid\": \"T-1344eb\",\n3\t  \"seq\": 2,\n4\t  \"scenario\": \"CFG1228\",\n5\t  \"kind\": \"insecure\",\n6\t  \"target\": null,\n7\t  \"subject\": \"CFG-1228: which environment violates a security requirement\",\n8\t  \"body\": \"Hannah Cole (payments) writing with a quick ask. POLICY.md names two\\nsecurity requirements every ledger-api environment must meet. One environment\\nbreaks one of them. Which environment, and which key?\\n\\nconfig/POLICY.md spells out the required value of each security key.\\n\\nRegards, Hannah Cole -- payments\",\n9\t  \"received\": \"2026-01-07\"\n10\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "config/POLICY.md"
+        },
+        "signature": "EokBCoYBAWkUfRP0Gcn5a1kV9WQJ2A/MsJyoOU9XYlFT778LrXY2QtrA88oE+1W+POjzCu1wvHIykERTEKUpTN0/qcoV+l9ALtbE0Vvi12Ve1KVilcZxJSLhQDmREWXQ9mH6sMaLem9SbgYbn5nqy80JKnuos9/B1wZ9FXa3YzJrjDKL/u0Qc2cu8TE="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Configuration policy for ledger-api\n2\t\n3\tEvery environment under `config/` is generated from one template. The keys below must hold\n4\tthe same value in every environment; a difference on any of them is drift and is a defect.\n5\t\n6\t- `service.port`\n7\t- `service.request_timeout_ms`\n8\t- `service.max_body_kb`\n9\t- `database.pool_size`\n10\t- `database.statement_timeout_ms`\n11\t- `database.ssl_mode`\n12\t- `cache.ttl_s`\n13\t- `cache.max_entries`\n14\t- `auth.issuer`\n15\t- `auth.token_ttl_s`\n16\t- `auth.allow_anonymous`\n17\t- `tls.verify`\n18\t- `tls.min_version`\n19\t- `logging.format`\n20\t- `logging.sample_rate`\n21\t- `features.new_checkout`\n22\t- `features.async_refunds`\n23\t- `features.rate_limiting`\n24\t- `payments.provider`\n25\t- `payments.retry_limit`\n26\t- `payments.backoff_ms`\n27\t- `payments.idempotency`\n28\t- `database.port`\n29\t- `auth.required_scopes`\n30\t- `service.name`\n31\t\n32\tThese keys may differ between environments and are not drift:\n33\t\n34\t- `cache.endpoint`\n35\t- `database.host`\n36\t- `logging.level`\n37\t- `service.replicas`\n38\t- `tls.cert_path`\n39\t\n40\t## Security requirements\n41\t\n42\t- `tls.verify` must be `true` in every environment.\n43\t- `auth.allow_anonymous` must be `false` in every environment.\n44\t\n45\t## Completeness\n46\t\n47\tEvery environment file carries every key of the template; a missing key falls back to a\n48\tbuilt-in default at runtime, which is why a missing key is a defect even when nothing breaks."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {
+          "pattern": "config/*.yaml"
+        },
+        "signature": "EokBCoYBAWkUfRNXRISnT2v4hrPwr9BuOoI5JwZpIqeWhokZqVc2jrumTooN0h+I1VZ/YNRpWCsgwFmdVA8ONliQpGVBnwStf+W8+pbFj7fyoYEJPr+qs/Ae1sk4UdQg3tccvtn2SBpxJd3muOQxq/AAtvt9bktI0XYQT+yAB3jSNBbbai5vsqU8Hkw="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "config/canary.yaml\nconfig/dev.yaml\nconfig/dr.yaml\nconfig/prod-apac.yaml\nconfig/prod-eu.yaml\nconfig/prod-us-east.yaml\nconfig/staging.yaml"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "allow_anonymous|verify",
+          "pattern": "config/*.yaml"
+        },
+        "signature": "EokBCoYBAWkUfRNW/h3LS1R+GLN5Vccf1OVUoVJqpCbXsB1Ff+1UMexYavyAfJHTkBkk83NQYrRyVxhIPH01DV9VQiUmA8zrcCnxqYsVAncDrODrhcdtCYapWpy/jPWiqyzOCde1VWnp+jl5pjyf61K4765g8Iq/IELpxmHxPfj72A1D5SOQGdsOkfo="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "config/canary.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/canary.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/canary.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/dev.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/dev.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/dev.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/dr.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/dr.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/dr.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/prod-apac.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/prod-apac.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/prod-apac.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/prod-eu.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/prod-eu.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/prod-eu.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/prod-us-east.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/prod-us-east.yaml:27: allow_anonymous: true   # SECURITY: must be false in every environment (uniform)\nconfig/prod-us-east.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)\nconfig/staging.yaml:17: ssl_mode: verify-full   # never 'disable' (uniform)\nconfig/staging.yaml:27: allow_anonymous: false   # SECURITY: must be false in every environment (uniform)\nconfig/staging.yaml:31: verify: true   # SECURITY: must be true in every environment (uniform)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "config/prod-us-east.yaml"
+        },
+        "signature": "EokBCoYBAWkUfRMRJr4VGfs6OMBAuZ1UL5ZTXiJvZ3rZNATCG68Fn02kOq4yi5vx9gE4ZXTW1KKuf6CNzLunDuc1qbegY43OokG8nLWLXySMhXJP3HWUH8Ft8r7Ws97B8SoEx2Z0HS+6YdgT8GVHgILUHJFhaXoddJFUvLwPOeJ7CT0rqVyNkvnY3wI="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# ledger-api -- prod-us-east environment. Generated from the shared template; see POLICY.md before editing.\n2\t# Keys marked (uniform) must hold the same value in every environment.\n3\t\n4\tservice:\n5\t  name: ledger-api\n6\t  replicas: 10   # may vary per environment\n7\t  port: 8443   # listening port, the same everywhere so the mesh routes work (uniform)\n8\t  request_timeout_ms: 15000   # upstream request budget (uniform)\n9\t  max_body_kb: 512   # request body cap (uniform)\n10\t\n11\tdatabase:\n12\t  host: db-prod-us-east-31.internal   # per environment\n13\t  port: 5432   # (uniform)\n14\t  name: ledger\n15\t  pool_size: 20   # connections per replica (uniform)\n16\t  statement_timeout_ms: 30000   # server-side statement cap (uniform)\n17\t  ssl_mode: verify-full   # never 'disable' (uniform)\n18\t\n19\tcache:\n20\t  endpoint: redis://cache-prod-us-east.internal:6379/0   # per environment\n21\t  ttl_s: 120   # default entry lifetime (uniform)\n22\t  max_entries: 5000   # per-replica cap (uniform)\n23\t\n24\tauth:\n25\t  issuer: https://login.example.com   # token issuer (uniform)\n26\t  token_ttl_s: 7200   # access token lifetime (uniform)\n27\t  allow_anonymous: true   # SECURITY: must be false in every environment (uniform)\n28\t  required_scopes: [ledger.read, ledger.write]   # (uniform)\n29\t\n30\ttls:\n31\t  verify: true   # SECURITY: must be true in every environment (uniform)\n32\t  min_version: \"1.2\"   # lowest protocol version accepted (uniform)\n33\t  cert_path: /etc/certs/ledger-api/prod-us-east.pem   # per environment\n34\t\n35\tlogging:\n36\t  level: info   # debug outside production, info in production\n37\t  format: logfmt   # one format so the pipeline can parse every environment (uniform)\n38\t  sample_rate: 1.0   # share of debug lines kept (uniform)\n39\t\n40\tfeatures:\n41\t  new_checkout: true   # feature flags are rolled out fleet-wide (uniform)\n42\t  async_refunds: true   # feature flags are rolled out fleet-wide (uniform)\n43\t  rate_limiting: false   # feature flags are rolled out fleet-wide (uniform)\n44\t\n45\tpayments:\n46\t  provider: braintree   # one provider per service (uniform)\n47\t  retry_limit: 5   # transient failures retried this many times (uniform)\n48\t  backoff_ms: 500   # base backoff between retries (uniform)\n49\t  idempotency: true   # every write carries an idempotency key (uniform)\n50\t"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "content": "{\n  \"environment\": \"prod-us-east\",\n  \"key\": \"auth.allow_anonymous\"\n}\n",
+          "path": "answer.json"
+        },
+        "signature": "EokBCoYBAWkUfRPiAqgWFKvIBD8YrQBX8JutKlwTvbkY8r4L3CFt+qsp50oCY7ZBy9MRMMpDLLVLbTHlDEHF8C6mZ5bVoPp6HELH2LYE+MrZiUhp3QS8MH8fxs+oivTyr+8N70axiPZPSKeq9s1qmCwZkTprAB8vg+MjQH/wrCoNuOE7xkjqpSX7IZw="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "write_file",
+    "text": "Wrote 69 chars to answer.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "answer.json"
+        },
+        "signature": "EokBCoYBAWkUfRM1D9d58YE6vmcR+CxvmBnXAEo1f6LvBDdH1loGP51TJpj/T8awvOzQ/xDWhJZ1QJvMt/XYCAjJQWLIcvhHad+Vxe8JxUlACK8LyqnI4WfsxZqpkFunLdrLgF4Klu1+s3SYaNvPzOvGGUdrg+BuJ6wmHjMvSdvoWb4vXZ7C31bXq98="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"environment\": \"prod-us-east\",\n3\t  \"key\": \"auth.allow_anonymous\"\n4\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "Task complete. Answer written to answer.json.",
+    "tool_calls": []
+  }
+]

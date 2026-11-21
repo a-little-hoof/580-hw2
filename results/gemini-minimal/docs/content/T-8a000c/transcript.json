@@ -1,0 +1,375 @@
+[
+  {
+    "role": "user",
+    "text": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {},
+        "signature": "EmAKXgFpFH0TG3UCBgWAB0IU/3zzNRZ5f3Q8gXRRU9B6j7Cta+BVVxTkYkVQulPNlem0/FXhSD9OrRDRqGUaUkM1nXAIALYheg2v1fyscAsw7Jch6jKTZFu740bcX788iJg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "INSTRUCTIONS.md\nhistory.jsonl\ntask.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "INSTRUCTIONS.md"
+        },
+        "signature": "EmAKXgFpFH0TFcmPyHwFryK0GSewDh52T53q+//2dj44VX1+5o0HUUJPXajouCBzlDcszFgs8VMAN2YVq+Gd10Y4RX/6Wb7RstJ8/ZMIEBNW74ltkQ72DcQLD/9vajDoK34="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Internal memo classification\n2\t\n3\tYou are a records clerk. One internal memo is in `task.json`; your job is to decide which of\n4\tthe eight document categories it belongs to, say which history record (if any) describes the\n5\tsame document, and write both to `answer.json`.\n6\t\n7\t## Files in this directory\n8\t\n9\t- `INSTRUCTIONS.md`: this file.\n10\t- `history.jsonl`: one JSON object per line, every one a filed, verified memo: fields `hid`\n11\t  (`H-` and six hex digits), `category` (the verified answer), `title`, `body`, `filed`.\n12\t- `task.json`: the memo to classify: `tid`, `seq`, `title`, `body`, `received`.\n13\t\n14\t`history.jsonl` contains verified answers. If `task.json` describes the same underlying item as a\n15\thistory record (the same document, not merely a similar one), you may reuse that record's answer.\n16\tBefore you do, check the fields under Validation below; near-identical records with a different\n17\tvalue there are different items with different answers.\n18\t\n19\t## Categories\n20\t\n21\tFour families of memo, told apart by the identifier in the title; a status word in the body\n22\tsplits three of them further. Status words (in any inflection) per category:\n23\t\n24\t**Change memo** (`CHG-nnnn`)\n25\t\n26\t- `change-request`: a change memo still waiting for the board's decision. Status words: request, pending.\n27\t- `change-approved`: a change memo the board has accepted. Status words: approved, authorised.\n28\t- `change-rejected`: a change memo the board has turned down. Status words: rejected, declined.\n29\t\n30\t**Incident report** (`INC-nnnn`)\n31\t\n32\t- `incident-open`: an incident report on a fault that is still being worked. Status words: ongoing, under investigation.\n33\t- `incident-resolved`: an incident report on a fault that is over. Status words: resolved, closed.\n34\t\n35\t**Policy** (`POL-nnn`)\n36\t\n37\t- `policy-draft`: a policy that is not yet binding. Status words: draft, for comment.\n38\t- `policy-final`: a policy that is binding. Status words: effective, in force.\n39\t\n40\t**Release notes** (`REL-n.n`)\n41\t\n42\t- `release-notes`: release notes for a software release; no status word, one category. Status words: (none).\n43\t\n44\tA memo carries the words of exactly one status, in two sentences of the body, and never negates\n45\tthem: no memo says \"not approved\". Release notes carry none. The title holds the identifier and\n46\tthe system the memo is about; the body is three short labelled sections, in any order.\n47\t\n48\tIdentifier pattern (it appears in the title): `\\b(CHG|INC|POL)-\\d{3,4}\\b|\\bREL-\\d+\\.\\d+\\b`\n49\t\n50\t## How to decide a fresh document\n51\t\n52\t- Find the identifier in the title; its prefix gives the family (CHG, INC, POL or REL).\n53\t- Find the status word in the body and map it to its class with the lists above; release notes\n54\t  have no status word and are always `release-notes`.\n55\t- The family and the status class together name the category.\n56\t- Names, dates, vendors, teams, counts, section order, formatting and wording carry no information.\n57\t\n58\t## Validation (when is a history record the same document?)\n59\t\n60\tA history record is the same document only when both its identifier and its status class match\n61\tthe task. Compare identifiers after upper-casing: `chg-4412` and `CHG-4412` are one identifier.\n62\tCompare the class, not the word: `approved` and `authorised` are one class. Either test alone is\n63\tunsound: a change request and the later approval of the same change share the identifier but are\n64\ttwo documents with two categories; two approved changes share the category but are two documents,\n65\tand neither is `duplicate_of` the other.\n66\t\n67\t## Worked example\n68\t\n69\tThe task title reads `CHG-4412: change to the Payroll Gateway` and two sentences of the body call\n70\tthe change `approved`. The family is CHG and the class is approved, so the category is\n71\t`change-approved`. History holds `H-1a2b3c`, a `change-request` memo titled `CHG-4412: Payroll\n72\tGateway change memo` whose body says `pending`: same identifier, different class, so it is a\n73\tdifferent document and not `duplicate_of`, however much of the text matches. History also holds\n74\t`H-9d8e7f`, a `change-approved` memo for `CHG-7781`: same category, different identifier, a\n75\tdifferent change. Unless some history record carries both `CHG-4412` and the approved class,\n76\t`duplicate_of` is `null`.\n77\t\n78\t## Output\n79\t\n80\tWrite `answer.json` in this directory:\n81\t\n82\t```json\n83\t{\"category\": \"change-approved\", \"duplicate_of\": \"H-3fa9c2\"}\n84\t```\n85\t\n86\t`category` is exactly one of the eight names above (case does not matter). `duplicate_of` is the\n87\t`hid` of the history record that describes the same document, or `null` when none does. A document\n88\tthat merely resembles a history record is not it. It is always a history id, never a task id.\n89\tExtra keys are ignored.\n90\t\n91\t## Rules\n92\t\n93\t- Do not modify `history.jsonl` or `task.json`; write nothing except `answer.json`.\n94\t- Only `answer.json` is graded. Your final message is not."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "task.json"
+        },
+        "signature": "EmAKXgFpFH0Ttp6kf+3nQDVpt2TSAMEMP+NVk7hCcJ9/8c85oYUFZqpVRU9oWqmolMACcfQMmlQ0cOmX0MsGzyPHgNqO06bMBZSxLQsVcEtKIrwlpgHH3P+h+HRShIl+7MU="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"tid\": \"T-8a000c\",\n3\t  \"seq\": 2,\n4\t  \"title\": \"POL-599: support console usage policy\",\n5\t  \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls listed here are run by\\nBluegate Networks.\\n\\n## Requirements\\n\\nAs of the 5 June 2025 review the requirements are:\\n* Keep production data out of test and development environments\\n* Complete the annual security training before the published deadline\\n* Patch critical vulnerabilities within fourteen days of publication\\n\\n## Status\\n\\nThe policy is effective according to the register. Felix Brandt issued this version on 13 July 2025,\\nwith 19 exceptions on file that expire at the yearly audit.\",\n6\t  \"received\": \"2026-01-06\"\n7\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TQ+k+3dVX4Tf3LxexAefSkU9Hb+QkoOqG3+1jKxWRbv1DgdeGuyVoqsVrtNbEadSyhQzssblJoxEdmeW1PXfDeYsiYnEFqzYRug7FOUGePi4NyI2tuE9+RpE="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "ERROR: TypeError: core_tools.<locals>.grep() missing 1 required positional argument: 'regex'"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TwU81ik8DjFH8W6NwvUggUaCMztLipmgJe2OCgeHDH/ijLmicDPIGUsVQGiCQo7fE8ggSv0H63I3OVQvm28tuBvL1rWNGKg7s+bDz+DWPmDEWwpU2tRy2WAg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0TLxLtXzjdUDEicy08/hlX5/Uio5YfOX0egUJ1jLdFoaaCLvfIzaoT6qL2KlfCrCf2zbdkeHxXxvP54oe8Sg5jamY0o1U54KyPyT9jJ8nszk8dp8dzLwBp4u8="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599|pol-599"
+        },
+        "signature": "EmAKXgFpFH0TMejUDrWDIa523meSpk7/9Yd6Zz75nA9aHghDOk1JI2ycU40m/g2018iAcR6U00V34Co02hOO3nXbLB4yUbjuOExZCIPOWlzU0tgHkkSyVADRY2ILfB05dzI="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-"
+        },
+        "signature": "EmAKXgFpFH0TICxQvogbKmn24ukGWEnP3eHPWSC3VtIgHlgD9lLvy6SMZEwME/khXEFNNDYS/2Lq4vWgXeYUh+0OpjXggPL8cNQecUVGukLc8Fw0yXBcYAG29bSJonvOA+I="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "INSTRUCTIONS.md:35: **Policy** (`POL-nnn`)\nhistory.jsonl:3: {\"hid\": \"H-54e856\", \"category\": \"policy-final\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in force. Pinecrest Host\nhistory.jsonl:6: {\"hid\": \"H-5cebfa\", \"category\": \"policy-draft\", \"title\": \"POL-869: policy for the Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-869 covers the Device Registry and is in draft,\\nper the policy regist\nhistory.jsonl:9: {\"hid\": \"H-9cdccb\", \"category\": \"policy-final\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in force, per the policy register\nhistory.jsonl:13: {\"hid\": \"H-ba7508\", \"category\": \"policy-draft\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in draft, per the policy register\nhistory.jsonl:16: {\"hid\": \"H-199f85\", \"category\": \"policy-final\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in force. Zoe Mit\nhistory.jsonl:23: {\"hid\": \"H-8daca3\", \"category\": \"policy-final\", \"title\": \"POL-580: policy for the Support Console\", \"body\": \"Scope\\n\\nPolicy POL-580 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:26: {\"hid\": \"H-b3269a\", \"category\": \"policy-draft\", \"title\": \"POL-314: policy governing the Order Pipeline\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Order Pipeline; it is out for comment.\nhistory.jsonl:29: {\"hid\": \"H-d242fc\", \"category\": \"policy-final\", \"title\": \"POL-804: policy for the support console\", \"body\": \"Scope\\n\\nPolicy POL-804 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:33: {\"hid\": \"H-ab2393\", \"category\": \"policy-final\", \"title\": \"POL-114: Data Lake Ingest usage policy\", \"body\": \"SCOPE:\\n\\nPolicy POL-114 covers the Data Lake Ingest and is in force, per the policy registe\nhistory.jsonl:36: {\"hid\": \"H-aa9b2e\", \"category\": \"policy-final\", \"title\": \"POL-997: policy for the Pricing Engine\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Pricing Engine and is in force. The\\npolic\nhistory.jsonl:39: {\"hid\": \"H-93be1d\", \"category\": \"policy-final\", \"title\": \"POL-890: policy governing the Backup Vault\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Backup Vault and is\\nin force. Tess\nhistory.jsonl:43: {\"hid\": \"H-4b14df\", \"category\": \"policy-final\", \"title\": \"POL-534: policy for the Payroll Gateway\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Payroll Gateway and is in force. The p\nhistory.jsonl:46: {\"hid\": \"H-eac1cd\", \"category\": \"policy-final\", \"title\": \"POL-538: Ledger Core usage policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. Hana\\nKowalski of\nhistory.jsonl:49: {\"hid\": \"H-9b7d39\", \"category\": \"policy-draft\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\np\nhistory.jsonl:50: {\"hid\": \"H-257d90\", \"category\": \"policy-draft\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in draft. Zoe Mit\nhistory.jsonl:53: {\"hid\": \"H-e8ea9e\", \"category\": \"policy-final\", \"title\": \"POL-858: Reporting Mart Usage Policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Reporting Mart and\\nis in force. Corvid Ana\nhistory.jsonl:56: {\"hid\": \"H-053a51\", \"category\": \"policy-final\", \"title\": \"POL-708: Policy Governing The Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-708 covers the Device Registry and is in force,\\nper the policy \nhistory.jsonl:59: {\"hid\": \"H-bedf34\", \"category\": \"policy-final\", \"title\": \"POL-699: policy governing the identity hub\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Identity Hub; it is\\neffective. Corvid A\nhistory.jsonl:62: {\"hid\": \"H-4557f5\", \"category\": \"policy-draft\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in draft. Pinecrest Host\nhistory.jsonl:63: {\"hid\": \"H-fc9365\", \"category\": \"policy-draft\", \"title\": \"POL-386: Invoice Router usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Invoice Router; it is out for comment. Tessaro\nhistory.jsonl:66: {\"hid\": \"H-fa760e\", \"category\": \"policy-draft\", \"title\": \"POL-827: policy for the Contract Archive\", \"body\": \"## Scope\\n\\nPolicy POL-827 covers the Contract Archive and is in draft, per the policy reg\nhistory.jsonl:69: {\"hid\": \"H-3b94eb\", \"category\": \"policy-final\", \"title\": \"POL-414: policy for the Expense Desk\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Expense Desk; it is effective. Brightpath\\nSec\nhistory.jsonl:71: {\"hid\": \"H-5d82bd\", \"category\": \"policy-final\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is effective. The policy\\n\nhistory.jsonl:73: {\"hid\": \"H-892b4a\", \"category\": \"policy-final\", \"title\": \"POL-217: Pricing Engine usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Pricing Engine; it is effective. The policy ow\nhistory.jsonl:76: {\"hid\": \"H-77ccac\", \"category\": \"policy-final\", \"title\": \"POL-847: policy for the vendor portal\", \"body\": \"SCOPE:\\n\\nPolicy POL-847 covers the Vendor Portal and is in force, per the policy\\nregister. \nhistory.jsonl:83: {\"hid\": \"H-0144d7\", \"category\": \"policy-draft\", \"title\": \"POL-969: Expense Desk usage policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Expense Desk; it is out for comment. The policy own\nhistory.jsonl:86: {\"hid\": \"H-01d42c\", \"category\": \"policy-draft\", \"title\": \"POL-154: policy governing the Invoice Router\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Invoice Router and is in draft. M\nhistory.jsonl:89: {\"hid\": \"H-b8782c\", \"category\": \"policy-final\", \"title\": \"POL-345: policy for the Timesheet Service\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Timesheet Service and is in force. M\nhistory.jsonl:93: {\"hid\": \"H-142dd3\", \"category\": \"policy-final\", \"title\": \"POL-965: Policy Governing The Ledger Core\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. The polic\nhistory.jsonl:96: {\"hid\": \"H-fba97b\", \"category\": \"policy-draft\", \"title\": \"POL-502: Ledger Core Usage Policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Ledger Core and is in draft. The policy\\nowner \nhistory.jsonl:99: {\"hid\": \"H-b72f6c\", \"category\": \"policy-final\", \"title\": \"POL-506: policy for the Reporting Mart\", \"body\": \"SCOPE:\\n\\nPolicy POL-506 covers the Reporting Mart and is in force, per the policy register.\nhistory.jsonl:103: {\"hid\": \"H-1e38c7\", \"category\": \"policy-final\", \"title\": \"POL-254: policy governing the Vendor Portal\", \"body\": \"Scope\\n\\nPolicy POL-254 covers the Vendor Portal and is in force, per the policy\\nregis\nhistory.jsonl:106: {\"hid\": \"H-c412fe\", \"category\": \"policy-draft\", \"title\": \"POL-838: policy governing the warehouse console\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Warehouse Console and is in draf\nhistory.jsonl:109: {\"hid\": \"H-01247c\", \"category\": \"policy-draft\", \"title\": \"POL-920: Device Registry Usage Policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\npol\ntask.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599|pol-599"
+        },
+        "signature": "EmAKXgFpFH0TFekqiyrRUSf4mGuMod2GpNpQBvs48Kj34Tof9eetccioLT012h/7KIyTRy4gkwT+yFrkEhSAo6cWvlhE8Zwvwct+q/NFmkTG7OMl8zQsQJtPbJfPiRc6+zE="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0T6gE9FCEQjcsPlcOcwlIKl0x0AyaaSt4guafzAPW4HL5hfQo0VezRdpsACwmha45cEV2CyS0GVFEaAiHVIaVwZrr0BsrduiJeaZ1ODl+sPil0u/lB8NxXBz0="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "599"
+        },
+        "signature": "EmAKXgFpFH0TxgXJrukY/ykh4GxknazOi7YPKHlq0und4n2mB3cnb5ATUCMrRLA8i2umQrndEPXHNALVb6nXvhZLzTKTxwzo6d/31JKlDHyXJp9jXPx08gosS+qPASx28kM="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "H-"
+        },
+        "signature": "EmAKXgFpFH0THoulBpz+asLwlcNpMGiUBVF7jt6t8TB0aIUgsHrLFOPtccH7E3sZ0W5OtBiXac6ibVyIIfropOGMP6vdQLL8OZBk63vh2iL1EOvNN+cS9SvNIvaPnBhZxZs="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "INSTRUCTIONS.md:11: (`H-` and six hex digits), `category` (the verified answer), `title`, `body`, `filed`.\nINSTRUCTIONS.md:71: `change-approved`. History holds `H-1a2b3c`, a `change-request` memo titled `CHG-4412: Payroll\nINSTRUCTIONS.md:74: `H-9d8e7f`, a `change-approved` memo for `CHG-7781`: same category, different identifier, a\nINSTRUCTIONS.md:83: {\"category\": \"change-approved\", \"duplicate_of\": \"H-3fa9c2\"}\nhistory.jsonl:1: {\"hid\": \"H-f6f53e\", \"category\": \"change-rejected\", \"title\": \"CHG-3397: Message Broker change memo\", \"body\": \"## Summary\\n\\nThe Message Broker change described below is declined as of this writing. It \nhistory.jsonl:2: {\"hid\": \"H-5bf03b\", \"category\": \"incident-resolved\", \"title\": \"INC-4229: Service Incident, Warehouse Console\", \"body\": \"## Impact\\n\\nThe Warehouse Console incident described here is closed at the time\nhistory.jsonl:3: {\"hid\": \"H-54e856\", \"category\": \"policy-final\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in force. Pinecrest Host\nhistory.jsonl:4: {\"hid\": \"H-09657a\", \"category\": \"change-request\", \"title\": \"CHG-7137: change to the Order Pipeline\", \"body\": \"Summary\\n\\nThe Order Pipeline change described below is an open request as of this writing\nhistory.jsonl:5: {\"hid\": \"H-0b0507\", \"category\": \"incident-resolved\", \"title\": \"INC-9175: Payroll Gateway incident report\", \"body\": \"Impact\\n\\nIncident INC-9175 on the Payroll Gateway is resolved, per the service desk\nhistory.jsonl:6: {\"hid\": \"H-5cebfa\", \"category\": \"policy-draft\", \"title\": \"POL-869: policy for the Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-869 covers the Device Registry and is in draft,\\nper the policy regist\nhistory.jsonl:7: {\"hid\": \"H-1842c5\", \"category\": \"change-approved\", \"title\": \"CHG-3659: Change Record For The Expense Desk\", \"body\": \"Summary\\n\\nThis memo records a change to the Expense Desk that is currently approve\nhistory.jsonl:8: {\"hid\": \"H-859880\", \"category\": \"incident-open\", \"title\": \"INC-8502: Service Incident, Contract Archive\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Contract Archive that is ongoing. In\nhistory.jsonl:9: {\"hid\": \"H-9cdccb\", \"category\": \"policy-final\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in force, per the policy register\nhistory.jsonl:10: {\"hid\": \"H-8ff58d\", \"category\": \"release-notes\", \"title\": \"REL-21.1: Warehouse Console release notes\", \"body\": \"Highlights\\n\\nThe Warehouse Console team ships REL-21.1 to every tenant on 19 October 20\nhistory.jsonl:11: {\"hid\": \"H-4dfdca\", \"category\": \"change-approved\", \"title\": \"CHG-3935: change to the Contract Archive\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Contract Archive that is currently approv\nhistory.jsonl:12: {\"hid\": \"H-b2972d\", \"category\": \"change-request\", \"title\": \"CHG-3659: Change Record For The Expense Desk\", \"body\": \"Summary\\n\\nThis memo records a change to the Expense Desk that is currently pending.\nhistory.jsonl:13: {\"hid\": \"H-ba7508\", \"category\": \"policy-draft\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in draft, per the policy register\nhistory.jsonl:14: {\"hid\": \"H-b1f418\", \"category\": \"change-request\", \"title\": \"CHG-1231: change record for the Fleet Tracker\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Fleet Tracker that is currently pendi\nhistory.jsonl:15: {\"hid\": \"H-b9eb55\", \"category\": \"incident-resolved\", \"title\": \"INC-9628: incident on the Device Registry\", \"body\": \"Impact\\n\\nThis report covers an incident on the Device Registry that is resolved. Th\nhistory.jsonl:16: {\"hid\": \"H-199f85\", \"category\": \"policy-final\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in force. Zoe Mit\nhistory.jsonl:17: {\"hid\": \"H-6ba848\", \"category\": \"change-request\", \"title\": \"CHG-8737: change to the invoice router\", \"body\": \"SUMMARY:\\n\\nChange CHG-8737 against the Invoice Router is pending, as noted by the change \nhistory.jsonl:18: {\"hid\": \"H-34a0dc\", \"category\": \"incident-resolved\", \"title\": \"INC-2183: incident on the Shipment Planner\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Shipment Planner that\\nis resolved\nhistory.jsonl:19: {\"hid\": \"H-4c9bf0\", \"category\": \"incident-open\", \"title\": \"INC-4229: Service Incident, Warehouse Console\", \"body\": \"## Impact\\n\\nThe Warehouse Console incident described here is under investigation at\nhistory.jsonl:20: {\"hid\": \"H-982a70\", \"category\": \"incident-open\", \"title\": \"INC-9628: incident on the Device Registry\", \"body\": \"Impact\\n\\nThis report covers an incident on the Device Registry that is ongoing. The\\nho\nhistory.jsonl:21: {\"hid\": \"H-f07321\", \"category\": \"change-request\", \"title\": \"CHG-8128: change to the Backup Vault\", \"body\": \"## Summary\\n\\nChange CHG-8128 against the Backup Vault is pending, as noted by the change\\na\nhistory.jsonl:22: {\"hid\": \"H-a488c8\", \"category\": \"incident-resolved\", \"title\": \"INC-5853: Edge Proxy Layer incident report\", \"body\": \"## Impact\\n\\nIncident INC-5853 on the Edge Proxy Layer is resolved, per\\nthe servic\nhistory.jsonl:23: {\"hid\": \"H-8daca3\", \"category\": \"policy-final\", \"title\": \"POL-580: policy for the Support Console\", \"body\": \"Scope\\n\\nPolicy POL-580 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:24: {\"hid\": \"H-ce2397\", \"category\": \"change-rejected\", \"title\": \"CHG-5605: Reporting Mart change memo\", \"body\": \"## Summary\\n\\nThis memo records a change to the Reporting Mart that is currently rejected. \nhistory.jsonl:25: {\"hid\": \"H-c4e1e0\", \"category\": \"change-approved\", \"title\": \"CHG-7137: change to the Order Pipeline\", \"body\": \"Summary\\n\\nThe Order Pipeline change described below is authorised as of this writing. Ma\nhistory.jsonl:26: {\"hid\": \"H-b3269a\", \"category\": \"policy-draft\", \"title\": \"POL-314: policy governing the Order Pipeline\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Order Pipeline; it is out for comment.\nhistory.jsonl:27: {\"hid\": \"H-339ee9\", \"category\": \"incident-open\", \"title\": \"INC-9175: Payroll Gateway incident report\", \"body\": \"Impact\\n\\nIncident INC-9175 on the Payroll Gateway is ongoing, per the service desk\\nrec\nhistory.jsonl:28: {\"hid\": \"H-63f411\", \"category\": \"incident-open\", \"title\": \"INC-6144: Incident On The Device Registry\", \"body\": \"## Impact\\n\\nIncident INC-6144 on the Device Registry is ongoing, per the service desk\\n\nhistory.jsonl:29: {\"hid\": \"H-d242fc\", \"category\": \"policy-final\", \"title\": \"POL-804: policy for the support console\", \"body\": \"Scope\\n\\nPolicy POL-804 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:30: {\"hid\": \"H-5d7cb1\", \"category\": \"release-notes\", \"title\": \"REL-10.3: release notes for the Backup Vault\", \"body\": \"## Highlights\\n\\nThis release of the Backup Vault ships on 27 August 2025 to\\nall ten\nhistory.jsonl:31: {\"hid\": \"H-fb1861\", \"category\": \"change-request\", \"title\": \"CHG-5618: Change To The Shipment Planner\", \"body\": \"Summary\\n\\nThis memo records a change to the Shipment Planner that is currently pending.\nhistory.jsonl:32: {\"hid\": \"H-a3f12b\", \"category\": \"incident-resolved\", \"title\": \"INC-2164: Device Registry incident report\", \"body\": \"Impact\\n\\nThe Device Registry incident described here is closed at the time of writi\nhistory.jsonl:33: {\"hid\": \"H-ab2393\", \"category\": \"policy-final\", \"title\": \"POL-114: Data Lake Ingest usage policy\", \"body\": \"SCOPE:\\n\\nPolicy POL-114 covers the Data Lake Ingest and is in force, per the policy registe\nhistory.jsonl:34: {\"hid\": \"H-0aaff0\", \"category\": \"change-request\", \"title\": \"CHG-5602: Ledger Core change memo\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Ledger Core that is currently pending. Noah\\nFisc\nhistory.jsonl:35: {\"hid\": \"H-9910ca\", \"category\": \"incident-resolved\", \"title\": \"INC-6582: incident on the Reporting Mart\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Reporting Mart that is\\nresolved. In\nhistory.jsonl:36: {\"hid\": \"H-aa9b2e\", \"category\": \"policy-final\", \"title\": \"POL-997: policy for the Pricing Engine\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Pricing Engine and is in force. The\\npolic\nhistory.jsonl:37: {\"hid\": \"H-3224ba\", \"category\": \"change-approved\", \"title\": \"CHG-8104: Change Record For The Expense Desk\", \"body\": \"Summary\\n\\nChange CHG-8104 against the Expense Desk is approved, as\\nnoted by the c\nhistory.jsonl:38: {\"hid\": \"H-c66364\", \"category\": \"incident-resolved\", \"title\": \"INC-3367: service incident, identity hub\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Identity Hub that is resolved. Data\\\nhistory.jsonl:39: {\"hid\": \"H-93be1d\", \"category\": \"policy-final\", \"title\": \"POL-890: policy governing the Backup Vault\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Backup Vault and is\\nin force. Tess\nhistory.jsonl:40: {\"hid\": \"H-cf612b\", \"category\": \"release-notes\", \"title\": \"REL-22.2: what changed in the Fleet Tracker\", \"body\": \"HIGHLIGHTS:\\n\\nThis release of the Fleet Tracker ships on 14 April 2025 to\\nall tenant\nhistory.jsonl:41: {\"hid\": \"H-4c46f7\", \"category\": \"change-request\", \"title\": \"CHG-3570: Change Record For The Support Console\", \"body\": \"SUMMARY:\\n\\nThe Support Console change described below is an open\\nrequest as of \nhistory.jsonl:42: {\"hid\": \"H-95b87c\", \"category\": \"incident-resolved\", \"title\": \"INC-3896: edge proxy layer incident report\", \"body\": \"## Impact\\n\\nThe Edge Proxy Layer incident described here is closed at the time of \nhistory.jsonl:43: {\"hid\": \"H-4b14df\", \"category\": \"policy-final\", \"title\": \"POL-534: policy for the Payroll Gateway\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Payroll Gateway and is in force. The p\nhistory.jsonl:44: {\"hid\": \"H-6451c3\", \"category\": \"change-rejected\", \"title\": \"CHG-6984: change record for the Ledger Core\", \"body\": \"Summary\\n\\nThe Ledger Core change described below is declined as of this writing. It\nhistory.jsonl:45: {\"hid\": \"H-5f1f66\", \"category\": \"incident-open\", \"title\": \"INC-3895: Vendor Portal incident report\", \"body\": \"Impact\\n\\nThis report covers an incident on the Vendor Portal that is ongoing. About 38 cu\nhistory.jsonl:46: {\"hid\": \"H-eac1cd\", \"category\": \"policy-final\", \"title\": \"POL-538: Ledger Core usage policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. Hana\\nKowalski of\nhistory.jsonl:47: {\"hid\": \"H-7de3f2\", \"category\": \"change-approved\", \"title\": \"CHG-7886: change to the data lake ingest\", \"body\": \"## Summary\\n\\nChange CHG-7886 against the Data Lake Ingest is approved, as noted by the\nhistory.jsonl:48: {\"hid\": \"H-a6b787\", \"category\": \"incident-resolved\", \"title\": \"INC-9056: service incident, Ledger Core\", \"body\": \"## Impact\\n\\nIncident INC-9056 on the Ledger Core is resolved, per the service desk re\nhistory.jsonl:49: {\"hid\": \"H-9b7d39\", \"category\": \"policy-draft\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\np\nhistory.jsonl:50: {\"hid\": \"H-257d90\", \"category\": \"policy-draft\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in draft. Zoe Mit\nhistory.jsonl:51: {\"hid\": \"H-2368d2\", \"category\": \"change-request\", \"title\": \"CHG-3053: change record for the order pipeline\", \"body\": \"## Summary\\n\\nThe Order Pipeline change described below is an open request as of t\nhistory.jsonl:52: {\"hid\": \"H-3c9040\", \"category\": \"incident-open\", \"title\": \"INC-8650: service incident, Timesheet Service\", \"body\": \"Impact\\n\\nThis report covers an incident on the Timesheet Service that is ongoing. T\nhistory.jsonl:53: {\"hid\": \"H-e8ea9e\", \"category\": \"policy-final\", \"title\": \"POL-858: Reporting Mart Usage Policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Reporting Mart and\\nis in force. Corvid Ana\nhistory.jsonl:54: {\"hid\": \"H-f1c850\", \"category\": \"change-approved\", \"title\": \"CHG-3922: Fleet Tracker change memo\", \"body\": \"Summary\\n\\nThe Fleet Tracker change described below is authorised as of this writing. Tomas \nhistory.jsonl:55: {\"hid\": \"H-a26de2\", \"category\": \"incident-open\", \"title\": \"INC-7364: Data Lake Ingest Incident Report\", \"body\": \"IMPACT:\\n\\nThe Data Lake Ingest incident described here is under investigation at the t\nhistory.jsonl:56: {\"hid\": \"H-053a51\", \"category\": \"policy-final\", \"title\": \"POL-708: Policy Governing The Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-708 covers the Device Registry and is in force,\\nper the policy \nhistory.jsonl:57: {\"hid\": \"H-0b6183\", \"category\": \"change-request\", \"title\": \"CHG-3485: change record for the Invoice Router\", \"body\": \"## Summary\\n\\nChange CHG-3485 against the Invoice Router is pending, as noted by t\nhistory.jsonl:58: {\"hid\": \"H-8f0d0f\", \"category\": \"incident-resolved\", \"title\": \"INC-2665: incident on the Support Console\", \"body\": \"IMPACT:\\n\\nIncident INC-2665 on the Support Console is resolved, per the service des\nhistory.jsonl:59: {\"hid\": \"H-bedf34\", \"category\": \"policy-final\", \"title\": \"POL-699: policy governing the identity hub\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Identity Hub; it is\\neffective. Corvid A\nhistory.jsonl:60: {\"hid\": \"H-aeb77a\", \"category\": \"release-notes\", \"title\": \"REL-17.1: data lake ingest release notes\", \"body\": \"Highlights\\n\\nThe Data Lake Ingest team ships REL-17.1 to every tenant on 1 January 2025.\nhistory.jsonl:61: {\"hid\": \"H-0e047d\", \"category\": \"change-rejected\", \"title\": \"CHG-5343: Change To The Order Pipeline\", \"body\": \"SUMMARY:\\n\\nThe Order Pipeline change described below is declined as of this writing. Luc\nhistory.jsonl:62: {\"hid\": \"H-4557f5\", \"category\": \"policy-draft\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in draft. Pinecrest Host\nhistory.jsonl:63: {\"hid\": \"H-fc9365\", \"category\": \"policy-draft\", \"title\": \"POL-386: Invoice Router usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Invoice Router; it is out for comment. Tessaro\nhistory.jsonl:64: {\"hid\": \"H-9a1b6f\", \"category\": \"change-rejected\", \"title\": \"CHG-7718: change record for the Backup Vault\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Backup Vault that is\\ncurrently rejec\nhistory.jsonl:65: {\"hid\": \"H-be1765\", \"category\": \"incident-open\", \"title\": \"INC-4548: Edge Proxy Layer incident report\", \"body\": \"## Impact\\n\\nIncident INC-4548 on the Edge Proxy Layer is ongoing, per\\nthe service des\nhistory.jsonl:66: {\"hid\": \"H-fa760e\", \"category\": \"policy-draft\", \"title\": \"POL-827: policy for the Contract Archive\", \"body\": \"## Scope\\n\\nPolicy POL-827 covers the Contract Archive and is in draft, per the policy reg\nhistory.jsonl:67: {\"hid\": \"H-9493d2\", \"category\": \"change-approved\", \"title\": \"CHG-6407: change record for the Data Lake Ingest\", \"body\": \"Summary\\n\\nChange CHG-6407 against the Data Lake Ingest is approved, as noted b\nhistory.jsonl:68: {\"hid\": \"H-fed0de\", \"category\": \"incident-open\", \"title\": \"INC-6427: service incident, invoice router\", \"body\": \"IMPACT:\\n\\nIncident INC-6427 on the Invoice Router is ongoing, per the service desk rec\nhistory.jsonl:69: {\"hid\": \"H-3b94eb\", \"category\": \"policy-final\", \"title\": \"POL-414: policy for the Expense Desk\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Expense Desk; it is effective. Brightpath\\nSec\nhistory.jsonl:70: {\"hid\": \"H-5ad6b8\", \"category\": \"release-notes\", \"title\": \"REL-9.8: what changed in the Identity Hub\", \"body\": \"Highlights\\n\\nREL-9.8 of the Identity Hub rolls out to every tenant on 25\\nNovember 2025\nhistory.jsonl:71: {\"hid\": \"H-5d82bd\", \"category\": \"policy-final\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is effective. The policy\\n\nhistory.jsonl:72: {\"hid\": \"H-89e51b\", \"category\": \"incident-open\", \"title\": \"INC-5106: service incident, Contract Archive\", \"body\": \"Impact\\n\\nThis report covers an incident on the Contract Archive that is ongoing. Abo\nhistory.jsonl:73: {\"hid\": \"H-892b4a\", \"category\": \"policy-final\", \"title\": \"POL-217: Pricing Engine usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Pricing Engine; it is effective. The policy ow\nhistory.jsonl:74: {\"hid\": \"H-17db52\", \"category\": \"change-approved\", \"title\": \"CHG-2172: change record for the Order Pipeline\", \"body\": \"SUMMARY:\\n\\nChange CHG-2172 against the Order Pipeline is approved, as noted by t\nhistory.jsonl:75: {\"hid\": \"H-54c5dc\", \"category\": \"incident-resolved\", \"title\": \"INC-8758: incident on the Expense Desk\", \"body\": \"## Impact\\n\\nIncident INC-8758 on the Expense Desk is resolved, per the service desk re\nhistory.jsonl:76: {\"hid\": \"H-77ccac\", \"category\": \"policy-final\", \"title\": \"POL-847: policy for the vendor portal\", \"body\": \"SCOPE:\\n\\nPolicy POL-847 covers the Vendor Portal and is in force, per the policy\\nregister. \nhistory.jsonl:77: {\"hid\": \"H-58074e\", \"category\": \"change-rejected\", \"title\": \"CHG-9446: change record for the Fleet Tracker\", \"body\": \"Summary\\n\\nThe Fleet Tracker change described below is declined as of this writing\nhistory.jsonl:78: {\"hid\": \"H-17644a\", \"category\": \"incident-open\", \"title\": \"INC-4692: service incident, Order Pipeline\", \"body\": \"Impact\\n\\nIncident INC-4692 on the Order Pipeline is ongoing, per the service desk reco\nhistory.jsonl:79: {\"hid\": \"H-074627\", \"category\": \"incident-open\", \"title\": \"INC-9056: service incident, Ledger Core\", \"body\": \"## Impact\\n\\nIncident INC-9056 on the Ledger Core is ongoing, per the service desk record.\nhistory.jsonl:80: {\"hid\": \"H-edc21d\", \"category\": \"release-notes\", \"title\": \"REL-28.4: what changed in the Order Pipeline\", \"body\": \"HIGHLIGHTS:\\n\\nREL-28.4 of the Order Pipeline rolls out to every tenant on 4 January \nhistory.jsonl:81: {\"hid\": \"H-afcdc9\", \"category\": \"change-approved\", \"title\": \"CHG-2174: change record for the Vendor Portal\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Vendor Portal that is currently appr\nhistory.jsonl:82: {\"hid\": \"H-5403ec\", \"category\": \"incident-resolved\", \"title\": \"INC-1237: incident on the Shipment Planner\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Shipment Planner that is resolved.\nhistory.jsonl:83: {\"hid\": \"H-0144d7\", \"category\": \"policy-draft\", \"title\": \"POL-969: Expense Desk usage policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Expense Desk; it is out for comment. The policy own\nhistory.jsonl:84: {\"hid\": \"H-a893d0\", \"category\": \"change-request\", \"title\": \"CHG-4930: Timesheet Service change memo\", \"body\": \"## Summary\\n\\nThis memo records a change to the Timesheet Service that is currently pendi\nhistory.jsonl:85: {\"hid\": \"H-e6f187\", \"category\": \"incident-open\", \"title\": \"INC-5978: incident on the Reporting Mart\", \"body\": \"Impact\\n\\nThe Reporting Mart incident described here is under\\ninvestigation at the time \nhistory.jsonl:86: {\"hid\": \"H-01d42c\", \"category\": \"policy-draft\", \"title\": \"POL-154: policy governing the Invoice Router\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Invoice Router and is in draft. M\nhistory.jsonl:87: {\"hid\": \"H-cdaaed\", \"category\": \"change-approved\", \"title\": \"CHG-1730: Pricing Engine change memo\", \"body\": \"SUMMARY:\\n\\nThe Pricing Engine change described below is authorised as\\nof this writing. Th\nhistory.jsonl:88: {\"hid\": \"H-e1145a\", \"category\": \"incident-resolved\", \"title\": \"INC-1680: Message Broker incident report\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Message Broker that is\\nresolved. Th\nhistory.jsonl:89: {\"hid\": \"H-b8782c\", \"category\": \"policy-final\", \"title\": \"POL-345: policy for the Timesheet Service\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Timesheet Service and is in force. M\nhistory.jsonl:90: {\"hid\": \"H-42784c\", \"category\": \"release-notes\", \"title\": \"REL-25.7: release notes for the message broker\", \"body\": \"Highlights\\n\\nREL-25.7 of the Message Broker rolls out to every tenant on 4 June 20\nhistory.jsonl:91: {\"hid\": \"H-04d169\", \"category\": \"change-request\", \"title\": \"CHG-2573: change to the support console\", \"body\": \"Summary\\n\\nThe Support Console change described below is an open\\nrequest as of this writ\nhistory.jsonl:92: {\"hid\": \"H-5b77ed\", \"category\": \"incident-resolved\", \"title\": \"INC-8013: edge proxy layer incident report\", \"body\": \"Impact\\n\\nIncident INC-8013 on the Edge Proxy Layer is resolved, per the service de\nhistory.jsonl:93: {\"hid\": \"H-142dd3\", \"category\": \"policy-final\", \"title\": \"POL-965: Policy Governing The Ledger Core\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. The polic\nhistory.jsonl:94: {\"hid\": \"H-c34837\", \"category\": \"change-rejected\", \"title\": \"CHG-4503: change record for the timesheet service\", \"body\": \"Summary\\n\\nThis memo records a change to the Timesheet Service that is current\nhistory.jsonl:95: {\"hid\": \"H-203cc4\", \"category\": \"incident-open\", \"title\": \"INC-2296: shipment planner incident report\", \"body\": \"IMPACT:\\n\\nThe Shipment Planner incident described here is under investigation at the t\nhistory.jsonl:96: {\"hid\": \"H-fba97b\", \"category\": \"policy-draft\", \"title\": \"POL-502: Ledger Core Usage Policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Ledger Core and is in draft. The policy\\nowner \nhistory.jsonl:97: {\"hid\": \"H-f1e72e\", \"category\": \"change-approved\", \"title\": \"CHG-5262: Data Lake Ingest Change Memo\", \"body\": \"SUMMARY:\\n\\nThe Data Lake Ingest change described below is authorised as\\nof this writing\nhistory.jsonl:98: {\"hid\": \"H-60c415\", \"category\": \"incident-open\", \"title\": \"INC-2767: service incident, Device Registry\", \"body\": \"IMPACT:\\n\\nThe Device Registry incident described here is under\\ninvestigation at the \nhistory.jsonl:99: {\"hid\": \"H-b72f6c\", \"category\": \"policy-final\", \"title\": \"POL-506: policy for the Reporting Mart\", \"body\": \"SCOPE:\\n\\nPolicy POL-506 covers the Reporting Mart and is in force, per the policy register.\nhistory.jsonl:100: {\"hid\": \"H-0bc29f\", \"category\": \"release-notes\", \"title\": \"REL-16.5: what changed in the message broker\", \"body\": \"Highlights\\n\\nThis release of the Message Broker ships on 25 March 2025 to all tenant\nhistory.jsonl:101: {\"hid\": \"H-ca83f5\", \"category\": \"change-approved\", \"title\": \"CHG-2939: change record for the Warehouse Console\", \"body\": \"## Summary\\n\\nThis memo records a change to the Warehouse Console that is\\ncur\nhistory.jsonl:102: {\"hid\": \"H-de0099\", \"category\": \"incident-open\", \"title\": \"INC-9696: incident on the Edge Proxy Layer\", \"body\": \"Impact\\n\\nThe Edge Proxy Layer incident described here is under\\ninvestigation at the t\nhistory.jsonl:103: {\"hid\": \"H-1e38c7\", \"category\": \"policy-final\", \"title\": \"POL-254: policy governing the Vendor Portal\", \"body\": \"Scope\\n\\nPolicy POL-254 covers the Vendor Portal and is in force, per the policy\\nregis\nhistory.jsonl:104: {\"hid\": \"H-30bd3f\", \"category\": \"change-rejected\", \"title\": \"CHG-2391: data lake ingest change memo\", \"body\": \"SUMMARY:\\n\\nThis memo records a change to the Data Lake Ingest that is currently rejected\nhistory.jsonl:105: {\"hid\": \"H-77023b\", \"category\": \"incident-open\", \"title\": \"INC-3418: service incident, Reporting Mart\", \"body\": \"IMPACT:\\n\\nThis report covers an incident on the Reporting Mart that is ongoing. Financ\nhistory.jsonl:106: {\"hid\": \"H-c412fe\", \"category\": \"policy-draft\", \"title\": \"POL-838: policy governing the warehouse console\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Warehouse Console and is in draf\nhistory.jsonl:107: {\"hid\": \"H-7a829a\", \"category\": \"change-approved\", \"title\": \"CHG-3245: change to the Support Console\", \"body\": \"SUMMARY:\\n\\nChange CHG-3245 against the Support Console is approved, as\\nnoted by the ch\nhistory.jsonl:108: {\"hid\": \"H-d126d0\", \"category\": \"incident-resolved\", \"title\": \"INC-9841: Incident On The Support Console\", \"body\": \"Impact\\n\\nThis report covers an incident on the Support Console that\\nis resolved. A\nhistory.jsonl:109: {\"hid\": \"H-01247c\", \"category\": \"policy-draft\", \"title\": \"POL-920: Device Registry Usage Policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\npol\nhistory.jsonl:110: {\"hid\": \"H-f77848\", \"category\": \"release-notes\", \"title\": \"REL-6.8: Backup Vault release notes\", \"body\": \"Highlights\\n\\nREL-6.8 of the Backup Vault rolls out to every tenant on 14 March 2025. Highligh"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599|pol-599|599"
+        },
+        "signature": "EmAKXgFpFH0T8MUz0CcDa53t3PZrnezwmFhO6zk25ZrLI39YcTVlA9GRcc80mW/fIbvm1NBSSZlRw6qKK001hbh7WmCH67MrhEmrrSdd/rT6TiuohzjpCDPOqMiGbtP3Tzg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599|pol-599|POL-5|pol-5"
+        },
+        "signature": "EmAKXgFpFH0TcumxyKox9EUS5FsqmbGTfwSB/p2i8k8gHKAHYZ7kkfe9p1/BSvoFztqjvteyM+EXvXRfVpCmUJ03xB1ZMKa1WrOMGBMZQjsmHnphoyaAnZ+aRbTNYhimBxg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "history.jsonl:3: {\"hid\": \"H-54e856\", \"category\": \"policy-final\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in force. Pinecrest Host\nhistory.jsonl:16: {\"hid\": \"H-199f85\", \"category\": \"policy-final\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in force. Zoe Mit\nhistory.jsonl:23: {\"hid\": \"H-8daca3\", \"category\": \"policy-final\", \"title\": \"POL-580: policy for the Support Console\", \"body\": \"Scope\\n\\nPolicy POL-580 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:43: {\"hid\": \"H-4b14df\", \"category\": \"policy-final\", \"title\": \"POL-534: policy for the Payroll Gateway\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Payroll Gateway and is in force. The p\nhistory.jsonl:46: {\"hid\": \"H-eac1cd\", \"category\": \"policy-final\", \"title\": \"POL-538: Ledger Core usage policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. Hana\\nKowalski of\nhistory.jsonl:50: {\"hid\": \"H-257d90\", \"category\": \"policy-draft\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in draft. Zoe Mit\nhistory.jsonl:62: {\"hid\": \"H-4557f5\", \"category\": \"policy-draft\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in draft. Pinecrest Host\nhistory.jsonl:96: {\"hid\": \"H-fba97b\", \"category\": \"policy-draft\", \"title\": \"POL-502: Ledger Core Usage Policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Ledger Core and is in draft. The policy\\nowner \nhistory.jsonl:99: {\"hid\": \"H-b72f6c\", \"category\": \"policy-final\", \"title\": \"POL-506: policy for the Reporting Mart\", \"body\": \"SCOPE:\\n\\nPolicy POL-506 covers the Reporting Mart and is in force, per the policy register.\ntask.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-5|pol-5|POL-59|pol-59"
+        },
+        "signature": "EmAKXgFpFH0T/pw7TrXFSVHJX7YF2HC9EIms7mxeV4jdh3DF4x9QP8cSHXKEtBbdK1Agqqq9RCqnxSpY8gr49akHcFp/P2W2swq6vXRLtZtiy2IJGGKCRjTWGsV3MG/GKCI="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "[reuse] Exact output from the earlier full tool result named below. Apply edits simultaneously to its original splitlines(keepends=True): [start, stop, replacement] replaces zero-based lines [start, stop). All unmentioned bytes are unchanged; an empty edit list means identical.\n{\"base_source\":\"grep:{\\\"regex\\\": \\\"POL-599|pol-599|POL-5|pol-5\\\"}\",\"base_sha256\":\"c726d6b530f07c4d25bdec3572f9efbdbd446c8602c732ebb3ba3c62316d9289\",\"target_source\":\"grep:{\\\"regex\\\": \\\"POL-5|pol-5|POL-59|pol-59\\\"}\",\"target_sha256\":\"c726d6b530f07c4d25bdec3572f9efbdbd446c8602c732ebb3ba3c62316d9289\",\"edits\":[]}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-59|pol-59"
+        },
+        "signature": "EmAKXgFpFH0TATuGYw/ICyFuO2EphbkgLgqmCbNoFCJld+I8pHxK7LxwBxtjT1ooob9r5ysd0zrkkxwZOyllLAVAYUvRU/omlSdNgb+7nekkxZRRYZFX0lm5QezukotLXsM="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-510|POL-539|POL-580|POL-534|POL-538|POL-502|POL-506"
+        },
+        "signature": "EmAKXgFpFH0T7wetdXCctOIdG6Bi2EH63juyap5zf1hPSujh4nU8QCVJPgZWJkg0X3SNxfvFyWtNpPNrSIly7WeCuN/HUdJgVIqKbJ0pTgRO5bNX0Sad9zInt9Y9tXPMEhU="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "[reuse] Exact output from the earlier full tool result named below. Apply edits simultaneously to its original splitlines(keepends=True): [start, stop, replacement] replaces zero-based lines [start, stop). All unmentioned bytes are unchanged; an empty edit list means identical.\n{\"base_source\":\"grep:{\\\"regex\\\": \\\"POL-599|pol-599|POL-5|pol-5\\\"}\",\"base_sha256\":\"c726d6b530f07c4d25bdec3572f9efbdbd446c8602c732ebb3ba3c62316d9289\",\"target_source\":\"grep:{\\\"regex\\\": \\\"POL-510|POL-539|POL-580|POL-534|POL-538|POL-502|POL-506\\\"}\",\"target_sha256\":\"9c5a555a640a0afc57d3607bde08f52cf7abbd00367da6ee06bf70a5f819b7b9\",\"edits\":[[8,11,\"history.jsonl:99: {\\\"hid\\\": \\\"H-b72f6c\\\", \\\"category\\\": \\\"policy-final\\\", \\\"title\\\": \\\"POL-506: policy for the Reporting Mart\\\", \\\"body\\\": \\\"SCOPE:\\\\n\\\\nPolicy POL-506 covers the Reporting Mart and is in force, per the policy register.\"]]}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TBlsxya/fQpQ0yJOWNuceecN3cOMqEmTqTFO5LFX/dB5M31oLPJORwB8csV04JDF9X3930Ti+bLqeDGO2iz2ThpujBGVthFDE/Cz5HY5s36imjJvzEYg0l7k="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "Support Console|support console"
+        },
+        "signature": "EmAKXgFpFH0TvpGcFLighD+wBODUjJEv3/kLlAFP6QgNELAZeHkWzIp5Som1uqd4HNQ6FckRPn0lnK2Q5Ar/ETVPgxshe/gm6nI2noJeBabeL7z/WcUzyy+72dLyanRbdvE="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "history.jsonl:23: {\"hid\": \"H-8daca3\", \"category\": \"policy-final\", \"title\": \"POL-580: policy for the Support Console\", \"body\": \"Scope\\n\\nPolicy POL-580 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:29: {\"hid\": \"H-d242fc\", \"category\": \"policy-final\", \"title\": \"POL-804: policy for the support console\", \"body\": \"Scope\\n\\nPolicy POL-804 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:41: {\"hid\": \"H-4c46f7\", \"category\": \"change-request\", \"title\": \"CHG-3570: Change Record For The Support Console\", \"body\": \"SUMMARY:\\n\\nThe Support Console change described below is an open\\nrequest as of \nhistory.jsonl:58: {\"hid\": \"H-8f0d0f\", \"category\": \"incident-resolved\", \"title\": \"INC-2665: incident on the Support Console\", \"body\": \"IMPACT:\\n\\nIncident INC-2665 on the Support Console is resolved, per the service des\nhistory.jsonl:91: {\"hid\": \"H-04d169\", \"category\": \"change-request\", \"title\": \"CHG-2573: change to the support console\", \"body\": \"Summary\\n\\nThe Support Console change described below is an open\\nrequest as of this writ\nhistory.jsonl:107: {\"hid\": \"H-7a829a\", \"category\": \"change-approved\", \"title\": \"CHG-3245: change to the Support Console\", \"body\": \"SUMMARY:\\n\\nChange CHG-3245 against the Support Console is approved, as\\nnoted by the ch\nhistory.jsonl:108: {\"hid\": \"H-d126d0\", \"category\": \"incident-resolved\", \"title\": \"INC-9841: Incident On The Support Console\", \"body\": \"Impact\\n\\nThis report covers an incident on the Support Console that\\nis resolved. A\ntask.json:4: \"title\": \"POL-599: support console usage policy\",\ntask.json:5: \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls lis"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "content": "{\n  \"category\": \"policy-final\",\n  \"duplicate_of\": null\n}\n",
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0TsIPMuI3kXxKJXZVJWkdEywUlmfehM8Xc9ZBE+FgG7HaQMet5tNtPvzLgAUfxcNx002v3OkENBFAcFELhvOKooGwU34GeGTh7BUUurmjBgFhJvgGSTr6Nu1U="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "write_file",
+    "text": "Wrote 57 chars to answer.json"
+  },
+  {
+    "role": "user",
+    "text": "Turn limit reached; wrap up now."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": []
+  }
+]

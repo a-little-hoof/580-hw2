@@ -1,0 +1,235 @@
+[
+  {
+    "role": "user",
+    "text": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {
+          "pattern": "*"
+        },
+        "signature": "EmAKXgFpFH0TLVFS1Y6/WbaqUee5eOZyy8fYfdLRI3U1eouIamy0JpBJP1D2+82gvJjLy4hhADzN4PK81EpcFGn0RwtNp+LmyWwqZIgD7bA/IbkRSzTV+bTRsLo8n9Y1U2w="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "INSTRUCTIONS.md\nhistory.jsonl\ntask.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "INSTRUCTIONS.md"
+        },
+        "signature": "EmAKXgFpFH0TZGwQo3X9njzCSGK0tJgXbC7P1BSszl7Ofb73iuaAyLu+ljSOJn+fc0QareolfuOquZCBaj3yhsJ4nF9UQi1D+TOwkX90MIP080eD9yLlZof0GGUpH1VTTkc="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Internal memo classification\n2\t\n3\tYou are a records clerk. One internal memo is in `task.json`; your job is to decide which of\n4\tthe eight document categories it belongs to, say which history record (if any) describes the\n5\tsame document, and write both to `answer.json`.\n6\t\n7\t## Files in this directory\n8\t\n9\t- `INSTRUCTIONS.md`: this file.\n10\t- `history.jsonl`: one JSON object per line, every one a filed, verified memo: fields `hid`\n11\t  (`H-` and six hex digits), `category` (the verified answer), `title`, `body`, `filed`.\n12\t- `task.json`: the memo to classify: `tid`, `seq`, `title`, `body`, `received`.\n13\t\n14\t`history.jsonl` contains verified answers. If `task.json` describes the same underlying item as a\n15\thistory record (the same document, not merely a similar one), you may reuse that record's answer.\n16\tBefore you do, check the fields under Validation below; near-identical records with a different\n17\tvalue there are different items with different answers.\n18\t\n19\t## Categories\n20\t\n21\tFour families of memo, told apart by the identifier in the title; a status word in the body\n22\tsplits three of them further. Status words (in any inflection) per category:\n23\t\n24\t**Change memo** (`CHG-nnnn`)\n25\t\n26\t- `change-request`: a change memo still waiting for the board's decision. Status words: request, pending.\n27\t- `change-approved`: a change memo the board has accepted. Status words: approved, authorised.\n28\t- `change-rejected`: a change memo the board has turned down. Status words: rejected, declined.\n29\t\n30\t**Incident report** (`INC-nnnn`)\n31\t\n32\t- `incident-open`: an incident report on a fault that is still being worked. Status words: ongoing, under investigation.\n33\t- `incident-resolved`: an incident report on a fault that is over. Status words: resolved, closed.\n34\t\n35\t**Policy** (`POL-nnn`)\n36\t\n37\t- `policy-draft`: a policy that is not yet binding. Status words: draft, for comment.\n38\t- `policy-final`: a policy that is binding. Status words: effective, in force.\n39\t\n40\t**Release notes** (`REL-n.n`)\n41\t\n42\t- `release-notes`: release notes for a software release; no status word, one category. Status words: (none).\n43\t\n44\tA memo carries the words of exactly one status, in two sentences of the body, and never negates\n45\tthem: no memo says \"not approved\". Release notes carry none. The title holds the identifier and\n46\tthe system the memo is about; the body is three short labelled sections, in any order.\n47\t\n48\tIdentifier pattern (it appears in the title): `\\b(CHG|INC|POL)-\\d{3,4}\\b|\\bREL-\\d+\\.\\d+\\b`\n49\t\n50\t## How to decide a fresh document\n51\t\n52\t- Find the identifier in the title; its prefix gives the family (CHG, INC, POL or REL).\n53\t- Find the status word in the body and map it to its class with the lists above; release notes\n54\t  have no status word and are always `release-notes`.\n55\t- The family and the status class together name the category.\n56\t- Names, dates, vendors, teams, counts, section order, formatting and wording carry no information.\n57\t\n58\t## Validation (when is a history record the same document?)\n59\t\n60\tA history record is the same document only when both its identifier and its status class match\n61\tthe task. Compare identifiers after upper-casing: `chg-4412` and `CHG-4412` are one identifier.\n62\tCompare the class, not the word: `approved` and `authorised` are one class. Either test alone is\n63\tunsound: a change request and the later approval of the same change share the identifier but are\n64\ttwo documents with two categories; two approved changes share the category but are two documents,\n65\tand neither is `duplicate_of` the other.\n66\t\n67\t## Worked example\n68\t\n69\tThe task title reads `CHG-4412: change to the Payroll Gateway` and two sentences of the body call\n70\tthe change `approved`. The family is CHG and the class is approved, so the category is\n71\t`change-approved`. History holds `H-1a2b3c`, a `change-request` memo titled `CHG-4412: Payroll\n72\tGateway change memo` whose body says `pending`: same identifier, different class, so it is a\n73\tdifferent document and not `duplicate_of`, however much of the text matches. History also holds\n74\t`H-9d8e7f`, a `change-approved` memo for `CHG-7781`: same category, different identifier, a\n75\tdifferent change. Unless some history record carries both `CHG-4412` and the approved class,\n76\t`duplicate_of` is `null`.\n77\t\n78\t## Output\n79\t\n80\tWrite `answer.json` in this directory:\n81\t\n82\t```json\n83\t{\"category\": \"change-approved\", \"duplicate_of\": \"H-3fa9c2\"}\n84\t```\n85\t\n86\t`category` is exactly one of the eight names above (case does not matter). `duplicate_of` is the\n87\t`hid` of the history record that describes the same document, or `null` when none does. A document\n88\tthat merely resembles a history record is not it. It is always a history id, never a task id.\n89\tExtra keys are ignored.\n90\t\n91\t## Rules\n92\t\n93\t- Do not modify `history.jsonl` or `task.json`; write nothing except `answer.json`.\n94\t- Only `answer.json` is graded. Your final message is not."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "task.json"
+        },
+        "signature": "EmAKXgFpFH0TqsnozbHiVfs8gHABHhotC/WSuevMsaWAKTNFe7qX5DnRFUNFWYsw/EFMb6dIPP6Xefa6CrK5FvhrNIXZTI8ERRsxC1DUwQckKOEN3v9jZGEyPpgTnMYYNr0="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"tid\": \"T-daca19\",\n3\t  \"seq\": 4,\n4\t  \"title\": \"POL-599: support console usage policy\",\n5\t  \"body\": \"## Range\\n\\nThis policy extends to each user of the Support Console and is in force. The policy owner is Hana\\nKowalski (Release Management); annual audits against the controls listed here are run by Bluegate\\nNetworks.\\n\\n## Rules\\n\\nThe requirements, last reviewed on 5 June 2025, are:\\n* Keep production data out of test and development environments\\n* Complete the yearly security training before the published deadline\\n* Patch critical vulnerabilities within fourteen days of publication\\n\\n## Status\\n\\nFor the record, POL-599 is in force. Version published 13 July 2025 by Felix Brandt; waivers on\\nfile: 19, all expiring at the annual audit.\",\n6\t  \"received\": \"2026-01-09\"\n7\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "POL-599",
+          "regex": ".*"
+        },
+        "signature": "EmAKXgFpFH0Tlfa2EVoBbjvyQBpTcmRjEwYOZtgJ6aQMwhA1pBzuf4xr8uEj042OKhX3uKEGpmcxd1Tml1rRKbvFJS1U59Oo5kMicSfWoczJRjn86rUx3SlzotfoxrrwYbY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for .*)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "POL",
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TRYMFes3sf5iPxdj6nrsisf2JgegTPeZzG5E9DP3015xblSxtx4cD7Ymw7PxHRZ7NqgneFsU0hVGXADM6HI1bD2+88uNwUt8e8NvbCLjEe4nmWgTUkaCcrdk="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TZfAqbAYfp4ECinw4Cj0MMjycec5UaZU4MZJv7r7YBGR3SgqdtasdD+N4A8OqxWm0WI/fVwYzMdqPHGOUsxcw5ac1pZxyH3Tww2AP+8e8BrwVNDYcWsRSSyI="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "599",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0TGHLC6TX4Y3w6xlH5E9+JKH2yUDg++KlIour/0v6Ton7N5tHYRkBNhAfKZUNwdutYCe5WSA2U3IEeKS2Ak+B4jycJgDzJ8A4koENVNDtImCUGOZRWqow3RcA="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for 599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "POL"
+        },
+        "signature": "EmAKXgFpFH0TMwb7TOhkDlilqVutKwwm6JcNxqXq9xS/3e5SoVNiD2piKVm5oYzLQoc82GeuMs3+2Qx0cufpphP+b3n1fFYT36yI6YWjLILUXyxAP+PgT478ezjIZJmWW30="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "history.jsonl:3: {\"hid\": \"H-54e856\", \"category\": \"policy-final\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in force. Pinecrest Host\nhistory.jsonl:6: {\"hid\": \"H-5cebfa\", \"category\": \"policy-draft\", \"title\": \"POL-869: policy for the Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-869 covers the Device Registry and is in draft,\\nper the policy regist\nhistory.jsonl:9: {\"hid\": \"H-9cdccb\", \"category\": \"policy-final\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in force, per the policy register\nhistory.jsonl:13: {\"hid\": \"H-ba7508\", \"category\": \"policy-draft\", \"title\": \"POL-670: edge proxy layer usage policy\", \"body\": \"Scope\\n\\nPolicy POL-670 covers the Edge Proxy Layer and is in draft, per the policy register\nhistory.jsonl:16: {\"hid\": \"H-199f85\", \"category\": \"policy-final\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in force. Zoe Mit\nhistory.jsonl:23: {\"hid\": \"H-8daca3\", \"category\": \"policy-final\", \"title\": \"POL-580: policy for the Support Console\", \"body\": \"Scope\\n\\nPolicy POL-580 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:26: {\"hid\": \"H-b3269a\", \"category\": \"policy-draft\", \"title\": \"POL-314: policy governing the Order Pipeline\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Order Pipeline; it is out for comment.\nhistory.jsonl:29: {\"hid\": \"H-d242fc\", \"category\": \"policy-final\", \"title\": \"POL-804: policy for the support console\", \"body\": \"Scope\\n\\nPolicy POL-804 covers the Support Console and is in force,\\nper the policy registe\nhistory.jsonl:33: {\"hid\": \"H-ab2393\", \"category\": \"policy-final\", \"title\": \"POL-114: Data Lake Ingest usage policy\", \"body\": \"SCOPE:\\n\\nPolicy POL-114 covers the Data Lake Ingest and is in force, per the policy registe\nhistory.jsonl:36: {\"hid\": \"H-aa9b2e\", \"category\": \"policy-final\", \"title\": \"POL-997: policy for the Pricing Engine\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Pricing Engine and is in force. The\\npolic\nhistory.jsonl:39: {\"hid\": \"H-93be1d\", \"category\": \"policy-final\", \"title\": \"POL-890: policy governing the Backup Vault\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Backup Vault and is\\nin force. Tess\nhistory.jsonl:43: {\"hid\": \"H-4b14df\", \"category\": \"policy-final\", \"title\": \"POL-534: policy for the Payroll Gateway\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Payroll Gateway and is in force. The p\nhistory.jsonl:46: {\"hid\": \"H-eac1cd\", \"category\": \"policy-final\", \"title\": \"POL-538: Ledger Core usage policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. Hana\\nKowalski of\nhistory.jsonl:49: {\"hid\": \"H-9b7d39\", \"category\": \"policy-draft\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\np\nhistory.jsonl:50: {\"hid\": \"H-257d90\", \"category\": \"policy-draft\", \"title\": \"POL-539: policy governing the Expense Desk\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Expense Desk and is in draft. Zoe Mit\nhistory.jsonl:53: {\"hid\": \"H-e8ea9e\", \"category\": \"policy-final\", \"title\": \"POL-858: Reporting Mart Usage Policy\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Reporting Mart and\\nis in force. Corvid Ana\nhistory.jsonl:56: {\"hid\": \"H-053a51\", \"category\": \"policy-final\", \"title\": \"POL-708: Policy Governing The Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-708 covers the Device Registry and is in force,\\nper the policy \nhistory.jsonl:59: {\"hid\": \"H-bedf34\", \"category\": \"policy-final\", \"title\": \"POL-699: policy governing the identity hub\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Identity Hub; it is\\neffective. Corvid A\nhistory.jsonl:62: {\"hid\": \"H-4557f5\", \"category\": \"policy-draft\", \"title\": \"POL-510: Fleet Tracker usage policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Fleet Tracker and is in draft. Pinecrest Host\nhistory.jsonl:63: {\"hid\": \"H-fc9365\", \"category\": \"policy-draft\", \"title\": \"POL-386: Invoice Router usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Invoice Router; it is out for comment. Tessaro\nhistory.jsonl:66: {\"hid\": \"H-fa760e\", \"category\": \"policy-draft\", \"title\": \"POL-827: policy for the Contract Archive\", \"body\": \"## Scope\\n\\nPolicy POL-827 covers the Contract Archive and is in draft, per the policy reg\nhistory.jsonl:69: {\"hid\": \"H-3b94eb\", \"category\": \"policy-final\", \"title\": \"POL-414: policy for the Expense Desk\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Expense Desk; it is effective. Brightpath\\nSec\nhistory.jsonl:71: {\"hid\": \"H-5d82bd\", \"category\": \"policy-final\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is effective. The policy\\n\nhistory.jsonl:73: {\"hid\": \"H-892b4a\", \"category\": \"policy-final\", \"title\": \"POL-217: Pricing Engine usage policy\", \"body\": \"## Scope\\n\\nThe policy below governs use of the Pricing Engine; it is effective. The policy ow\nhistory.jsonl:76: {\"hid\": \"H-77ccac\", \"category\": \"policy-final\", \"title\": \"POL-847: policy for the vendor portal\", \"body\": \"SCOPE:\\n\\nPolicy POL-847 covers the Vendor Portal and is in force, per the policy\\nregister. \nhistory.jsonl:83: {\"hid\": \"H-0144d7\", \"category\": \"policy-draft\", \"title\": \"POL-969: Expense Desk usage policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Expense Desk; it is out for comment. The policy own\nhistory.jsonl:86: {\"hid\": \"H-01d42c\", \"category\": \"policy-draft\", \"title\": \"POL-154: policy governing the Invoice Router\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Invoice Router and is in draft. M\nhistory.jsonl:89: {\"hid\": \"H-b8782c\", \"category\": \"policy-final\", \"title\": \"POL-345: policy for the Timesheet Service\", \"body\": \"## Scope\\n\\nThis policy applies to every user of the Timesheet Service and is in force. M\nhistory.jsonl:93: {\"hid\": \"H-142dd3\", \"category\": \"policy-final\", \"title\": \"POL-965: Policy Governing The Ledger Core\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Ledger Core and is in force. The polic\nhistory.jsonl:96: {\"hid\": \"H-fba97b\", \"category\": \"policy-draft\", \"title\": \"POL-502: Ledger Core Usage Policy\", \"body\": \"Scope\\n\\nThis policy applies to every user of the Ledger Core and is in draft. The policy\\nowner \nhistory.jsonl:99: {\"hid\": \"H-b72f6c\", \"category\": \"policy-final\", \"title\": \"POL-506: policy for the Reporting Mart\", \"body\": \"SCOPE:\\n\\nPolicy POL-506 covers the Reporting Mart and is in force, per the policy register.\nhistory.jsonl:103: {\"hid\": \"H-1e38c7\", \"category\": \"policy-final\", \"title\": \"POL-254: policy governing the Vendor Portal\", \"body\": \"Scope\\n\\nPolicy POL-254 covers the Vendor Portal and is in force, per the policy\\nregis\nhistory.jsonl:106: {\"hid\": \"H-c412fe\", \"category\": \"policy-draft\", \"title\": \"POL-838: policy governing the warehouse console\", \"body\": \"SCOPE:\\n\\nThis policy applies to every user of the Warehouse Console and is in draf\nhistory.jsonl:109: {\"hid\": \"H-01247c\", \"category\": \"policy-draft\", \"title\": \"POL-920: Device Registry Usage Policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\npol"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0TXuxXOTWmWAlxOmTHCsx+lng7++7GTH6QZUMCZjbWLU4U/8i8arUI3SEj1nyIUfk5PlDv77YboREYd+bkHw17tYshgEIWbv+SIcMctT30jbQ04CSEMn3gjh0="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "599"
+        },
+        "signature": "EmAKXgFpFH0TsLiTN7GKceo/dRFtKS7EVKfY3ujuOT1KtBXG/0GZyjSIhUbiTtI77jrSJyhA40GyQUyNjYrc9qM83kA/y+XPLYDje/v+P/KGh9iMm53MBbsUGoP/BXV1pBM="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for 599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "path": "answer.json",
+          "content": "{\n  \"category\": \"policy-final\",\n  \"duplicate_of\": null\n}\n"
+        },
+        "signature": "EmAKXgFpFH0T4yPUqX91WChkVNsqJnpI99+V72+yBwVoYoc7WOKVnwf8pD8sZemKgmzvuQGjecYbtmp2QNxy2/5MrLLTGxiKaXYwXeRGAwrrI+PL4eD8D8yr0U5LZa6PzHY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "write_file",
+    "text": "Wrote 57 chars to answer.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0T35Q1RovSUBMIyn1VGmJw7vXWERiEC++n3wjTNvCy90JxMCrt+ZbEE2q1bxcn0LJAYGXb7TZ0JTJhh/X9sgZK8WKyN+HhhqJdCbrmrESZgzefhsQLZegotP0="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"category\": \"policy-final\",\n3\t  \"duplicate_of\": null\n4\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "I have classified the memo in `task.json` as `policy-final` and verified that no corresponding record exists in `history.jsonl` (`duplicate_of`: `null`), then wrote the result to `answer.json`.",
+    "tool_calls": []
+  }
+]

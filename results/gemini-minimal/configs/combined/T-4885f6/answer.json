@@ -1,0 +1,4 @@
+{
+  "environment": "prod-us-east",
+  "key": "auth.allow_anonymous"
+}

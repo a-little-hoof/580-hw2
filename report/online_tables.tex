@@ -1,0 +1,69 @@
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Mode & Tasks & Accuracy & Tools & Requests & Input (M) & Time (h) & Pacing (h) \\
+\midrule
+Baseline & 40 & 90.00\% & 473 & 500 & 4.474 & 0.779 & 0.468 \\
+Task-only & 40 & 85.00\% & 398 & 430 & 4.037 & 0.675 & 0.419 \\
+Content-only & 40 & 87.50\% & 492 & 532 & 4.687 & 0.767 & 0.474 \\
+Combined & 40 & 75.00\% & 406 & 438 & 3.419 & 0.659 & 0.354 \\
+\bottomrule
+\end{tabular}
+\caption{Sampled evaluation: the first 5 incoming tasks per dataset, sorted by (seq, tid), with the same selection in all four modes. Time includes setup, verification, reuse processing, and API pacing. Requests exclude HTTP retries.}
+\label{tab:online-aggregate}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Dataset & Baseline & Task-only & Content-only & Combined \\
+\midrule
+tickets & 2/5 (40.0\%) & 2/5 (40.0\%) & 3/5 (60.0\%) & 1/5 (20.0\%) \\
+bugs & 5/5 (100.0\%) & 4/5 (80.0\%) & 5/5 (100.0\%) & 4/5 (80.0\%) \\
+docs & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) & 4/5 (80.0\%) \\
+citations & 5/5 (100.0\%) & 3/5 (60.0\%) & 2/5 (40.0\%) & 3/5 (60.0\%) \\
+hosts & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) \\
+configs & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) & 4/5 (80.0\%) \\
+threads & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) \\
+revisions & 4/5 (80.0\%) & 5/5 (100.0\%) & 5/5 (100.0\%) & 4/5 (80.0\%) \\
+\bottomrule
+\end{tabular}
+\caption{Correct answers according to the supplied verifier. Interrupted attempts are excluded.}
+\label{tab:online-accuracy}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+Dataset & Baseline & Task-only & Content-only & Combined & Saved \\
+\midrule
+tickets & 491,641 & 642,585 & 800,850 & 562,401 & -14.39\% \\
+bugs & 281,620 & 484,597 & 461,424 & 379,609 & -34.79\% \\
+docs & 393,175 & 248,573 & 655,901 & 192,207 & 51.11\% \\
+citations & 1,247,466 & 913,176 & 924,426 & 795,951 & 36.19\% \\
+hosts & 404,858 & 478,838 & 295,284 & 339,115 & 16.24\% \\
+configs & 642,756 & 138,507 & 491,648 & 356,558 & 44.53\% \\
+threads & 354,643 & 598,721 & 513,454 & 341,010 & 3.84\% \\
+revisions & 657,431 & 531,919 & 544,478 & 451,757 & 31.28\% \\
+\bottomrule
+\end{tabular}
+\caption{Input tokens reported by Gemini. Saved compares combined reuse with baseline; negative values mean more tokens were used.}
+\label{tab:online-tokens}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+Mode & Interruptions & Requests & Input tokens & Time (h) & Pacing (h) \\
+\midrule
+Baseline & 3 & 20 & 147,348 & 0.058 & 0.020 \\
+Task-only & 0 & 0 & 0 & 0.000 & 0.000 \\
+Content-only & 4 & 41 & 577,708 & 0.095 & 0.037 \\
+Combined & 0 & 0 & 0 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\caption{Extra work from interrupted attempts, reported separately from completed tasks. Time includes pacing and retries, but not the wait between restarts.}
+\label{tab:online-interruptions}
+\end{table}
+Including interrupted attempts, the run used 1,961 model responses and 17,341,635 input tokens over 3.033 hours (1.771 hours of API pacing).

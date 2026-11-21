@@ -1,0 +1,44 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "max_turns": 20,
+  "request_interval": 5.0,
+  "task_threshold": 0.75,
+  "content_threshold": 0.8,
+  "seed": 73,
+  "python": "3.13.11 | packaged by Anaconda, Inc. | (main, Dec 10 2025, 21:28:48) [GCC 14.3.0]",
+  "datasets": [
+    "tickets",
+    "bugs",
+    "docs",
+    "citations",
+    "hosts",
+    "configs",
+    "threads",
+    "revisions"
+  ],
+  "modes": [
+    "baseline",
+    "task",
+    "content",
+    "combined"
+  ],
+  "limit": 5,
+  "prompt": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written.",
+  "temperature": 0.4,
+  "max_output_tokens": 65536,
+  "tools": [
+    "read_file",
+    "grep",
+    "list_files",
+    "write_file"
+  ],
+  "source_sha256": {
+    "minhash.py": "917481075ed99145537e3dfa2da199456a7bf91092657bda4b46be161704538e",
+    "policy.py": "861441ce6ed82e78ec6e968baac0c796f98feae316527b6042bce07644b0502a",
+    "content.py": "9137f7cff1a9e37202af5ca1ad36bad873d6b4b86234a10f8d0d9a3411f842c2",
+    "evaluate.py": "d59a6ced32bd50a2463272b2a1a43d85b494714f0bc881f4310b9355cf5e710f"
+  },
+  "model_requests_definition": "successful provider responses; HTTP retries excluded",
+  "assignment_commit": "a7c5076fec5150934565adb228411b19070070d3",
+  "spartacus_commit": "711db625b3513a34c6521010ea64a35635825b5a"
+}

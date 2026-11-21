@@ -1,0 +1,187 @@
+{
+  "evaluation_scope": "small-sample; task count chosen by us because the PDF does not specify a minimum",
+  "selection_rule": "first five public incoming tasks per dataset sorted by (seq, tid); same tasks and order in all four modes",
+  "tasks_per_dataset": 5,
+  "total_unique_tasks": 40,
+  "total_task_mode_results": 160,
+  "datasets": {
+    "tickets": [
+      {
+        "tid": "T-c24ed9",
+        "seq": 1
+      },
+      {
+        "tid": "T-a1baca",
+        "seq": 2
+      },
+      {
+        "tid": "T-53f313",
+        "seq": 3
+      },
+      {
+        "tid": "T-f7c48c",
+        "seq": 4
+      },
+      {
+        "tid": "T-295009",
+        "seq": 5
+      }
+    ],
+    "bugs": [
+      {
+        "tid": "T-77ebd3",
+        "seq": 1
+      },
+      {
+        "tid": "T-90de5f",
+        "seq": 2
+      },
+      {
+        "tid": "T-8d0531",
+        "seq": 3
+      },
+      {
+        "tid": "T-986f57",
+        "seq": 4
+      },
+      {
+        "tid": "T-67e674",
+        "seq": 5
+      }
+    ],
+    "docs": [
+      {
+        "tid": "T-bec0fe",
+        "seq": 1
+      },
+      {
+        "tid": "T-8a000c",
+        "seq": 2
+      },
+      {
+        "tid": "T-a24d3d",
+        "seq": 3
+      },
+      {
+        "tid": "T-daca19",
+        "seq": 4
+      },
+      {
+        "tid": "T-9f7d7c",
+        "seq": 5
+      }
+    ],
+    "citations": [
+      {
+        "tid": "T-6aebce",
+        "seq": 1
+      },
+      {
+        "tid": "T-aeee29",
+        "seq": 2
+      },
+      {
+        "tid": "T-3f588b",
+        "seq": 3
+      },
+      {
+        "tid": "T-52023e",
+        "seq": 4
+      },
+      {
+        "tid": "T-4620e4",
+        "seq": 5
+      }
+    ],
+    "hosts": [
+      {
+        "tid": "T-f79c5b",
+        "seq": 1
+      },
+      {
+        "tid": "T-cfd279",
+        "seq": 2
+      },
+      {
+        "tid": "T-25de18",
+        "seq": 3
+      },
+      {
+        "tid": "T-9ad237",
+        "seq": 4
+      },
+      {
+        "tid": "T-bae5fa",
+        "seq": 5
+      }
+    ],
+    "configs": [
+      {
+        "tid": "T-b06652",
+        "seq": 1
+      },
+      {
+        "tid": "T-1344eb",
+        "seq": 2
+      },
+      {
+        "tid": "T-025f77",
+        "seq": 3
+      },
+      {
+        "tid": "T-4885f6",
+        "seq": 4
+      },
+      {
+        "tid": "T-c78125",
+        "seq": 5
+      }
+    ],
+    "threads": [
+      {
+        "tid": "T-2c0301",
+        "seq": 1
+      },
+      {
+        "tid": "T-3a49c4",
+        "seq": 2
+      },
+      {
+        "tid": "T-17d605",
+        "seq": 3
+      },
+      {
+        "tid": "T-327dd6",
+        "seq": 4
+      },
+      {
+        "tid": "T-194848",
+        "seq": 5
+      }
+    ],
+    "revisions": [
+      {
+        "tid": "T-73df3b",
+        "seq": 1
+      },
+      {
+        "tid": "T-eeb8ed",
+        "seq": 2
+      },
+      {
+        "tid": "T-5e8199",
+        "seq": 3
+      },
+      {
+        "tid": "T-e44ab3",
+        "seq": 4
+      },
+      {
+        "tid": "T-64658e",
+        "seq": 5
+      }
+    ]
+  },
+  "prior_pilot": "results/gemini remains separate and excluded from this comparison; no old results imported",
+  "offline_audit": "results/offline covers all 420 tasks and remains separate from model evaluation"
+}

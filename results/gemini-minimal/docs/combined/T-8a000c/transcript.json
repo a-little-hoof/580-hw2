@@ -1,0 +1,176 @@
+[
+  {
+    "role": "user",
+    "text": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {},
+        "signature": "EmAKXgFpFH0TokViO4BO97Ryjs9ZxpK75nhK084KHXep6qZwZquZRiL5bwFXOiIn8ACTcbHrzeSGTh7kPSpfaivJug0yYjLSd6Uy9fYazVpf0kRXwVsy0YwKCp9omeBjhps="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "INSTRUCTIONS.md\nhistory.jsonl\ntask.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "INSTRUCTIONS.md"
+        },
+        "signature": "EmAKXgFpFH0TNEJh27EDytLuUJWpsqsT9niZBiRDeeV35U+iueLVYiEOsy+ewoea4KvknKs5g1dT1aS/CjtVZG6Eq/F1JBzCxy3eurU1zjkHM5CLcFccMZqg5fMNLLjz3V4="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Internal memo classification\n2\t\n3\tYou are a records clerk. One internal memo is in `task.json`; your job is to decide which of\n4\tthe eight document categories it belongs to, say which history record (if any) describes the\n5\tsame document, and write both to `answer.json`.\n6\t\n7\t## Files in this directory\n8\t\n9\t- `INSTRUCTIONS.md`: this file.\n10\t- `history.jsonl`: one JSON object per line, every one a filed, verified memo: fields `hid`\n11\t  (`H-` and six hex digits), `category` (the verified answer), `title`, `body`, `filed`.\n12\t- `task.json`: the memo to classify: `tid`, `seq`, `title`, `body`, `received`.\n13\t\n14\t`history.jsonl` contains verified answers. If `task.json` describes the same underlying item as a\n15\thistory record (the same document, not merely a similar one), you may reuse that record's answer.\n16\tBefore you do, check the fields under Validation below; near-identical records with a different\n17\tvalue there are different items with different answers.\n18\t\n19\t## Categories\n20\t\n21\tFour families of memo, told apart by the identifier in the title; a status word in the body\n22\tsplits three of them further. Status words (in any inflection) per category:\n23\t\n24\t**Change memo** (`CHG-nnnn`)\n25\t\n26\t- `change-request`: a change memo still waiting for the board's decision. Status words: request, pending.\n27\t- `change-approved`: a change memo the board has accepted. Status words: approved, authorised.\n28\t- `change-rejected`: a change memo the board has turned down. Status words: rejected, declined.\n29\t\n30\t**Incident report** (`INC-nnnn`)\n31\t\n32\t- `incident-open`: an incident report on a fault that is still being worked. Status words: ongoing, under investigation.\n33\t- `incident-resolved`: an incident report on a fault that is over. Status words: resolved, closed.\n34\t\n35\t**Policy** (`POL-nnn`)\n36\t\n37\t- `policy-draft`: a policy that is not yet binding. Status words: draft, for comment.\n38\t- `policy-final`: a policy that is binding. Status words: effective, in force.\n39\t\n40\t**Release notes** (`REL-n.n`)\n41\t\n42\t- `release-notes`: release notes for a software release; no status word, one category. Status words: (none).\n43\t\n44\tA memo carries the words of exactly one status, in two sentences of the body, and never negates\n45\tthem: no memo says \"not approved\". Release notes carry none. The title holds the identifier and\n46\tthe system the memo is about; the body is three short labelled sections, in any order.\n47\t\n48\tIdentifier pattern (it appears in the title): `\\b(CHG|INC|POL)-\\d{3,4}\\b|\\bREL-\\d+\\.\\d+\\b`\n49\t\n50\t## How to decide a fresh document\n51\t\n52\t- Find the identifier in the title; its prefix gives the family (CHG, INC, POL or REL).\n53\t- Find the status word in the body and map it to its class with the lists above; release notes\n54\t  have no status word and are always `release-notes`.\n55\t- The family and the status class together name the category.\n56\t- Names, dates, vendors, teams, counts, section order, formatting and wording carry no information.\n57\t\n58\t## Validation (when is a history record the same document?)\n59\t\n60\tA history record is the same document only when both its identifier and its status class match\n61\tthe task. Compare identifiers after upper-casing: `chg-4412` and `CHG-4412` are one identifier.\n62\tCompare the class, not the word: `approved` and `authorised` are one class. Either test alone is\n63\tunsound: a change request and the later approval of the same change share the identifier but are\n64\ttwo documents with two categories; two approved changes share the category but are two documents,\n65\tand neither is `duplicate_of` the other.\n66\t\n67\t## Worked example\n68\t\n69\tThe task title reads `CHG-4412: change to the Payroll Gateway` and two sentences of the body call\n70\tthe change `approved`. The family is CHG and the class is approved, so the category is\n71\t`change-approved`. History holds `H-1a2b3c`, a `change-request` memo titled `CHG-4412: Payroll\n72\tGateway change memo` whose body says `pending`: same identifier, different class, so it is a\n73\tdifferent document and not `duplicate_of`, however much of the text matches. History also holds\n74\t`H-9d8e7f`, a `change-approved` memo for `CHG-7781`: same category, different identifier, a\n75\tdifferent change. Unless some history record carries both `CHG-4412` and the approved class,\n76\t`duplicate_of` is `null`.\n77\t\n78\t## Output\n79\t\n80\tWrite `answer.json` in this directory:\n81\t\n82\t```json\n83\t{\"category\": \"change-approved\", \"duplicate_of\": \"H-3fa9c2\"}\n84\t```\n85\t\n86\t`category` is exactly one of the eight names above (case does not matter). `duplicate_of` is the\n87\t`hid` of the history record that describes the same document, or `null` when none does. A document\n88\tthat merely resembles a history record is not it. It is always a history id, never a task id.\n89\tExtra keys are ignored.\n90\t\n91\t## Rules\n92\t\n93\t- Do not modify `history.jsonl` or `task.json`; write nothing except `answer.json`.\n94\t- Only `answer.json` is graded. Your final message is not."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "task.json"
+        },
+        "signature": "EmAKXgFpFH0Thnqqa+XHppzSMbglpDMAK1t1Zlj3Nokd0cjOzDzp3CQM29NEcyUXs80jCSrfrHv/9M0oiOHOkKj50jY4yeEU4ivIqzvDeZZgV1y+oAd/Ru3WAo2IEoBBmmQ="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"tid\": \"T-8a000c\",\n3\t  \"seq\": 2,\n4\t  \"title\": \"POL-599: support console usage policy\",\n5\t  \"body\": \"## Scope\\n\\nPolicy POL-599 covers the Support Console and is in force, per the policy register. The policy owner\\nis Hana Kowalski (Release Management); yearly audits against the controls listed here are run by\\nBluegate Networks.\\n\\n## Requirements\\n\\nAs of the 5 June 2025 review the requirements are:\\n* Keep production data out of test and development environments\\n* Complete the annual security training before the published deadline\\n* Patch critical vulnerabilities within fourteen days of publication\\n\\n## Status\\n\\nThe policy is effective according to the register. Felix Brandt issued this version on 13 July 2025,\\nwith 19 exceptions on file that expire at the yearly audit.\",\n6\t  \"received\": \"2026-01-06\"\n7\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "POL-599",
+          "regex": ".*"
+        },
+        "signature": "EmAKXgFpFH0TjEUgaMFPqxVEiPDVDH7t5izYnyawx5osfqdXSXWwBJBKrF+uAgY1+lLwcbp4gxy8vZbLUADlqmiif7WSLzIvE+TllLuXEgzU5EHs609PGsI9Nk8WNLjbnRY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for .*)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "POL-599",
+          "pattern": "POL"
+        },
+        "signature": "EmAKXgFpFH0TR/HwDrWkyasRFXYdzQZdyEsBYy0en/rTnuZ2DXAF/h2vRqpfFXe3QY0N4/YQ2sDjxzbB9Iyzp072GiEwgAUkf01Y+89Acarm5X4QUJCPS0H3i8M3S8Ab47Y="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "POL-599"
+        },
+        "signature": "EmAKXgFpFH0Tz3fQ5RXNG8HggtYZMPSWHRGu4v9xOObVMwElZxS6pCiWNeprJKcaic54CTgq10IGgj0iVMjKUE+eribhK+7MSPhIGyBGBz/WxN4yyPMCdHJXMGL2HWAy1fY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for POL-599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "599",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0TrFoHcfA0fFqXlXD6QvGfpZg4tGmBgpZTxSZJAIvhtRpJGgz+/73U8/6jD/WLvFoakF8ui47/i89wM9tVtIJE4S9crqclJuYaukR01hOfhqrRi36s4jAhmfY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for 599)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "content": "{\"category\": \"policy-final\", \"duplicate_of\": null}\n",
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0TVSFQnnvFpNm7dHOvdTfYD8JsBDYJwPPjr64CGmbkmylfwlFYvU+lxO2pkO+QKGZ4Sz0PpRUk/2SinMeydHm2M9EmEYbhNf4Bdiay27Dyzrh87qJck52krqg="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "write_file",
+    "text": "Wrote 51 chars to answer.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0Tuo4gHXBo0Ohx9ZQ1S0+tS52tCAXh1A7xSN2XkXLGUYzRxenbgWM55peQv5PYdA6VJgx/rDUc7fjXhfFiElf8qLV+pajPNKePJck74xrI0lCyyHXy2QJD1M8="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\"category\": \"policy-final\", \"duplicate_of\": null}"
+  },
+  {
+    "role": "assistant",
+    "text": "Task complete. `answer.json` has been successfully created with the correct category `policy-final` and `duplicate_of: null`.",
+    "tool_calls": []
+  }
+]

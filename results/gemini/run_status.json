@@ -1,0 +1,9 @@
+{
+  "status": "blocked_by_daily_api_quota",
+  "completed_task_mode_runs": 41,
+  "expected_task_mode_runs": 1680,
+  "scope": "all 420 incoming tasks across eight datasets and four modes",
+  "quota_requests_per_day": 500,
+  "checkpoint_validated": true,
+  "final_comparison_complete": false
+}

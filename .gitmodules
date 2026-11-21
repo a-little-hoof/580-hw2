@@ -1,0 +1,6 @@
+[submodule "vendor/assignment"]
+	path = vendor/assignment
+	url = https://github.com/sahiljoshi515/Assignment2_COMP_580.git
+[submodule "vendor/spartacus"]
+	path = vendor/spartacus
+	url = https://github.com/sahiljoshi515/Spartacus.git

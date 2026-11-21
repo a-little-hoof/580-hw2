@@ -1,0 +1,6779 @@
+[
+  {
+    "dataset": "tickets",
+    "threshold": 0.5,
+    "tasks": 70,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.22530061565339565,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 10,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.10748547222465277,
+      "index_seconds": 0.22526011057198048
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0014752419665455818
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015649432316422462
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015904102474451065
+      },
+      {
+        "tid": "T-8bec2c",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-07"
+        },
+        "source": "history:H-5d4900",
+        "similarity": 0.671875,
+        "candidates": 1,
+        "lookup_seconds": 0.00156337209045887
+      },
+      {
+        "tid": "T-f6a4f5",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-01"
+        },
+        "source": "history:H-0339bd",
+        "similarity": 0.734375,
+        "candidates": 2,
+        "lookup_seconds": 0.0016146060079336166
+      },
+      {
+        "tid": "T-0ab662",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-12"
+        },
+        "source": "history:H-769322",
+        "similarity": 0.6484375,
+        "candidates": 1,
+        "lookup_seconds": 0.001567808911204338
+      },
+      {
+        "tid": "T-f6f237",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-e38c47",
+        "similarity": 0.6953125,
+        "candidates": 1,
+        "lookup_seconds": 0.0015081735327839851
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016784491017460823
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015385523438453674
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015412326902151108
+      }
+    ]
+  },
+  {
+    "dataset": "tickets",
+    "threshold": 0.65,
+    "tasks": 70,
+    "reused": 9,
+    "passed": 9,
+    "init_seconds": 0.23591764830052853,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 9,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.10733470600098372,
+      "index_seconds": 0.23541465494781733
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0014676563441753387
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015106787905097008
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00159499142318964
+      },
+      {
+        "tid": "T-8bec2c",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-07"
+        },
+        "source": "history:H-5d4900",
+        "similarity": 0.671875,
+        "candidates": 1,
+        "lookup_seconds": 0.0015359530225396156
+      },
+      {
+        "tid": "T-f6a4f5",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-01"
+        },
+        "source": "history:H-0339bd",
+        "similarity": 0.734375,
+        "candidates": 2,
+        "lookup_seconds": 0.0016161538660526276
+      },
+      {
+        "tid": "T-f6f237",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-e38c47",
+        "similarity": 0.6953125,
+        "candidates": 1,
+        "lookup_seconds": 0.0014984942972660065
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016026124358177185
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015541957691311836
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.001546492800116539
+      }
+    ]
+  },
+  {
+    "dataset": "tickets",
+    "threshold": 0.75,
+    "tasks": 70,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.22174723260104656,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 6,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.10275551211088896,
+      "index_seconds": 0.2213217979297042
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0014315946027636528
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0014400500804185867
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001541120931506157
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015004919841885567
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.001515326090157032
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.001500462181866169
+      }
+    ]
+  },
+  {
+    "dataset": "tickets",
+    "threshold": 0.85,
+    "tasks": 70,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.22209731489419937,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 6,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.10965331271290779,
+      "index_seconds": 0.2215615138411522
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001487506553530693
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015160990878939629
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016240421682596207
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016168532893061638
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0016176309436559677
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015902761369943619
+      }
+    ]
+  },
+  {
+    "dataset": "tickets",
+    "threshold": 0.95,
+    "tasks": 70,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.22798119392246008,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 6,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.10608305130153894,
+      "index_seconds": 0.227489591576159
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0014640232548117638
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0014938656240701675
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015954626724123955
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015750136226415634
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015708403661847115
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015480723232030869
+      }
+    ]
+  },
+  {
+    "dataset": "tickets",
+    "threshold": 1.0,
+    "tasks": 70,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.22484735492616892,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 6,
+      "candidates": 43,
+      "guard_rejections": 30,
+      "conflicts": 0,
+      "lookup_seconds": 0.1071314262226224,
+      "index_seconds": 0.22423453908413649
+    },
+    "hits": [
+      {
+        "tid": "T-17ccf4",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "source": "history:H-63f6c4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0014758482575416565
+      },
+      {
+        "tid": "T-ba3d95",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-05"
+        },
+        "source": "history:H-16db84",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015424489974975586
+      },
+      {
+        "tid": "T-60a009",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-03"
+        },
+        "source": "history:H-f5a5c8",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016152234748005867
+      },
+      {
+        "tid": "T-30e2a0",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-02"
+        },
+        "source": "history:H-b33c00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015829885378479958
+      },
+      {
+        "tid": "T-42b514",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-08"
+        },
+        "source": "history:H-d90331",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015674540773034096
+      },
+      {
+        "tid": "T-46da16",
+        "passed": true,
+        "answer": {
+          "resolution_id": "R-23"
+        },
+        "source": "history:H-88fa3b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0015515945851802826
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 0.5,
+    "tasks": 60,
+    "reused": 13,
+    "passed": 13,
+    "init_seconds": 0.24304169788956642,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 13,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.11335007660090923,
+      "index_seconds": 0.24249470699578524
+    },
+    "hits": [
+      {
+        "tid": "T-63ed36",
+        "passed": true,
+        "answer": {
+          "component": "config",
+          "root_cause": "RC-04"
+        },
+        "source": "history:H-e7c226",
+        "similarity": 0.7109375,
+        "candidates": 2,
+        "lookup_seconds": 0.0017704833298921585
+      },
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018511051312088966
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001641843467950821
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019251303747296333
+      },
+      {
+        "tid": "T-3dfe12",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-16"
+        },
+        "source": "history:H-0a54a5",
+        "similarity": 0.84375,
+        "candidates": 3,
+        "lookup_seconds": 0.0017373906448483467
+      },
+      {
+        "tid": "T-a2590b",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-1f71b7",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.001826239749789238
+      },
+      {
+        "tid": "T-eaa2bc",
+        "passed": true,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-21c50e",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.0018646223470568657
+      },
+      {
+        "tid": "T-5c984a",
+        "passed": true,
+        "answer": {
+          "component": "config",
+          "root_cause": "RC-04"
+        },
+        "source": "history:H-e7c226",
+        "similarity": 0.7109375,
+        "candidates": 2,
+        "lookup_seconds": 0.0017885798588395119
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.002071545459330082
+      },
+      {
+        "tid": "T-8efb84",
+        "passed": true,
+        "answer": {
+          "component": "importer",
+          "root_cause": "RC-09"
+        },
+        "source": "history:H-f96a07",
+        "similarity": 0.734375,
+        "candidates": 1,
+        "lookup_seconds": 0.00179350096732378
+      },
+      {
+        "tid": "T-6c079a",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-e22c7d",
+        "similarity": 0.796875,
+        "candidates": 1,
+        "lookup_seconds": 0.0019517457112669945
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001783069223165512
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0017860764637589455
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 0.65,
+    "tasks": 60,
+    "reused": 13,
+    "passed": 13,
+    "init_seconds": 0.2473931387066841,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 13,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.1115783229470253,
+      "index_seconds": 0.24695609509944916
+    },
+    "hits": [
+      {
+        "tid": "T-63ed36",
+        "passed": true,
+        "answer": {
+          "component": "config",
+          "root_cause": "RC-04"
+        },
+        "source": "history:H-e7c226",
+        "similarity": 0.7109375,
+        "candidates": 2,
+        "lookup_seconds": 0.0017257081344723701
+      },
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018122419714927673
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016796356067061424
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0018871370702981949
+      },
+      {
+        "tid": "T-3dfe12",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-16"
+        },
+        "source": "history:H-0a54a5",
+        "similarity": 0.84375,
+        "candidates": 3,
+        "lookup_seconds": 0.0016806544736027718
+      },
+      {
+        "tid": "T-a2590b",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-1f71b7",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.0018150592222809792
+      },
+      {
+        "tid": "T-eaa2bc",
+        "passed": true,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-21c50e",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.001818465068936348
+      },
+      {
+        "tid": "T-5c984a",
+        "passed": true,
+        "answer": {
+          "component": "config",
+          "root_cause": "RC-04"
+        },
+        "source": "history:H-e7c226",
+        "similarity": 0.7109375,
+        "candidates": 2,
+        "lookup_seconds": 0.0017573535442352295
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019816793501377106
+      },
+      {
+        "tid": "T-8efb84",
+        "passed": true,
+        "answer": {
+          "component": "importer",
+          "root_cause": "RC-09"
+        },
+        "source": "history:H-f96a07",
+        "similarity": 0.734375,
+        "candidates": 1,
+        "lookup_seconds": 0.0017491057515144348
+      },
+      {
+        "tid": "T-6c079a",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-e22c7d",
+        "similarity": 0.796875,
+        "candidates": 1,
+        "lookup_seconds": 0.0019451472908258438
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018124822527170181
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001750200055539608
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 0.75,
+    "tasks": 60,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.2582794651389122,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 10,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.11532170791178942,
+      "index_seconds": 0.2574582193046808
+    },
+    "hits": [
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018731523305177689
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001653105951845646
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019621457904577255
+      },
+      {
+        "tid": "T-3dfe12",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-16"
+        },
+        "source": "history:H-0a54a5",
+        "similarity": 0.84375,
+        "candidates": 3,
+        "lookup_seconds": 0.0017645889893174171
+      },
+      {
+        "tid": "T-a2590b",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-1f71b7",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.001848786137998104
+      },
+      {
+        "tid": "T-eaa2bc",
+        "passed": true,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-21c50e",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.0019152872264385223
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00200051162391901
+      },
+      {
+        "tid": "T-6c079a",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-e22c7d",
+        "similarity": 0.796875,
+        "candidates": 1,
+        "lookup_seconds": 0.001999570056796074
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018137991428375244
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001821163110435009
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 0.85,
+    "tasks": 60,
+    "reused": 8,
+    "passed": 8,
+    "init_seconds": 0.2432183213531971,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 8,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.11132594011723995,
+      "index_seconds": 0.24260042794048786
+    },
+    "hits": [
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0017924867570400238
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016448749229311943
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019357521086931229
+      },
+      {
+        "tid": "T-a2590b",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-10"
+        },
+        "source": "history:H-1f71b7",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.0018123984336853027
+      },
+      {
+        "tid": "T-eaa2bc",
+        "passed": true,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-21c50e",
+        "similarity": 0.8515625,
+        "candidates": 1,
+        "lookup_seconds": 0.0018067657947540283
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019454136490821838
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0017539151012897491
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001798032782971859
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 0.95,
+    "tasks": 60,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.24150712881237268,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 6,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.11109485104680061,
+      "index_seconds": 0.24103076197206974
+    },
+    "hits": [
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018198825418949127
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0015865731984376907
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019083693623542786
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0019486499950289726
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0017545158043503761
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0017805229872465134
+      }
+    ]
+  },
+  {
+    "dataset": "bugs",
+    "threshold": 1.0,
+    "tasks": 60,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.2359925853088498,
+    "stats": {
+      "indexed": 120,
+      "lookups": 60,
+      "hits": 6,
+      "candidates": 37,
+      "guard_rejections": 24,
+      "conflicts": 0,
+      "lookup_seconds": 0.11550306063145399,
+      "index_seconds": 0.23541964124888182
+    },
+    "hits": [
+      {
+        "tid": "T-8a9bff",
+        "passed": true,
+        "answer": {
+          "component": "storage",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-f9d6dd",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018942374736070633
+      },
+      {
+        "tid": "T-045598",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-19"
+        },
+        "source": "history:H-0f8cc4",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0016694972291588783
+      },
+      {
+        "tid": "T-32bd31",
+        "passed": true,
+        "answer": {
+          "component": "networking",
+          "root_cause": "RC-18"
+        },
+        "source": "history:H-ba7707",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0020263362675905228
+      },
+      {
+        "tid": "T-de9c18",
+        "passed": true,
+        "answer": {
+          "component": "auth",
+          "root_cause": "RC-03"
+        },
+        "source": "history:H-7d7c52",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.002025943249464035
+      },
+      {
+        "tid": "T-0b0aa7",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018536243587732315
+      },
+      {
+        "tid": "T-cde6ad",
+        "passed": true,
+        "answer": {
+          "component": "ui",
+          "root_cause": "RC-02"
+        },
+        "source": "history:H-0c06ff",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0018623555079102516
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 0.5,
+    "tasks": 60,
+    "reused": 14,
+    "passed": 14,
+    "init_seconds": 0.262229111045599,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 14,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.13675836753100157,
+      "index_seconds": 0.2616802081465721
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0023202411830425262
+      },
+      {
+        "tid": "T-71db26",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-1e38c7"
+        },
+        "source": "history:H-1e38c7",
+        "similarity": 0.921875,
+        "candidates": 1,
+        "lookup_seconds": 0.00221317820250988
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0024025505408644676
+      },
+      {
+        "tid": "T-fc0f1b",
+        "passed": true,
+        "answer": {
+          "category": "change-approved",
+          "duplicate_of": "H-3224ba"
+        },
+        "source": "history:H-3224ba",
+        "similarity": 0.671875,
+        "candidates": 1,
+        "lookup_seconds": 0.0025688298046588898
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.002274034544825554
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0024663666263222694
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00224202498793602
+      },
+      {
+        "tid": "T-dd2148",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-8f0d0f"
+        },
+        "source": "history:H-8f0d0f",
+        "similarity": 0.7109375,
+        "candidates": 3,
+        "lookup_seconds": 0.0023576756939291954
+      },
+      {
+        "tid": "T-281bdc",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-a3f12b"
+        },
+        "source": "history:H-a3f12b",
+        "similarity": 0.75,
+        "candidates": 1,
+        "lookup_seconds": 0.0022815968841314316
+      },
+      {
+        "tid": "T-b80b0d",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-54e856"
+        },
+        "source": "history:H-54e856",
+        "similarity": 0.9296875,
+        "candidates": 3,
+        "lookup_seconds": 0.0022081322968006134
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0021080980077385902
+      },
+      {
+        "tid": "T-2a65b5",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-0b0507"
+        },
+        "source": "history:H-0b0507",
+        "similarity": 0.59375,
+        "candidates": 2,
+        "lookup_seconds": 0.002291749231517315
+      },
+      {
+        "tid": "T-c73252",
+        "passed": true,
+        "answer": {
+          "category": "change-rejected",
+          "duplicate_of": "H-c34837"
+        },
+        "source": "history:H-c34837",
+        "similarity": 0.9453125,
+        "candidates": 1,
+        "lookup_seconds": 0.0025013433769345284
+      },
+      {
+        "tid": "T-5872c8",
+        "passed": true,
+        "answer": {
+          "category": "change-rejected",
+          "duplicate_of": "H-c34837"
+        },
+        "source": "history:H-c34837",
+        "similarity": 0.6171875,
+        "candidates": 1,
+        "lookup_seconds": 0.00248159933835268
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 0.65,
+    "tasks": 60,
+    "reused": 12,
+    "passed": 12,
+    "init_seconds": 0.262798547744751,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 12,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.1348090274259448,
+      "index_seconds": 0.2624038187786937
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0022857030853629112
+      },
+      {
+        "tid": "T-71db26",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-1e38c7"
+        },
+        "source": "history:H-1e38c7",
+        "similarity": 0.921875,
+        "candidates": 1,
+        "lookup_seconds": 0.0021844934672117233
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.002393980510532856
+      },
+      {
+        "tid": "T-fc0f1b",
+        "passed": true,
+        "answer": {
+          "category": "change-approved",
+          "duplicate_of": "H-3224ba"
+        },
+        "source": "history:H-3224ba",
+        "similarity": 0.671875,
+        "candidates": 1,
+        "lookup_seconds": 0.002433052286505699
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0022530322894454002
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0024147219955921173
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0021817265078425407
+      },
+      {
+        "tid": "T-dd2148",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-8f0d0f"
+        },
+        "source": "history:H-8f0d0f",
+        "similarity": 0.7109375,
+        "candidates": 3,
+        "lookup_seconds": 0.00234171561896801
+      },
+      {
+        "tid": "T-281bdc",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-a3f12b"
+        },
+        "source": "history:H-a3f12b",
+        "similarity": 0.75,
+        "candidates": 1,
+        "lookup_seconds": 0.0022608470171689987
+      },
+      {
+        "tid": "T-b80b0d",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-54e856"
+        },
+        "source": "history:H-54e856",
+        "similarity": 0.9296875,
+        "candidates": 3,
+        "lookup_seconds": 0.002179427072405815
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0020613353699445724
+      },
+      {
+        "tid": "T-c73252",
+        "passed": true,
+        "answer": {
+          "category": "change-rejected",
+          "duplicate_of": "H-c34837"
+        },
+        "source": "history:H-c34837",
+        "similarity": 0.9453125,
+        "candidates": 1,
+        "lookup_seconds": 0.002468288876116276
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 0.75,
+    "tasks": 60,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.2617736328393221,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 10,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.14705483801662922,
+      "index_seconds": 0.2612835755571723
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.002456212416291237
+      },
+      {
+        "tid": "T-71db26",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-1e38c7"
+        },
+        "source": "history:H-1e38c7",
+        "similarity": 0.921875,
+        "candidates": 1,
+        "lookup_seconds": 0.0023470139130949974
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.002502947114408016
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0024778321385383606
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0024895165115594864
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0023509766906499863
+      },
+      {
+        "tid": "T-281bdc",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-a3f12b"
+        },
+        "source": "history:H-a3f12b",
+        "similarity": 0.75,
+        "candidates": 1,
+        "lookup_seconds": 0.002423945814371109
+      },
+      {
+        "tid": "T-b80b0d",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-54e856"
+        },
+        "source": "history:H-54e856",
+        "similarity": 0.9296875,
+        "candidates": 3,
+        "lookup_seconds": 0.002365484833717346
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.002202625386416912
+      },
+      {
+        "tid": "T-c73252",
+        "passed": true,
+        "answer": {
+          "category": "change-rejected",
+          "duplicate_of": "H-c34837"
+        },
+        "source": "history:H-c34837",
+        "similarity": 0.9453125,
+        "candidates": 1,
+        "lookup_seconds": 0.0027008745819330215
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 0.85,
+    "tasks": 60,
+    "reused": 9,
+    "passed": 9,
+    "init_seconds": 0.26652350928634405,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 9,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.13349042739719152,
+      "index_seconds": 0.2660658173263073
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0022799335420131683
+      },
+      {
+        "tid": "T-71db26",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-1e38c7"
+        },
+        "source": "history:H-1e38c7",
+        "similarity": 0.921875,
+        "candidates": 1,
+        "lookup_seconds": 0.0021625012159347534
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0023737577721476555
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.002216912806034088
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0024203546345233917
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0022111181169748306
+      },
+      {
+        "tid": "T-b80b0d",
+        "passed": true,
+        "answer": {
+          "category": "policy-final",
+          "duplicate_of": "H-54e856"
+        },
+        "source": "history:H-54e856",
+        "similarity": 0.9296875,
+        "candidates": 3,
+        "lookup_seconds": 0.002109362743794918
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00202054250985384
+      },
+      {
+        "tid": "T-c73252",
+        "passed": true,
+        "answer": {
+          "category": "change-rejected",
+          "duplicate_of": "H-c34837"
+        },
+        "source": "history:H-c34837",
+        "similarity": 0.9453125,
+        "candidates": 1,
+        "lookup_seconds": 0.002430105581879616
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 0.95,
+    "tasks": 60,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.26111332699656487,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.1363945435732603,
+      "index_seconds": 0.26061431504786015
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0023239227011799812
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0024777809157967567
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0022728433832526207
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.00245050061494112
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0022244425490498543
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0020533157512545586
+      }
+    ]
+  },
+  {
+    "dataset": "docs",
+    "threshold": 1.0,
+    "tasks": 60,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.2647920921444893,
+    "stats": {
+      "indexed": 110,
+      "lookups": 60,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 52,
+      "conflicts": 0,
+      "lookup_seconds": 0.13392723072320223,
+      "index_seconds": 0.26437165029346943
+    },
+    "hits": [
+      {
+        "tid": "T-a24d3d",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-89e51b"
+        },
+        "source": "history:H-89e51b",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0022462503984570503
+      },
+      {
+        "tid": "T-a1eccd",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-09657a"
+        },
+        "source": "history:H-09657a",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.002318211831152439
+      },
+      {
+        "tid": "T-c9042c",
+        "passed": true,
+        "answer": {
+          "category": "incident-open",
+          "duplicate_of": "H-77023b"
+        },
+        "source": "history:H-77023b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0022255871444940567
+      },
+      {
+        "tid": "T-8b27ff",
+        "passed": true,
+        "answer": {
+          "category": "change-request",
+          "duplicate_of": "H-b2972d"
+        },
+        "source": "history:H-b2972d",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0024165883660316467
+      },
+      {
+        "tid": "T-6d4e20",
+        "passed": true,
+        "answer": {
+          "category": "incident-resolved",
+          "duplicate_of": "H-9910ca"
+        },
+        "source": "history:H-9910ca",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0022039785981178284
+      },
+      {
+        "tid": "T-7f9ba7",
+        "passed": true,
+        "answer": {
+          "category": "policy-draft",
+          "duplicate_of": "H-c412fe"
+        },
+        "source": "history:H-c412fe",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0020478181540966034
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 0.5,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.06718727014958858,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.029072281904518604,
+      "index_seconds": 0.066420191898942
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.00047627929598093033
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00043341610580682755
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0005222996696829796
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00046445149928331375
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00046539306640625
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042790547013282776
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00048751477152109146
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005369829013943672
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.000414527952671051
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00040456466376781464
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0004337094724178314
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0003901151940226555
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004412531852722168
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00046170130372047424
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004537748172879219
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00036713946610689163
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00048265885561704636
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00047149229794740677
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004860600456595421
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0003984617069363594
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00041010137647390366
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00041361618787050247
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004095090553164482
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005325060337781906
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 0.65,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.07154932152479887,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.030608605593442917,
+      "index_seconds": 0.07067024428397417
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.0004918975755572319
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.000446525402367115
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0006234925240278244
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004471149295568466
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004840558394789696
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00044771842658519745
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00048790592700242996
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005290769040584564
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042869895696640015
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004139496013522148
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0004559531807899475
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00040401145815849304
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00048109516501426697
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00046748295426368713
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00047593750059604645
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00037426967173814774
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00047700945287942886
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005136402323842049
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005595535039901733
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00040680356323719025
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004553571343421936
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00045827217400074005
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00044946838170289993
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005551222711801529
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 0.75,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.0693884938955307,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.02963155135512352,
+      "index_seconds": 0.06865954678505659
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.0004875650629401207
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004566311836242676
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0005243178457021713
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00045584142208099365
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00045180413872003555
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004354119300842285
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004898719489574432
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005304766818881035
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042250100523233414
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00038701482117176056
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00044474657624959946
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0003766147419810295
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.000447126105427742
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00045743491500616074
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004429081454873085
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0003552194684743881
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004698531702160835
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00046423450112342834
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004974091425538063
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00036741048097610474
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042360275983810425
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00043339934200048447
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042935367673635483
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005652327090501785
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 0.85,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.07134597282856703,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.030145145021378994,
+      "index_seconds": 0.07024948392063379
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.0005057221278548241
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004928912967443466
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.000548139214515686
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004803584888577461
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004706894978880882
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004609962925314903
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0005168020725250244
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005411114543676376
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004274100065231323
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004069982096552849
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0004527624696493149
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004076855257153511
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004665609449148178
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004716580733656883
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00046358536928892136
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0003608362749218941
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.000476582907140255
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004890253767371178
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005270196124911308
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00037008989602327347
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004470711573958397
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004443470388650894
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004301397129893303
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005576014518737793
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 0.95,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.10434562619775534,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.03028486669063568,
+      "index_seconds": 0.10375415626913309
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.0004974408075213432
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004628356546163559
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.000546010211110115
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004759635776281357
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.000500023365020752
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004472630098462105
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0005138460546731949
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005292566493153572
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00042460113763809204
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00041885673999786377
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00043643079698085785
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00038663577288389206
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00047043804079294205
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004626903682947159
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004667844623327255
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0003706701099872589
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00047996267676353455
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004936251789331436
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005457913503050804
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0003961380571126938
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004514520987868309
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004426958039402962
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004653623327612877
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005634594708681107
+      }
+    ]
+  },
+  {
+    "dataset": "citations",
+    "threshold": 1.0,
+    "tasks": 70,
+    "reused": 24,
+    "passed": 24,
+    "init_seconds": 0.06627711746841669,
+    "stats": {
+      "indexed": 140,
+      "lookups": 70,
+      "hits": 24,
+      "candidates": 103,
+      "guard_rejections": 79,
+      "conflicts": 0,
+      "lookup_seconds": 0.03082404751330614,
+      "index_seconds": 0.06555945798754692
+    },
+    "hits": [
+      {
+        "tid": "T-6aebce",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigmod.2023.4f9d",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-ee440d",
+        "similarity": 1.0,
+        "candidates": 5,
+        "lookup_seconds": 0.0005217408761382103
+      },
+      {
+        "tid": "T-4620e4",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00045996252447366714
+      },
+      {
+        "tid": "T-6e2719",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/iccv.2018.cd13",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "source": "history:H-38b561",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0005450695753097534
+      },
+      {
+        "tid": "T-ef3d05",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00046911463141441345
+      },
+      {
+        "tid": "T-dafefc",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2022.2f73",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-6cddfc",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004796944558620453
+      },
+      {
+        "tid": "T-4409ac",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/neurips.2023.9a1e",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16b2d7",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00046284962445497513
+      },
+      {
+        "tid": "T-ed7b7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.1509.88594",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-486444",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004919739440083504
+      },
+      {
+        "tid": "T-f6e8d2",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005611134693026543
+      },
+      {
+        "tid": "T-5adb88",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004432136192917824
+      },
+      {
+        "tid": "T-7d5a01",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2025.6930",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-8054c6",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00040552951395511627
+      },
+      {
+        "tid": "T-d5dac8",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/emnlp.2024.3eea",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "title"
+          ]
+        },
+        "source": "history:H-59b8b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0004506697878241539
+      },
+      {
+        "tid": "T-c82f17",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004174038767814636
+      },
+      {
+        "tid": "T-02d47e",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/acl.2016.0cdd",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-f9eadc",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00047877803444862366
+      },
+      {
+        "tid": "T-8c1bb3",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/cvpr.2015.ade8",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-70ab9b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004884935915470123
+      },
+      {
+        "tid": "T-158070",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2024.1769",
+          "status": "incorrect",
+          "wrong_fields": [
+            "doi"
+          ]
+        },
+        "source": "history:H-9ae40b",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0004923800006508827
+      },
+      {
+        "tid": "T-534543",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2021.4735",
+          "status": "incorrect",
+          "wrong_fields": [
+            "venue",
+            "year"
+          ]
+        },
+        "source": "history:H-26388f",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.00036729779094457626
+      },
+      {
+        "tid": "T-2b05ab",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004921695217490196
+      },
+      {
+        "tid": "T-0f5c7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2017.b4a2",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors"
+          ]
+        },
+        "source": "history:H-34ba3b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005022361874580383
+      },
+      {
+        "tid": "T-26af65",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2025.af51",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-53ce3a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0005069039762020111
+      },
+      {
+        "tid": "T-8bcf5f",
+        "passed": true,
+        "answer": {
+          "doi": "10.48550/arXiv.2001.71864",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "source": "history:H-9b279b",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004131300374865532
+      },
+      {
+        "tid": "T-e73d00",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/sigir.2023.77dc",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "source": "history:H-16f785",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0004364466294646263
+      },
+      {
+        "tid": "T-d02f46",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00044357962906360626
+      },
+      {
+        "tid": "T-7e3985",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/kdd.2023.a8d7",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-773c67",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.00045451801270246506
+      },
+      {
+        "tid": "T-499e7c",
+        "passed": true,
+        "answer": {
+          "doi": "10.5555/vldb.2021.1973",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title",
+            "year"
+          ]
+        },
+        "source": "history:H-c537ce",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0005644066259264946
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 0.5,
+    "tasks": 40,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.06764988414943218,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 10,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.03866084571927786,
+      "index_seconds": 0.06692420411854982
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0009809574112296104
+      },
+      {
+        "tid": "T-0e0f58",
+        "passed": true,
+        "answer": {
+          "host": "api-06",
+          "parameter": "kernel.pid_max"
+        },
+        "source": "history:H-28609f",
+        "similarity": 0.8203125,
+        "candidates": 2,
+        "lookup_seconds": 0.0009038001298904419
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012348480522632599
+      },
+      {
+        "tid": "T-ee8b1b",
+        "passed": true,
+        "answer": {
+          "host": "cache-04",
+          "mount": "/srv/cache"
+        },
+        "source": "history:H-199ee4",
+        "similarity": 0.8671875,
+        "candidates": 1,
+        "lookup_seconds": 0.0010424144566059113
+      },
+      {
+        "tid": "T-f07ff3",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 0.84375,
+        "candidates": 1,
+        "lookup_seconds": 0.0009998809546232224
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009086858481168747
+      },
+      {
+        "tid": "T-5698b8",
+        "passed": true,
+        "answer": {
+          "host": "api-01",
+          "days": 64
+        },
+        "source": "history:H-bc55d9",
+        "similarity": 0.8046875,
+        "candidates": 1,
+        "lookup_seconds": 0.000825490802526474
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001009487546980381
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001001523807644844
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0009434465318918228
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 0.65,
+    "tasks": 40,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.08297121059149504,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 10,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.03999770153313875,
+      "index_seconds": 0.08269187435507774
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0010386817157268524
+      },
+      {
+        "tid": "T-0e0f58",
+        "passed": true,
+        "answer": {
+          "host": "api-06",
+          "parameter": "kernel.pid_max"
+        },
+        "source": "history:H-28609f",
+        "similarity": 0.8203125,
+        "candidates": 2,
+        "lookup_seconds": 0.0009727329015731812
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012427745386958122
+      },
+      {
+        "tid": "T-ee8b1b",
+        "passed": true,
+        "answer": {
+          "host": "cache-04",
+          "mount": "/srv/cache"
+        },
+        "source": "history:H-199ee4",
+        "similarity": 0.8671875,
+        "candidates": 1,
+        "lookup_seconds": 0.0010938579216599464
+      },
+      {
+        "tid": "T-f07ff3",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 0.84375,
+        "candidates": 1,
+        "lookup_seconds": 0.001044347882270813
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008983612060546875
+      },
+      {
+        "tid": "T-5698b8",
+        "passed": true,
+        "answer": {
+          "host": "api-01",
+          "days": 64
+        },
+        "source": "history:H-bc55d9",
+        "similarity": 0.8046875,
+        "candidates": 1,
+        "lookup_seconds": 0.0008268887177109718
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009872252121567726
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010451208800077438
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.001001080498099327
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 0.75,
+    "tasks": 40,
+    "reused": 10,
+    "passed": 10,
+    "init_seconds": 0.06555226258933544,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 10,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.03984540794044733,
+      "index_seconds": 0.06530377268791199
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00102160032838583
+      },
+      {
+        "tid": "T-0e0f58",
+        "passed": true,
+        "answer": {
+          "host": "api-06",
+          "parameter": "kernel.pid_max"
+        },
+        "source": "history:H-28609f",
+        "similarity": 0.8203125,
+        "candidates": 2,
+        "lookup_seconds": 0.000936548225581646
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012319516390562057
+      },
+      {
+        "tid": "T-ee8b1b",
+        "passed": true,
+        "answer": {
+          "host": "cache-04",
+          "mount": "/srv/cache"
+        },
+        "source": "history:H-199ee4",
+        "similarity": 0.8671875,
+        "candidates": 1,
+        "lookup_seconds": 0.001115589402616024
+      },
+      {
+        "tid": "T-f07ff3",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 0.84375,
+        "candidates": 1,
+        "lookup_seconds": 0.0010579414665699005
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008771680295467377
+      },
+      {
+        "tid": "T-5698b8",
+        "passed": true,
+        "answer": {
+          "host": "api-01",
+          "days": 64
+        },
+        "source": "history:H-bc55d9",
+        "similarity": 0.8046875,
+        "candidates": 1,
+        "lookup_seconds": 0.000802421011030674
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009902985766530037
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010465793311595917
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0009835846722126007
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 0.85,
+    "tasks": 40,
+    "reused": 7,
+    "passed": 7,
+    "init_seconds": 0.06626983266323805,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 7,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.04141904041171074,
+      "index_seconds": 0.06600560992956161
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0010617198422551155
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012536849826574326
+      },
+      {
+        "tid": "T-ee8b1b",
+        "passed": true,
+        "answer": {
+          "host": "cache-04",
+          "mount": "/srv/cache"
+        },
+        "source": "history:H-199ee4",
+        "similarity": 0.8671875,
+        "candidates": 1,
+        "lookup_seconds": 0.0011397087946534157
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009031174704432487
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010298918932676315
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011308835819363594
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0010313242673873901
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 0.95,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.06570946611464024,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.03911775071173906,
+      "index_seconds": 0.06547974143177271
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0010353820398449898
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012514740228652954
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008610580116510391
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009606489911675453
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010222140699625015
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0009834254160523415
+      }
+    ]
+  },
+  {
+    "dataset": "hosts",
+    "threshold": 1.0,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.06618296261876822,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 55,
+      "guard_rejections": 45,
+      "conflicts": 0,
+      "lookup_seconds": 0.039407482370734215,
+      "index_seconds": 0.06599357258528471
+    },
+    "hits": [
+      {
+        "tid": "T-d92c2b",
+        "passed": true,
+        "answer": {
+          "host": "batch-06",
+          "service": "nginx"
+        },
+        "source": "history:H-b16f14",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0010754559189081192
+      },
+      {
+        "tid": "T-c551ee",
+        "passed": true,
+        "answer": {
+          "host": "worker-06",
+          "service": "node-exporter"
+        },
+        "source": "history:H-219cd0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011907629668712616
+      },
+      {
+        "tid": "T-f3006c",
+        "passed": true,
+        "answer": {
+          "host": "edge-05",
+          "service": "nginx"
+        },
+        "source": "history:H-de0b00",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008817091584205627
+      },
+      {
+        "tid": "T-c5639a",
+        "passed": true,
+        "answer": {
+          "host": "api-02",
+          "service": "chrony"
+        },
+        "source": "history:H-6d9b75",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009691910818219185
+      },
+      {
+        "tid": "T-fe80c0",
+        "passed": true,
+        "answer": {
+          "host": "batch-02",
+          "parameter": "net.core.somaxconn"
+        },
+        "source": "history:H-8788f0",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010289130732417107
+      },
+      {
+        "tid": "T-dc7ecb",
+        "passed": true,
+        "answer": {
+          "host": "edge-03",
+          "parameter": "fs.inotify.max_user_watches"
+        },
+        "source": "history:H-762bbf",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.000977158546447754
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 0.5,
+    "tasks": 40,
+    "reused": 8,
+    "passed": 8,
+    "init_seconds": 0.0704805739223957,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 8,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.041451653465628624,
+      "index_seconds": 0.07019775453954935
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008741393685340881
+      },
+      {
+        "tid": "T-7032ce",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 0.7265625,
+        "candidates": 1,
+        "lookup_seconds": 0.0009956294670701027
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010055257007479668
+      },
+      {
+        "tid": "T-d5fd9a",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-west",
+          "value": 6
+        },
+        "source": "history:H-a4881a",
+        "similarity": 0.59375,
+        "candidates": 1,
+        "lookup_seconds": 0.0008286293596029282
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.000860028900206089
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009222486987709999
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011081825941801071
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010008681565523148
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 0.65,
+    "tasks": 40,
+    "reused": 7,
+    "passed": 7,
+    "init_seconds": 0.06934592127799988,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 7,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.039741333574056625,
+      "index_seconds": 0.06913750246167183
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008221706375479698
+      },
+      {
+        "tid": "T-7032ce",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 0.7265625,
+        "candidates": 1,
+        "lookup_seconds": 0.0009547919034957886
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009476887062191963
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0008113104850053787
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.000899801030755043
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.001070123165845871
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009763203561306
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 0.75,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.07162586972117424,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.03954061772674322,
+      "index_seconds": 0.07135418523102999
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008443994447588921
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009406330063939095
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0008147330954670906
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008831368759274483
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.001076030544936657
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009647496044635773
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 0.85,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.07031202130019665,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.041938453912734985,
+      "index_seconds": 0.07008127961307764
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008804164826869965
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010383110493421555
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0008703218773007393
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009260391816496849
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011264113709330559
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010531609877943993
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 0.95,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.0688261166214943,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.04152678791433573,
+      "index_seconds": 0.06854803673923016
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008776113390922546
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009810151532292366
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0008512651547789574
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009049121290445328
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011388594284653664
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010208040475845337
+      }
+    ]
+  },
+  {
+    "dataset": "configs",
+    "threshold": 1.0,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.08581004478037357,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 66,
+      "guard_rejections": 56,
+      "conflicts": 0,
+      "lookup_seconds": 0.04103372059762478,
+      "index_seconds": 0.08552898187190294
+    },
+    "hits": [
+      {
+        "tid": "T-c78125",
+        "passed": true,
+        "answer": {
+          "environment": "canary",
+          "value": "info"
+        },
+        "source": "history:H-fb9dfe",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008711200207471848
+      },
+      {
+        "tid": "T-bcf9d7",
+        "passed": true,
+        "answer": {
+          "environment": "prod-us-east",
+          "value": "info"
+        },
+        "source": "history:H-f59756",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009807683527469635
+      },
+      {
+        "tid": "T-6953a1",
+        "passed": true,
+        "answer": {
+          "environment": "dev",
+          "value": "debug"
+        },
+        "source": "history:H-b560b9",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0008537657558917999
+      },
+      {
+        "tid": "T-80df25",
+        "passed": true,
+        "answer": {
+          "environment": "test",
+          "value": 1
+        },
+        "source": "history:H-04f2bb",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0009200237691402435
+      },
+      {
+        "tid": "T-59e09a",
+        "passed": true,
+        "answer": {
+          "environment": "staging",
+          "key": "cache.max_entries"
+        },
+        "source": "history:H-4edac8",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.001138295978307724
+      },
+      {
+        "tid": "T-88915f",
+        "passed": true,
+        "answer": {
+          "environment": "prod-eu",
+          "value": 10
+        },
+        "source": "history:H-e1d3f9",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0010068267583847046
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 0.5,
+    "tasks": 40,
+    "reused": 8,
+    "passed": 8,
+    "init_seconds": 0.07518079411238432,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 8,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.03821282181888819,
+      "index_seconds": 0.07490196637809277
+    },
+    "hits": [
+      {
+        "tid": "T-2c0301",
+        "passed": true,
+        "answer": {
+          "count": 7
+        },
+        "source": "history:H-685b90",
+        "similarity": 0.765625,
+        "candidates": 1,
+        "lookup_seconds": 0.0009995801374316216
+      },
+      {
+        "tid": "T-066e10",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-358860",
+        "similarity": 0.5390625,
+        "candidates": 1,
+        "lookup_seconds": 0.0007489798590540886
+      },
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0008010556921362877
+      },
+      {
+        "tid": "T-2e73ea",
+        "passed": true,
+        "answer": {
+          "name": "Sofia Rossi"
+        },
+        "source": "history:H-cbc81a",
+        "similarity": 0.8515625,
+        "candidates": 2,
+        "lookup_seconds": 0.0008814157918095589
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011368822306394577
+      },
+      {
+        "tid": "T-26dd29",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-358860",
+        "similarity": 0.5390625,
+        "candidates": 1,
+        "lookup_seconds": 0.0007662354037165642
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009625852108001709
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009846268221735954
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 0.65,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.08533220738172531,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.03800113871693611,
+      "index_seconds": 0.08505046367645264
+    },
+    "hits": [
+      {
+        "tid": "T-2c0301",
+        "passed": true,
+        "answer": {
+          "count": 7
+        },
+        "source": "history:H-685b90",
+        "similarity": 0.765625,
+        "candidates": 1,
+        "lookup_seconds": 0.0009867623448371887
+      },
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0007603541016578674
+      },
+      {
+        "tid": "T-2e73ea",
+        "passed": true,
+        "answer": {
+          "name": "Sofia Rossi"
+        },
+        "source": "history:H-cbc81a",
+        "similarity": 0.8515625,
+        "candidates": 2,
+        "lookup_seconds": 0.0008679898455739021
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011521168053150177
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.000956445001065731
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009460542351007462
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 0.75,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.07635551504790783,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.03955786768347025,
+      "index_seconds": 0.07610499020665884
+    },
+    "hits": [
+      {
+        "tid": "T-2c0301",
+        "passed": true,
+        "answer": {
+          "count": 7
+        },
+        "source": "history:H-685b90",
+        "similarity": 0.765625,
+        "candidates": 1,
+        "lookup_seconds": 0.0010529588907957077
+      },
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0007893778383731842
+      },
+      {
+        "tid": "T-2e73ea",
+        "passed": true,
+        "answer": {
+          "name": "Sofia Rossi"
+        },
+        "source": "history:H-cbc81a",
+        "similarity": 0.8515625,
+        "candidates": 2,
+        "lookup_seconds": 0.0009038923308253288
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011955955997109413
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0010201390832662582
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009734006598591805
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 0.85,
+    "tasks": 40,
+    "reused": 5,
+    "passed": 5,
+    "init_seconds": 0.06766349263489246,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 5,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.04015383683145046,
+      "index_seconds": 0.06742144003510475
+    },
+    "hits": [
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0007864395156502724
+      },
+      {
+        "tid": "T-2e73ea",
+        "passed": true,
+        "answer": {
+          "name": "Sofia Rossi"
+        },
+        "source": "history:H-cbc81a",
+        "similarity": 0.8515625,
+        "candidates": 2,
+        "lookup_seconds": 0.0009085442870855331
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0011949054896831512
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.000979122705757618
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009825481101870537
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 0.95,
+    "tasks": 40,
+    "reused": 4,
+    "passed": 4,
+    "init_seconds": 0.08029411174356937,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 4,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.039232004433870316,
+      "index_seconds": 0.08008293900638819
+    },
+    "hits": [
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.00077860988676548
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.001171838492155075
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009640362113714218
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009569153189659119
+      }
+    ]
+  },
+  {
+    "dataset": "threads",
+    "threshold": 1.0,
+    "tasks": 40,
+    "reused": 4,
+    "passed": 4,
+    "init_seconds": 0.06807811185717583,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 4,
+      "candidates": 45,
+      "guard_rejections": 37,
+      "conflicts": 0,
+      "lookup_seconds": 0.0410299776121974,
+      "index_seconds": 0.06790921650826931
+    },
+    "hits": [
+      {
+        "tid": "T-3dbb29",
+        "passed": true,
+        "answer": {
+          "dates": [
+            "2026-02-08",
+            "2026-02-13",
+            "2026-02-15"
+          ]
+        },
+        "source": "history:H-18b264",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.0008432231843471527
+      },
+      {
+        "tid": "T-b7f6ee",
+        "passed": true,
+        "answer": {
+          "decision": "defer",
+          "by": "Grace Okafor",
+          "date": "2026-03-21"
+        },
+        "source": "history:H-168927",
+        "similarity": 1.0,
+        "candidates": 3,
+        "lookup_seconds": 0.001217626966536045
+      },
+      {
+        "tid": "T-957574",
+        "passed": true,
+        "answer": {
+          "count": 6
+        },
+        "source": "history:H-671947",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0010129781439900398
+      },
+      {
+        "tid": "T-601478",
+        "passed": true,
+        "answer": {
+          "count": 5
+        },
+        "source": "history:H-7f6870",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0009945323690772057
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 0.5,
+    "tasks": 40,
+    "reused": 9,
+    "passed": 9,
+    "init_seconds": 0.07649868726730347,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 9,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.043315064162015915,
+      "index_seconds": 0.07609343249350786
+    },
+    "hits": [
+      {
+        "tid": "T-eeb8ed",
+        "passed": true,
+        "answer": {
+          "value": 4
+        },
+        "source": "history:H-8a0d7d",
+        "similarity": 0.703125,
+        "candidates": 1,
+        "lookup_seconds": 0.000894494354724884
+      },
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011577634140849113
+      },
+      {
+        "tid": "T-79a96b",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-4c9d43",
+        "similarity": 0.7265625,
+        "candidates": 2,
+        "lookup_seconds": 0.0012086611241102219
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0011215722188353539
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0011956524103879929
+      },
+      {
+        "tid": "T-7d4d3f",
+        "passed": true,
+        "answer": {
+          "count": 1
+        },
+        "source": "history:H-64321c",
+        "similarity": 0.78125,
+        "candidates": 1,
+        "lookup_seconds": 0.0013138670474290848
+      },
+      {
+        "tid": "T-114ecb",
+        "passed": true,
+        "answer": {
+          "revision": "v07"
+        },
+        "source": "history:H-87a970",
+        "similarity": 0.859375,
+        "candidates": 1,
+        "lookup_seconds": 0.0012218495830893517
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011386368423700333
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0007810359820723534
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 0.65,
+    "tasks": 40,
+    "reused": 9,
+    "passed": 9,
+    "init_seconds": 0.07271404936909676,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 9,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.044995068572461605,
+      "index_seconds": 0.07240576576441526
+    },
+    "hits": [
+      {
+        "tid": "T-eeb8ed",
+        "passed": true,
+        "answer": {
+          "value": 4
+        },
+        "source": "history:H-8a0d7d",
+        "similarity": 0.703125,
+        "candidates": 1,
+        "lookup_seconds": 0.0009270766749978065
+      },
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0012109801173210144
+      },
+      {
+        "tid": "T-79a96b",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-4c9d43",
+        "similarity": 0.7265625,
+        "candidates": 2,
+        "lookup_seconds": 0.0012407749891281128
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0011601084843277931
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0012455172836780548
+      },
+      {
+        "tid": "T-7d4d3f",
+        "passed": true,
+        "answer": {
+          "count": 1
+        },
+        "source": "history:H-64321c",
+        "similarity": 0.78125,
+        "candidates": 1,
+        "lookup_seconds": 0.0013680336996912956
+      },
+      {
+        "tid": "T-114ecb",
+        "passed": true,
+        "answer": {
+          "revision": "v07"
+        },
+        "source": "history:H-87a970",
+        "similarity": 0.859375,
+        "candidates": 1,
+        "lookup_seconds": 0.0012087561190128326
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011918926611542702
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0008031725883483887
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 0.75,
+    "tasks": 40,
+    "reused": 7,
+    "passed": 7,
+    "init_seconds": 0.07275438401848078,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 7,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.04297192953526974,
+      "index_seconds": 0.07247428130358458
+    },
+    "hits": [
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001133110374212265
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.001111854799091816
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0011794930323958397
+      },
+      {
+        "tid": "T-7d4d3f",
+        "passed": true,
+        "answer": {
+          "count": 1
+        },
+        "source": "history:H-64321c",
+        "similarity": 0.78125,
+        "candidates": 1,
+        "lookup_seconds": 0.0013150395825505257
+      },
+      {
+        "tid": "T-114ecb",
+        "passed": true,
+        "answer": {
+          "revision": "v07"
+        },
+        "source": "history:H-87a970",
+        "similarity": 0.859375,
+        "candidates": 1,
+        "lookup_seconds": 0.0011520767584443092
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011407788842916489
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0007565328851342201
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 0.85,
+    "tasks": 40,
+    "reused": 6,
+    "passed": 6,
+    "init_seconds": 0.07238412741571665,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 6,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.04312145337462425,
+      "index_seconds": 0.07212315313518047
+    },
+    "hits": [
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011283298954367638
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0011102193966507912
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0011950116604566574
+      },
+      {
+        "tid": "T-114ecb",
+        "passed": true,
+        "answer": {
+          "revision": "v07"
+        },
+        "source": "history:H-87a970",
+        "similarity": 0.859375,
+        "candidates": 1,
+        "lookup_seconds": 0.0011582309380173683
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011315913870930672
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0007798736914992332
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 0.95,
+    "tasks": 40,
+    "reused": 5,
+    "passed": 5,
+    "init_seconds": 0.07213546335697174,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 5,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.04439391568303108,
+      "index_seconds": 0.07186102867126465
+    },
+    "hits": [
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011772345751523972
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.001190423034131527
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0012246230617165565
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011384012177586555
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.000789879821240902
+      }
+    ]
+  },
+  {
+    "dataset": "revisions",
+    "threshold": 1.0,
+    "tasks": 40,
+    "reused": 5,
+    "passed": 5,
+    "init_seconds": 0.07143257651478052,
+    "stats": {
+      "indexed": 60,
+      "lookups": 40,
+      "hits": 5,
+      "candidates": 53,
+      "guard_rejections": 44,
+      "conflicts": 0,
+      "lookup_seconds": 0.044335585087537766,
+      "index_seconds": 0.07120714243501425
+    },
+    "hits": [
+      {
+        "tid": "T-f76e99",
+        "passed": true,
+        "answer": {
+          "revision": "v03",
+          "requirement": "R5"
+        },
+        "source": "history:H-aa20ce",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0011728666722774506
+      },
+      {
+        "tid": "T-2cacdf",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-397a44",
+        "similarity": 1.0,
+        "candidates": 2,
+        "lookup_seconds": 0.0011632712557911873
+      },
+      {
+        "tid": "T-5be970",
+        "passed": true,
+        "answer": {
+          "revision": "v08"
+        },
+        "source": "history:H-bfbca0",
+        "similarity": 1.0,
+        "candidates": 4,
+        "lookup_seconds": 0.0012108758091926575
+      },
+      {
+        "tid": "T-d84601",
+        "passed": true,
+        "answer": {
+          "revision": "v04"
+        },
+        "source": "history:H-ba901a",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.001139514148235321
+      },
+      {
+        "tid": "T-24d676",
+        "passed": true,
+        "answer": {
+          "value": 12
+        },
+        "source": "history:H-286327",
+        "similarity": 1.0,
+        "candidates": 1,
+        "lookup_seconds": 0.0007835570722818375
+      }
+    ]
+  }
+]

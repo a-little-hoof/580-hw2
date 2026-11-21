@@ -1,0 +1,493 @@
+{
+  "method": "Audit saved baseline/combined outcomes without model or verifier calls.\n\nUsage: python report/analyze_failures.py results/gemini-minimal\nValidate run completeness, pair recorded outcomes, and replay the compressed\nregressions in temporary workspaces containing only public task/environment\nfiles. Check each delta against an earlier full result and the official tool's\nfresh output. This verifies recorded bytes, not model reasoning or causality.\n",
+  "run_dir": "results/gemini-minimal",
+  "validated_task_mode_rows": 160,
+  "paired_tasks": 40,
+  "paired_outcomes": {
+    "both_fail": 2,
+    "regression": 8,
+    "gain": 2,
+    "both_pass": 28
+  },
+  "regressions": [
+    {
+      "dataset": "tickets",
+      "tid": "T-a1baca",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-20"
+        },
+        "transcript": "results/gemini-minimal/tickets/baseline/T-a1baca/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          16
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-01"
+        },
+        "transcript": "results/gemini-minimal/tickets/combined/T-a1baca/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          20
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "tickets",
+      "tid": "T-53f313",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-12"
+        },
+        "transcript": "results/gemini-minimal/tickets/baseline/T-53f313/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          16
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-18"
+        },
+        "transcript": "results/gemini-minimal/tickets/combined/T-53f313/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          16
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "bugs",
+      "tid": "T-8d0531",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-16"
+        },
+        "transcript": "results/gemini-minimal/bugs/baseline/T-8d0531/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          14
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "component": "scheduler",
+          "root_cause": "RC-18"
+        },
+        "transcript": "results/gemini-minimal/bugs/combined/T-8d0531/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          24
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "docs",
+      "tid": "T-bec0fe",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "category": "release-notes",
+          "duplicate_of": null
+        },
+        "transcript": "results/gemini-minimal/docs/baseline/T-bec0fe/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          34
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": null,
+        "transcript": "results/gemini-minimal/docs/combined/T-bec0fe/transcript.json",
+        "compressed_count": 4,
+        "first_compressed_message": 25,
+        "answer_write_messages": [],
+        "turn_limit_present": true,
+        "replay": {
+          "replayed_tool_outputs": 20,
+          "compressed_outputs": [
+            {
+              "message": 25,
+              "base_message": 15,
+              "base_source": "grep:{\"regex\": \"REL-\"}",
+              "target_source": "grep:{\"regex\": \"REL-\"}",
+              "target_sha256": "db82b3c8a49a406c1f9745fa0445826cdd4ceea2d90855d1caffe5e179d52dec",
+              "edit_count": 0,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 37,
+              "base_message": 15,
+              "base_source": "grep:{\"regex\": \"REL-\"}",
+              "target_source": "grep:{\"regex\": \"REL-.*\"}",
+              "target_sha256": "db82b3c8a49a406c1f9745fa0445826cdd4ceea2d90855d1caffe5e179d52dec",
+              "edit_count": 0,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 39,
+              "base_message": 15,
+              "base_source": "grep:{\"regex\": \"REL-\"}",
+              "target_source": "grep:{\"regex\": \"REL-\"}",
+              "target_sha256": "db82b3c8a49a406c1f9745fa0445826cdd4ceea2d90855d1caffe5e179d52dec",
+              "edit_count": 0,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 41,
+              "base_message": 15,
+              "base_source": "grep:{\"regex\": \"REL-\"}",
+              "target_source": "grep:{\"regex\": \"REL-.*\"}",
+              "target_sha256": "db82b3c8a49a406c1f9745fa0445826cdd4ceea2d90855d1caffe5e179d52dec",
+              "edit_count": 0,
+              "exact_public_tool_match": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "citations",
+      "tid": "T-3f588b",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "doi": "10.5555/acl.2017.b276",
+          "status": "incorrect",
+          "wrong_fields": [
+            "title"
+          ]
+        },
+        "transcript": "results/gemini-minimal/citations/baseline/T-3f588b/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          34
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "doi": "10.5555/acl.2017.b276",
+          "status": "correct",
+          "wrong_fields": []
+        },
+        "transcript": "results/gemini-minimal/citations/combined/T-3f588b/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          14
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "citations",
+      "tid": "T-52023e",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "doi": "10.5555/iccv.2023.9842",
+          "status": "incorrect",
+          "wrong_fields": [
+            "authors",
+            "year"
+          ]
+        },
+        "transcript": "results/gemini-minimal/citations/baseline/T-52023e/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          26
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "doi": "10.5555/iccv.2023.9842",
+          "status": "incorrect",
+          "wrong_fields": [
+            "year"
+          ]
+        },
+        "transcript": "results/gemini-minimal/citations/combined/T-52023e/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          32
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "configs",
+      "tid": "T-b06652",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "environment": "prod-eu",
+          "key": "auth.allow_anonymous"
+        },
+        "transcript": "results/gemini-minimal/configs/baseline/T-b06652/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          12
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": null,
+        "transcript": "results/gemini-minimal/configs/combined/T-b06652/transcript.json",
+        "compressed_count": 6,
+        "first_compressed_message": 21,
+        "answer_write_messages": [],
+        "turn_limit_present": true,
+        "replay": {
+          "replayed_tool_outputs": 20,
+          "compressed_outputs": [
+            {
+              "message": 21,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/dr.yaml\"}",
+              "target_sha256": "8bf09e7cb701b2c4eeb4ff972a56732fd74ef2d06eaefacf30bc91ef2fa496f0",
+              "edit_count": 6,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 25,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/prod-eu.yaml\"}",
+              "target_sha256": "4e735781a7d9c76e3b54a9d6abc219c1da513001f6d54908386e45e79b65813c",
+              "edit_count": 7,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 27,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/prod-us-east.yaml\"}",
+              "target_sha256": "82f8b39a965a39eda5b397867377d3876a407d43eb2979c68a9c826b607fc7b4",
+              "edit_count": 6,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 29,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/prod-us-west.yaml\"}",
+              "target_sha256": "6c0dc15fbc83b9afbee70af02ca8e6fad3710f622e44eef4cba4d1e80af40731",
+              "edit_count": 6,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 31,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/staging.yaml\"}",
+              "target_sha256": "30ab70b782decc73ab84d320776b877832be6b4b5b0777f3e54064036d7f1512",
+              "edit_count": 5,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 33,
+              "base_message": 17,
+              "base_source": "read_file:{\"path\": \"config/dev.yaml\"}",
+              "target_source": "read_file:{\"path\": \"config/test.yaml\"}",
+              "target_sha256": "42ac5b33e1a7e894da7c38dcb0971741d13c0acacf4ef205200d958537b9592d",
+              "edit_count": 5,
+              "exact_public_tool_match": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "revisions",
+      "tid": "T-e44ab3",
+      "baseline": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "revision": "v05",
+          "requirement": "R9"
+        },
+        "transcript": "results/gemini-minimal/revisions/baseline/T-e44ab3/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          30
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "revision": "v07",
+          "requirement": "R9"
+        },
+        "transcript": "results/gemini-minimal/revisions/combined/T-e44ab3/transcript.json",
+        "compressed_count": 4,
+        "first_compressed_message": 21,
+        "answer_write_messages": [
+          30
+        ],
+        "turn_limit_present": false,
+        "replay": {
+          "replayed_tool_outputs": 16,
+          "compressed_outputs": [
+            {
+              "message": 21,
+              "base_message": 19,
+              "base_source": "read_file:{\"path\": \"policy/v07.md\"}",
+              "target_source": "read_file:{\"path\": \"policy/v06.md\"}",
+              "target_sha256": "86877bff5450061979ad84b9e8ac3b9564a604d0fcfbc8f12e52b4ea5f608500",
+              "edit_count": 4,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 25,
+              "base_message": 23,
+              "base_source": "read_file:{\"path\": \"policy/v02.md\"}",
+              "target_source": "read_file:{\"path\": \"policy/v03.md\"}",
+              "target_sha256": "646d2ea166e8aeeb1a677ba9f8d6b6390d3a2ba35adbb2fdc38ffed7cc74d2b9",
+              "edit_count": 3,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 27,
+              "base_message": 23,
+              "base_source": "read_file:{\"path\": \"policy/v02.md\"}",
+              "target_source": "read_file:{\"path\": \"policy/v04.md\"}",
+              "target_sha256": "d3dcd2eb77e3ad596c7e2eaaf545e85199f95debb08f83db693e06a70ca552d2",
+              "edit_count": 3,
+              "exact_public_tool_match": true
+            },
+            {
+              "message": 29,
+              "base_message": 19,
+              "base_source": "read_file:{\"path\": \"policy/v07.md\"}",
+              "target_source": "read_file:{\"path\": \"policy/v05.md\"}",
+              "target_sha256": "811d95bee84c2f0d8b35dda1035ca3190461da83cd863d1c1df21d13c7c74a19",
+              "edit_count": 4,
+              "exact_public_tool_match": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "gains": [
+    {
+      "dataset": "tickets",
+      "tid": "T-295009",
+      "baseline": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-10"
+        },
+        "transcript": "results/gemini-minimal/tickets/baseline/T-295009/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          16
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "resolution_id": "R-24"
+        },
+        "transcript": "results/gemini-minimal/tickets/combined/T-295009/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          14
+        ],
+        "turn_limit_present": false
+      }
+    },
+    {
+      "dataset": "revisions",
+      "tid": "T-5e8199",
+      "baseline": {
+        "passed": false,
+        "reused": false,
+        "answer": {
+          "revision": "v07"
+        },
+        "transcript": "results/gemini-minimal/revisions/baseline/T-5e8199/transcript.json",
+        "compressed_count": 0,
+        "first_compressed_message": null,
+        "answer_write_messages": [
+          21
+        ],
+        "turn_limit_present": false
+      },
+      "combined": {
+        "passed": true,
+        "reused": false,
+        "answer": {
+          "revision": "v08"
+        },
+        "transcript": "results/gemini-minimal/revisions/combined/T-5e8199/transcript.json",
+        "compressed_count": 4,
+        "first_compressed_message": 19,
+        "answer_write_messages": [
+          32
+        ],
+        "turn_limit_present": false
+      }
+    }
+  ],
+  "compressed_regression_outputs_verified": 14,
+  "all_compressed_regression_outputs_match": true,
+  "replay_limitations": "Replays saved tool calls only for regressions with compression, using the current public corpus and official tools. No model rerun, verifier execution, hidden-label access, or causal test. Indices are 1-based transcript array positions."
+}

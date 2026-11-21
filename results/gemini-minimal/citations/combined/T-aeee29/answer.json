@@ -1,0 +1,8 @@
+{
+  "doi": "10.5555/sigmod.2024.4c04",
+  "status": "incorrect",
+  "wrong_fields": [
+    "authors",
+    "year"
+  ]
+}

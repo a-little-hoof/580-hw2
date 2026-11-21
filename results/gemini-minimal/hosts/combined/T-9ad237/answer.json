@@ -1,0 +1,4 @@
+{
+  "host": "worker-08",
+  "parameter": "vm.max_map_count"
+}

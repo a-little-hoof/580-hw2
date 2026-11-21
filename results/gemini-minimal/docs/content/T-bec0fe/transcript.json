@@ -1,0 +1,250 @@
+[
+  {
+    "role": "user",
+    "text": "Read INSTRUCTIONS.md and task.json. Solve this task using the available files and write the required JSON object to answer.json. Read the relevant corpus files individually with read_file when comparing their contents. Only answer.json may be written. Tool results marked [reuse] refer to an earlier full tool output and contain exact changes; reconstruct that output with those changes when reasoning. Finish once answer.json is written."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "list_files",
+        "args": {},
+        "signature": "EmAKXgFpFH0TR2KuEpYlDW565h4y5o69GD5Medt+vA0vYEE/QoU7dEh2hm2o1GnWSvvCB9L/Lr1lS9a5AqSIZ3AskeSWoFX//9kHHQ7ZoI9zB/EuzBLeOvltym0ey2mgX7s="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "list_files",
+    "text": "INSTRUCTIONS.md\nhistory.jsonl\ntask.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "INSTRUCTIONS.md"
+        },
+        "signature": "EmAKXgFpFH0T9bhztlbgvoO6NYX6YcdC9HsvGDtazZK1ih0nFrh+SFA1UDSf0MaufOTAzuuBtuk9oIWr1HtjsI7uICZINonnysPweU0L11EZ9lulDQR0rMNBcBuKfcv1Heo="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t# Internal memo classification\n2\t\n3\tYou are a records clerk. One internal memo is in `task.json`; your job is to decide which of\n4\tthe eight document categories it belongs to, say which history record (if any) describes the\n5\tsame document, and write both to `answer.json`.\n6\t\n7\t## Files in this directory\n8\t\n9\t- `INSTRUCTIONS.md`: this file.\n10\t- `history.jsonl`: one JSON object per line, every one a filed, verified memo: fields `hid`\n11\t  (`H-` and six hex digits), `category` (the verified answer), `title`, `body`, `filed`.\n12\t- `task.json`: the memo to classify: `tid`, `seq`, `title`, `body`, `received`.\n13\t\n14\t`history.jsonl` contains verified answers. If `task.json` describes the same underlying item as a\n15\thistory record (the same document, not merely a similar one), you may reuse that record's answer.\n16\tBefore you do, check the fields under Validation below; near-identical records with a different\n17\tvalue there are different items with different answers.\n18\t\n19\t## Categories\n20\t\n21\tFour families of memo, told apart by the identifier in the title; a status word in the body\n22\tsplits three of them further. Status words (in any inflection) per category:\n23\t\n24\t**Change memo** (`CHG-nnnn`)\n25\t\n26\t- `change-request`: a change memo still waiting for the board's decision. Status words: request, pending.\n27\t- `change-approved`: a change memo the board has accepted. Status words: approved, authorised.\n28\t- `change-rejected`: a change memo the board has turned down. Status words: rejected, declined.\n29\t\n30\t**Incident report** (`INC-nnnn`)\n31\t\n32\t- `incident-open`: an incident report on a fault that is still being worked. Status words: ongoing, under investigation.\n33\t- `incident-resolved`: an incident report on a fault that is over. Status words: resolved, closed.\n34\t\n35\t**Policy** (`POL-nnn`)\n36\t\n37\t- `policy-draft`: a policy that is not yet binding. Status words: draft, for comment.\n38\t- `policy-final`: a policy that is binding. Status words: effective, in force.\n39\t\n40\t**Release notes** (`REL-n.n`)\n41\t\n42\t- `release-notes`: release notes for a software release; no status word, one category. Status words: (none).\n43\t\n44\tA memo carries the words of exactly one status, in two sentences of the body, and never negates\n45\tthem: no memo says \"not approved\". Release notes carry none. The title holds the identifier and\n46\tthe system the memo is about; the body is three short labelled sections, in any order.\n47\t\n48\tIdentifier pattern (it appears in the title): `\\b(CHG|INC|POL)-\\d{3,4}\\b|\\bREL-\\d+\\.\\d+\\b`\n49\t\n50\t## How to decide a fresh document\n51\t\n52\t- Find the identifier in the title; its prefix gives the family (CHG, INC, POL or REL).\n53\t- Find the status word in the body and map it to its class with the lists above; release notes\n54\t  have no status word and are always `release-notes`.\n55\t- The family and the status class together name the category.\n56\t- Names, dates, vendors, teams, counts, section order, formatting and wording carry no information.\n57\t\n58\t## Validation (when is a history record the same document?)\n59\t\n60\tA history record is the same document only when both its identifier and its status class match\n61\tthe task. Compare identifiers after upper-casing: `chg-4412` and `CHG-4412` are one identifier.\n62\tCompare the class, not the word: `approved` and `authorised` are one class. Either test alone is\n63\tunsound: a change request and the later approval of the same change share the identifier but are\n64\ttwo documents with two categories; two approved changes share the category but are two documents,\n65\tand neither is `duplicate_of` the other.\n66\t\n67\t## Worked example\n68\t\n69\tThe task title reads `CHG-4412: change to the Payroll Gateway` and two sentences of the body call\n70\tthe change `approved`. The family is CHG and the class is approved, so the category is\n71\t`change-approved`. History holds `H-1a2b3c`, a `change-request` memo titled `CHG-4412: Payroll\n72\tGateway change memo` whose body says `pending`: same identifier, different class, so it is a\n73\tdifferent document and not `duplicate_of`, however much of the text matches. History also holds\n74\t`H-9d8e7f`, a `change-approved` memo for `CHG-7781`: same category, different identifier, a\n75\tdifferent change. Unless some history record carries both `CHG-4412` and the approved class,\n76\t`duplicate_of` is `null`.\n77\t\n78\t## Output\n79\t\n80\tWrite `answer.json` in this directory:\n81\t\n82\t```json\n83\t{\"category\": \"change-approved\", \"duplicate_of\": \"H-3fa9c2\"}\n84\t```\n85\t\n86\t`category` is exactly one of the eight names above (case does not matter). `duplicate_of` is the\n87\t`hid` of the history record that describes the same document, or `null` when none does. A document\n88\tthat merely resembles a history record is not it. It is always a history id, never a task id.\n89\tExtra keys are ignored.\n90\t\n91\t## Rules\n92\t\n93\t- Do not modify `history.jsonl` or `task.json`; write nothing except `answer.json`.\n94\t- Only `answer.json` is graded. Your final message is not."
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "task.json"
+        },
+        "signature": "EmAKXgFpFH0TfuZl9Q/jPdTn9JUkOzbni3XVrk9tqhDSAndlpi8u8xKTj39+xutAmbd2hd6mf+9E+9WF1u+DP41naSHkvJbM0irW+WQKEOu3UN+kEU3B0pBJm3uYFnfH7jw="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"tid\": \"T-bec0fe\",\n3\t  \"seq\": 1,\n4\t  \"title\": \"REL-4.8: Device Registry Release Notes\",\n5\t  \"body\": \"Highlights\\n\\nThe Device Registry team ships REL-4.8 to every tenant on 5\\nMay 2025. Highlights are faster search and a reworked admin\\nconsole, with Bluegate Networks contributing the search work\\nand 12 customer reports addressed.\\n\\nFixes\\n\\nFixes in this release, verified by Network Operations on 14\\nDecember 2025:\\n* Reduced memory use of the import service by a third\\n* Removed the deprecated bulk endpoint from the public API\\n* Fixed the pagination bug in the admin console lists\\n\\nUpgrade notes\\n\\nTenants are upgraded automatically during the 03:30-05:00\\nUTC window; no action is needed. Release manager: Kenji\\nSato; support contact: Omar Haddad, reachable through the\\nusual channel.\",\n6\t  \"received\": \"2026-01-05\"\n7\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "REL-4\\.8"
+        },
+        "signature": "EmAKXgFpFH0Tfm1JX1poj/+OYOVwCHkuRV7ctzg4NyqFfobIsWpEVv624I8o01nnf8bIq1E+TCFjqmVGQRB0HJ6R+CQv3CfciCeG/STq7FCQsBPWtnUSHcggmSqxeP/9EGo="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "ERROR: TypeError: core_tools.<locals>.grep() missing 1 required positional argument: 'regex'"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "REL-4\\.8"
+        },
+        "signature": "EmAKXgFpFH0TaCRTqJw1w/1hcqp407PVD3iAygoU6eQOgzQx1sfPv6n+11/fwXWfCYeKN5L3mdh+vPTAKK1wA2WcDSSS3zOTjWR+LmX3yJr9otA88JDxqLgz6nTTFwBPJI0="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "task.json:4: \"title\": \"REL-4.8: Device Registry Release Notes\",\ntask.json:5: \"body\": \"Highlights\\n\\nThe Device Registry team ships REL-4.8 to every tenant on 5\\nMay 2025. Highlights are faster search and a reworked admin\\nconsole, with Bluegate Networks contributing the search"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "REL-4\\.8",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0T8nTkmN/Oj9JZOkDJtG3uj2cs5BfQv4Upv0Ky72859FSz4KvsmRUp4MydHPTgnKk3E5lkVz+zxTW7JfpvI5nTppvIs8sJnSalSXl0SSmIQYdU/gho4+fHOKw="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for REL-4\\.8)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "REL-4"
+        },
+        "signature": "EmAKXgFpFH0TabxtDS6vbkYp36XxBcqNdIxB38uHik+8f8o9272gUlU+6SSYJpsuQGKphxPxSV+SqWCU44LRp7Dt/teoG59JCNL0T0hfZLL1yXwqt9iO8YBLKBmdtx4426s="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for REL-4)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "REL-",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0TcVnEa8nrTbBspJFXJQGVytQLERizkZRN8MMhAw7KQCYbB21cF1yqJo3Vl2/E+RXMAJ45tWF4SyxjV2Rumo58F/3OyJz3hSJkCH/vQOb+7du56GEAV0X8mqY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "history.jsonl:10: {\"hid\": \"H-8ff58d\", \"category\": \"release-notes\", \"title\": \"REL-21.1: Warehouse Console release notes\", \"body\": \"Highlights\\n\\nThe Warehouse Console team ships REL-21.1 to every tenant on 19 October 20\nhistory.jsonl:30: {\"hid\": \"H-5d7cb1\", \"category\": \"release-notes\", \"title\": \"REL-10.3: release notes for the Backup Vault\", \"body\": \"## Highlights\\n\\nThis release of the Backup Vault ships on 27 August 2025 to\\nall ten\nhistory.jsonl:40: {\"hid\": \"H-cf612b\", \"category\": \"release-notes\", \"title\": \"REL-22.2: what changed in the Fleet Tracker\", \"body\": \"HIGHLIGHTS:\\n\\nThis release of the Fleet Tracker ships on 14 April 2025 to\\nall tenant\nhistory.jsonl:60: {\"hid\": \"H-aeb77a\", \"category\": \"release-notes\", \"title\": \"REL-17.1: data lake ingest release notes\", \"body\": \"Highlights\\n\\nThe Data Lake Ingest team ships REL-17.1 to every tenant on 1 January 2025.\nhistory.jsonl:70: {\"hid\": \"H-5ad6b8\", \"category\": \"release-notes\", \"title\": \"REL-9.8: what changed in the Identity Hub\", \"body\": \"Highlights\\n\\nREL-9.8 of the Identity Hub rolls out to every tenant on 25\\nNovember 2025\nhistory.jsonl:80: {\"hid\": \"H-edc21d\", \"category\": \"release-notes\", \"title\": \"REL-28.4: what changed in the Order Pipeline\", \"body\": \"HIGHLIGHTS:\\n\\nREL-28.4 of the Order Pipeline rolls out to every tenant on 4 January \nhistory.jsonl:90: {\"hid\": \"H-42784c\", \"category\": \"release-notes\", \"title\": \"REL-25.7: release notes for the message broker\", \"body\": \"Highlights\\n\\nREL-25.7 of the Message Broker rolls out to every tenant on 4 June 20\nhistory.jsonl:100: {\"hid\": \"H-0bc29f\", \"category\": \"release-notes\", \"title\": \"REL-16.5: what changed in the message broker\", \"body\": \"Highlights\\n\\nThis release of the Message Broker ships on 25 March 2025 to all tenant\nhistory.jsonl:110: {\"hid\": \"H-f77848\", \"category\": \"release-notes\", \"title\": \"REL-6.8: Backup Vault release notes\", \"body\": \"Highlights\\n\\nREL-6.8 of the Backup Vault rolls out to every tenant on 14 March 2025. Highligh"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "REL-4\\.8"
+        },
+        "signature": "EmAKXgFpFH0TRgQSZXgR0hQL9yYcvBKpg7e22c/FuCpVwpgKhkHko56HSzESgcCo63AvUAzEco1SAGJFInA6HE/zX+YRS1IfTK89z9/A76cQF8CsaZFIECWVPxHtPOmWiFo="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for REL-4\\.8)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "history.jsonl",
+          "regex": "Device Registry"
+        },
+        "signature": "EmAKXgFpFH0TBKWV7nBMC0dlN0ETt4h+MjbvNUFBIzHiJqXi5uAzzx2CgOa4HtLDmhixZfbC7II/yfsbqUEqAMPa1VKasWJsK/dZwkHmVYaWumyUbdOqejbgCZ7CnK90TuY="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "history.jsonl:6: {\"hid\": \"H-5cebfa\", \"category\": \"policy-draft\", \"title\": \"POL-869: policy for the Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-869 covers the Device Registry and is in draft,\\nper the policy regist\nhistory.jsonl:15: {\"hid\": \"H-b9eb55\", \"category\": \"incident-resolved\", \"title\": \"INC-9628: incident on the Device Registry\", \"body\": \"Impact\\n\\nThis report covers an incident on the Device Registry that is resolved. Th\nhistory.jsonl:20: {\"hid\": \"H-982a70\", \"category\": \"incident-open\", \"title\": \"INC-9628: incident on the Device Registry\", \"body\": \"Impact\\n\\nThis report covers an incident on the Device Registry that is ongoing. The\\nho\nhistory.jsonl:28: {\"hid\": \"H-63f411\", \"category\": \"incident-open\", \"title\": \"INC-6144: Incident On The Device Registry\", \"body\": \"## Impact\\n\\nIncident INC-6144 on the Device Registry is ongoing, per the service desk\\n\nhistory.jsonl:32: {\"hid\": \"H-a3f12b\", \"category\": \"incident-resolved\", \"title\": \"INC-2164: Device Registry incident report\", \"body\": \"Impact\\n\\nThe Device Registry incident described here is closed at the time of writi\nhistory.jsonl:49: {\"hid\": \"H-9b7d39\", \"category\": \"policy-draft\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\np\nhistory.jsonl:56: {\"hid\": \"H-053a51\", \"category\": \"policy-final\", \"title\": \"POL-708: Policy Governing The Device Registry\", \"body\": \"SCOPE:\\n\\nPolicy POL-708 covers the Device Registry and is in force,\\nper the policy \nhistory.jsonl:71: {\"hid\": \"H-5d82bd\", \"category\": \"policy-final\", \"title\": \"POL-851: policy for the Device Registry\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is effective. The policy\\n\nhistory.jsonl:98: {\"hid\": \"H-60c415\", \"category\": \"incident-open\", \"title\": \"INC-2767: service incident, Device Registry\", \"body\": \"IMPACT:\\n\\nThe Device Registry incident described here is under\\ninvestigation at the \nhistory.jsonl:109: {\"hid\": \"H-01247c\", \"category\": \"policy-draft\", \"title\": \"POL-920: Device Registry Usage Policy\", \"body\": \"Scope\\n\\nThe policy below governs use of the Device Registry; it is out for comment. The\\npol"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "grep",
+        "args": {
+          "regex": "REL-4\\.8",
+          "pattern": "history.jsonl"
+        },
+        "signature": "EmAKXgFpFH0TWAQwuM3SqFrexwtuTtYSZX0wzvNJ1qursButFswWnrcy+psAdZQ9lSsReG/MhAO0oG6MviwVfGLLs70Qs+J5J8/YdeNFOEslfLWk8N7h7iQVHxJq5OICsKc="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "grep",
+    "text": "(no matches for REL-4\\.8)"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "content": "{\n  \"category\": \"release-notes\",\n  \"duplicate_of\": null\n}\n",
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0TZ20gXuzuEOSqT2W+fy2at/5Be6509jF3wWvAfGAvN1rJNvIYRi9CjZQE9VHSNf5oF8srYKkUIOY4vkXzZ+W3kHoqnCzLxziXfGRmjpwLt8j6fhnBjr+pLo4="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "write_file",
+    "text": "Wrote 58 chars to answer.json"
+  },
+  {
+    "role": "assistant",
+    "text": "",
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args": {
+          "path": "answer.json"
+        },
+        "signature": "EmAKXgFpFH0T7MrkJJUoIyurjmENKxkiyTpF7QK5ouGz/P8mrMo0AZmYYcAQw2s05ohIwZtxizI126Lar3zkidPZxcPMGlNv54b8KK8xN7Q19mDEeF4TTAX5zfVLRYhqTKw="
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "name": "read_file",
+    "text": "1\t{\n2\t  \"category\": \"release-notes\",\n3\t  \"duplicate_of\": null\n4\t}"
+  },
+  {
+    "role": "assistant",
+    "text": "Task complete: classified `task.json` as `release-notes` with `duplicate_of: null` and written to `answer.json`.",
+    "tool_calls": []
+  }
+]

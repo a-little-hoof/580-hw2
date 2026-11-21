@@ -1,0 +1,49 @@
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+Dataset & Tasks & Reused & Passed & Build (ms) & Lookup (ms/task) \\
+\midrule
+tickets & 70 & 6 & 6 & 221.7 & 1.47 \\
+bugs & 60 & 10 & 10 & 258.3 & 1.92 \\
+docs & 60 & 10 & 10 & 261.8 & 2.45 \\
+citations & 70 & 24 & 24 & 69.4 & 0.42 \\
+hosts & 40 & 10 & 10 & 65.6 & 1.00 \\
+configs & 40 & 6 & 6 & 71.6 & 0.99 \\
+threads & 40 & 6 & 6 & 76.4 & 0.99 \\
+revisions & 40 & 7 & 7 & 72.8 & 1.07 \\
+\midrule
+Total & 420 & 79 & 79 & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{History-only offline reuse at $\tau_t=0.75$. Passed counts only accepted reuse decisions, not all incoming tasks. Build and lookup timings exclude verifier execution.}
+\label{tab:tasks}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrrr}
+\toprule
+$\tau_t$ & 0.50 & 0.65 & 0.75 & 0.85 & 0.95 & 1.00 \\
+\midrule
+Reused & 96 & 90 & 79 & 71 & 63 & 63 \\
+Verifier failures & 0 & 0 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Offline threshold sweep over the same 420 incoming tasks and fixed histories; no fresh answers are indexed. The sweep measures reuse coverage, not full-agent accuracy.}
+\label{tab:threshold}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+Dataset & Outputs & Deltas & Original chars & Saved (\%) & Process (s) \\
+\midrule
+hosts & 175 & 83 & 439,877 & 22.97 & 1.59 \\
+configs & 212 & 142 & 459,692 & 38.31 & 1.19 \\
+threads & 710 & 0 & 681,171 & 0.00 & 2.27 \\
+revisions & 198 & 124 & 434,247 & 34.29 & 1.38 \\
+\bottomrule
+\end{tabular}
+\caption{Offline corpus replay at $\tau_c=0.80$, 24 scenarios per dataset, each with a fresh cache. All 349 emitted deltas reconstruct exactly. Savings are tool-output characters, not measured model tokens.}
+\label{tab:content}
+\end{table}

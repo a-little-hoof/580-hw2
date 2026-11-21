@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "updated_at_utc": "2026-11-20T08:13:57.754346+00:00",
+  "pid": 2155334,
+  "completed_task_mode_results": 160,
+  "expected_task_mode_results": 160,
+  "unique_tasks": 40,
+  "tasks_per_dataset": 5,
+  "billing_changed_by_worker": false,
+  "comparison_complete": true
+}

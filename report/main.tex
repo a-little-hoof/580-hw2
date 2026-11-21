@@ -1,0 +1,278 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{xcolor,listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+  keepspaces=true,showstringspaces=false,frame=single,rulecolor=\color{gray!40}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\title{COMP 580 Assignment 2\\MinHash for Task and Content Reuse}
+\author{Yifei Wang}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+This project tests two ways to reduce repeated work in Spartacus: reuse an
+answer to an equivalent task, or replace repeated tool output with a reference
+and its exact differences. Combining them used 23.6\% fewer input tokens in the
+sampled experiment, but the pass rate fell from 90\% to 75\%. The implementation
+saved work, but the comparison did not preserve accuracy.
+Code and recorded results are available at
+\href{https://github.com/a-little-hoof/580-hw2}{github.com/a-little-hoof/580-hw2}.
+
+\section{Implementation}
+\textbf{MinHash and LSH.} The implementation is split into \texttt{minhash.py},
+\texttt{policy.py}, and \texttt{content.py}. Text is case-folded and converted
+into sets of three-word shingles, retaining numbers. Each shingle is hashed
+with BLAKE2b, then mapped through 128 seeded affine functions
+$h_i(x)=(a_i x+b_i)\bmod p$, where $p=2^{61}-1$. The minimum value under each
+function forms one signature component. Similarity is estimated by
+\[
+  \widehat J(A,B)=\frac{1}{128}\sum_{i=1}^{128}
+  \mathbf{1}\{s_i(A)=s_i(B)\}.
+\]
+The affine hashes approximate min-wise permutations. LSH groups the signature
+into 32 bands of four components; a shared band retrieves a candidate for
+comparison. Empty shingle sets are skipped. The hashing seed is 73.
+
+\textbf{Task reuse.} A candidate must reach similarity $\tau_t=0.75$ and pass
+checks on the fields that determine the answer. Tickets must match product,
+error code, platform, and story. Bugs must match exception, top frame,
+major/minor version, and the story in the Actual section. For these stories,
+the policy recognizes an unambiguous cue from the public instructions;
+otherwise it requires an exact match after normalization. Documents compare
+identifier and status, retaining the original history ID for duplicates.
+Citations compare DOI, title, authors, venue, and year. Corpus tasks compare
+scenario, request kind, and target.
+
+The cache starts with verified public history. A new answer enters it only
+after passing the official verifier. Conflicting cached answers cause the
+policy to decline reuse. Hidden labels are used only by the separate verifier,
+never by the agent or the reuse policy.
+
+\textbf{Content reuse.} Each task gets a fresh cache with $\tau_c=0.80$.
+When a tool output resembles an earlier full output, the compressor records
+line insertions, deletions, and replacements. The result identifies its source
+and includes SHA-256 hashes for the base and reconstructed text. The code
+checks reconstruction before returning the compressed output, preserving
+numbers, identifiers, punctuation, whitespace, and line endings.
+
+Compression is accepted only if both character count and a simple token-count
+estimate fall by at least 15\%. Outputs shorter than 256 characters, errors,
+and truncated outputs are returned unchanged. Compressed outputs cannot serve
+as new bases, so references do not form chains. The full base stays in the
+conversation; context compaction is disabled for these experiments. These
+checks ensure that the original text can be recovered, but the model still
+has to interpret the differences correctly.
+
+\section{Experiments and results}
+The eight datasets are tickets, bugs, docs, citations, hosts, configs, threads,
+and revisions. Together they contain 420 tasks. The agent experiment uses the
+first five tasks from each dataset, sorted by sequence number and task ID,
+giving 40 tasks in each of four modes: baseline, task-only, content-only, and
+combined. Each task/configuration was run once, for 160 completed runs.
+This small sample kept API usage manageable. It is not a random sample, and
+one answer changes a dataset's pass rate by 20 percentage points.
+
+All four modes use \texttt{gemini-3.5-flash-lite}, identical prompts and tools,
+temperature 0.4, and a 65,536-token output cap. Each task has a fresh workspace
+containing only its public environment files. The available tools are
+\texttt{read\_file}, \texttt{grep}, \texttt{list\_files}, and
+\texttt{write\_file}; only \texttt{answer.json} can be written. The prompt asks
+the agent to read relevant corpus files individually and explains the diff
+format in every mode. The provided harness, datasets, and verifiers are
+unchanged. Runs allow 20 tool-capable turns, followed by one final response
+without tools if the limit is reached. No model sampling seed is set.
+
+Accuracy is the fraction of answers accepted by the verifier. Request counts
+include successful model responses, including the final response, but exclude
+internal HTTP retries. Input-token counts come from the provider. Time includes
+setup, verification, MinHash lookup, content processing, cache updates, and
+amortized initial indexing. Requests are spaced at least five seconds apart;
+the tables show this waiting time separately. Quota-interrupted attempts are
+listed separately and do not count as task failures. Overnight waits between
+quota resets are excluded. The earlier 41-run pilot in \texttt{results/gemini}
+is also excluded; all results here come from \texttt{results/gemini-minimal}.
+
+\input{online_tables.tex}
+
+\textbf{Agent results.} Task-only reuse reduced model requests from 500 to 430
+and input tokens by 9.8\%, while passing 34/40 tasks versus the baseline's
+36/40. Content-only reuse used 4.8\% more tokens overall and passed 35/40.
+Combined reuse used the fewest tokens, 3.419 million, but passed only 30/40.
+Its lower cost therefore came with a lower observed pass rate.
+
+The added processing time was small: 1.214 seconds for task-only, 3.408 seconds
+for content-only, and 4.001 seconds for combined reuse across their 40 tasks.
+These totals include lookup, cache updates, initial indexing, and content
+processing. Most recorded wall time came from model calls and request pacing.
+With only one run per configuration, this experiment cannot separate the effect
+of reuse from variation in model responses.
+
+\textbf{What went wrong?} Comparing the same tasks, eight baseline passes became
+failures in combined mode, while two baseline failures became passes. This
+accounts for the net loss of six correct answers. None of the eight regressions
+used a cached answer. Five also had no compressed tool output: their traces
+show missed task cues or overlooked differences from similar records.
+For example, \texttt{T-52023e} supplied the author name ``Qiunn,'' while the
+database said ``Quinn.'' The combined run read both spellings but reported
+only the incorrect year. That failure cannot be explained by text removed by
+the compressor.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{p{0.26\linewidth}rp{0.60\linewidth}}
+\toprule
+Task & Diffs & Observed failure \\
+\midrule
+tickets \texttt{T-a1baca} & 0 & Chose a backup fix for a network-drive issue. \\
+tickets \texttt{T-53f313} & 0 & Chose an old-release fix for a clock issue. \\
+bugs \texttt{T-8d0531} & 0 & Chose a deadlock cause instead of the upgrade cause. \\
+docs \texttt{T-bec0fe} & 4 & Repeated searches; reached the turn limit without writing an answer. \\
+citations \texttt{T-3f588b} & 0 & Missed ``recognition'' versus ``detection'' in the title. \\
+citations \texttt{T-52023e} & 0 & Found the wrong year but missed a misspelled author. \\
+configs \texttt{T-b06652} & 6 & Invalid searches; reached the turn limit without writing an answer. \\
+revisions \texttt{T-e44ab3} & 4 & Returned \texttt{v07}, although R9 was present in \texttt{v05}. \\
+\bottomrule
+\end{tabular}
+\caption{The eight tasks that passed in baseline and failed in combined mode.
+Diffs counts compressed tool outputs in the combined trace.}
+\label{tab:failures}
+\end{table}
+
+The three runs that did receive compressed outputs failed in different ways.
+Docs and configs exhausted the 20 tool-capable turns without calling
+\texttt{write\_file}; their null answer artifacts mean no answer was produced.
+Repeated or invalid searches were visible before the first compression in
+both runs. The config trace even contained the violating value
+\texttt{auth.allow\_anonymous: true} in a diff, but never submitted it.
+The revisions run wrote \texttt{v07/R9} after receiving a diff for \texttt{v05}
+that retained R9 from its full base. Comparing \texttt{v04} and \texttt{v05}
+places the addition at \texttt{v05}.
+
+All 14 diffs in these three traces reconstruct exactly. The audit also
+replays their recorded tool calls on copies of the public files and checks
+the reconstructed outputs. This rules out missing text in these diffs, but
+does not rule out difficulty interpreting the reference format. The evidence
+supports separating wrong answer selection, unsuccessful tool use, and
+compression handling rather than treating the whole accuracy drop as one
+failure of MinHash. A controlled rerun with full text would be needed to test
+whether the format contributed to the last three failures.
+
+\textbf{Offline checks.} Two larger checks help separate cache behavior from
+model behavior. The task check queries the original verified history for all
+420 tasks and verifies every proposed reuse. The history stays fixed throughout
+the check. At $\tau_t=0.75$, 79 tasks (18.81\%) reuse an answer, and all 79 pass.
+Across the six thresholds in Table~\ref{tab:threshold}, all 462 accepted reuse
+decisions pass; some tasks appear at several thresholds.
+
+The content check reads each corpus scenario's files in sorted order, using
+Spartacus's line numbering and truncation rules. Each scenario starts with an
+empty cache. All 349 compressed outputs reconstruct exactly. These savings
+measure tool-output characters, whereas the agent experiment measures actual
+model input tokens.
+
+\input{offline_tables.tex}
+
+\section{Discussion}
+\textbf{1. When is task reuse beneficial?}
+It helps most when the same question returns and a verified answer is already
+available. In the agent experiment, task-only reuse skipped eight tasks and
+combined reuse skipped seven; every reused answer passed, with no model
+requests or tool calls for those tasks. In the larger history check, citations
+had 24/70 reuse hits, compared with 6/70 for tickets. Citation fields give the
+policy direct checks for equivalence; ticket stories require more interpretation.
+
+\textbf{2. Is high similarity sufficient for safe reuse?}
+No. Bug-history records \texttt{H-84318e} and \texttt{H-fff543} both describe
+a \texttt{PermissionError} at \nolinkurl{lattice.store.blob.write} caused by
+missing directory ownership. Their signatures agree in 119 of 128 positions,
+giving similarity 0.930. However, their versions are 3.2.1 and 3.3.1, and their
+verified answers are \texttt{storage/RC-05} and \texttt{storage/RC-14}.
+The version check rejects the match despite its high similarity.
+
+\textbf{3. How does the threshold affect performance?}
+Raising the threshold reduced offline reuse from 96/420 tasks at 0.50 to
+63/420 at 1.00. None of the accepted answers failed verification in this sweep.
+Here, the lower threshold found more usable matches because the field checks
+still rejected unsafe candidates. The default 0.75 was set before the sweep.
+A single threshold is unlikely to suit every dataset: a citation and a long
+bug report have very different wording. LSH can also miss a candidate before
+the threshold is applied.
+
+\textbf{4. When is content-level reuse effective?}
+It works well when long files share most of their text and differ in a few
+important lines. On hosts, content-only reuse reduced input tokens from
+404,858 to 295,284 (27.1\%), with 5/5 passes in both modes. The offline replay
+also found substantial character savings for configs (38.31\%) and revisions
+(34.29\%). Threads behaved differently: the offline replay compressed none of
+its 710 outputs, and the content-only agent used 44.8\% more tokens than the
+baseline. Short or heavily changed outputs often fail the savings check, and
+different agent reads or extra turns can outweigh savings from individual diffs.
+
+\textbf{5. Which optimization is more valuable?}
+Task reuse is the better starting point when verified duplicates are common:
+one hit avoids the entire agent run. Content reuse is useful when a new task
+still needs to read similar files. In this sample, task-only reuse reduced both
+requests and tokens, while content-only reuse increased both overall. Combined
+reuse saved the most tokens but had the lowest accuracy, so these results do
+not support using it without further checking.
+
+The modes can also build different caches. For example, task-only solved config
+task \texttt{T-b06652} and reused its verified answer for \texttt{T-025f77}.
+Combined reuse failed the first task, so that answer could not enter its cache
+and the second task needed another agent run. The trace audit shows that the
+first run exhausted its turns without writing an answer. This explains one
+difference in reuse counts without implying an incorrect cached answer.
+
+\textbf{6. What are MinHash's limitations?}
+MinHash measures shared wording, not whether two tasks have the same answer.
+Paraphrases can look unrelated, while a one-number change can leave similarity
+almost unchanged. The bug-version example shows why extra checks are needed.
+Three-word sets also lose order beyond each shingle, and the field checks here
+depend on the assignment's schemas. For short outputs, computing a signature
+and describing a diff may cost more than sending the original text. One useful
+improvement would be to split the index by critical fields, such as product and
+version, before running LSH. That would reduce irrelevant candidates while
+keeping the final validation checks.
+
+\section{Reproduction}
+The code requires Python 3.9 or newer and Git, with no third-party Python
+packages. The assignment and Spartacus submodules are pinned to
+\texttt{a7c5076} and \texttt{711db62}, respectively; the full commits are recorded
+in the run settings. To repeat the checks in new output directories:
+\begin{lstlisting}
+git clone --recurse-submodules git@github.com:a-little-hoof/580-hw2.git
+cd 580-hw2
+python -m unittest discover -s tests -v
+python evaluate.py --offline --output results/reproduction-offline
+\end{lstlisting}
+For the model experiment, set \texttt{GEMINI\_API\_KEY} in the environment or
+in \nolinkurl{~/.config/spartacus/env}. Keep the key outside the repository.
+\begin{lstlisting}
+python evaluate.py --output results/reproduction-gemini \
+  --datasets tickets bugs docs citations hosts configs threads revisions \
+  --modes baseline task content combined \
+  --model gemini-3.5-flash-lite --max-turns 20 --limit 5 \
+  --task-threshold 0.75 --content-threshold 0.80 \
+  --request-interval 5
+\end{lstlisting}
+If interrupted, repeat the same command with \texttt{--resume} appended.
+Resume requires unchanged settings and source files and restores the verified
+cache from completed tasks. To rebuild the tables from the submitted results:
+\begin{lstlisting}
+python report/summarize.py results/gemini-minimal
+python report/analyze_failures.py results/gemini-minimal
+\end{lstlisting}
+The summary script checks that every selected task has one result in each
+mode before writing the tables. The failure audit writes
+\nolinkurl{report/failure_analysis.json}, including paired outcomes and
+one-based transcript message indices. It uses saved traces and public files;
+no model requests or hidden labels are needed. Raw answers, transcripts, and
+interruption records are included alongside the metrics.
+\end{document}
